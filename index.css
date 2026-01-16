@@ -7,6 +7,10 @@ body {
     /* Removed global background-color to allow pages to set their own */
 }
 
+.home-body {
+    color: #333;
+}
+
 /* Typography Utils */
 .font-eng {
     font-family: 'Outfit', sans-serif;
