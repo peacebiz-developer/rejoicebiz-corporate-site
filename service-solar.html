@@ -252,7 +252,7 @@
             <!-- Page Header -->
             <div class="page-header" style="background-image: url('assets/images/solar_house.jpg');">
                 <div class="text-center w-full px-4">
-                    <h1 class="page-title fade-up mb-6">太陽光発電</h1>
+
                     <div class="fade-up delay-100 text-white">
                         <span
                             class="inline-block border border-white/50 bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-6 text-base md:text-lg font-sans font-bold">初期費用0円の住宅用リース</span>
@@ -277,12 +277,16 @@
             <!-- At Denka Pack Image -->
             <div class="content-section pt-0 pb-12">
                 <div class="content-container text-center">
-                    <div class="inline-block mb-8 transform hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="inline-block mb-8 transform hover:scale-105 transition-transform duration-300 w-full max-w-4xl">
                         <div
-                            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 rounded-full shadow-xl flex items-center justify-center gap-3 border-4 border-white/30">
-                            <i data-lucide="award" class="w-8 h-8 md:w-12 md:h-12 text-yellow-100 drop-shadow-md"></i>
-                            <span class="text-2xl md:text-4xl font-bold tracking-wider drop-shadow-md">太陽光 導入件数 <span
-                                    class="text-4xl md:text-6xl text-white">2,000</span> 件超</span>
+                            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 md:px-8 py-3 md:py-4 rounded-full shadow-xl flex items-center justify-center gap-2 md:gap-3 border-4 border-white/30 truncate">
+                            <i data-lucide="award"
+                                class="w-6 h-6 md:w-12 md:h-12 text-yellow-100 drop-shadow-md flex-shrink-0"></i>
+                            <span
+                                class="text-lg sm:text-xl md:text-4xl font-bold tracking-wider drop-shadow-md whitespace-nowrap">
+                                太陽光 導入件数 <span class="text-2xl sm:text-3xl md:text-6xl text-white">2,000</span> 件超
+                            </span>
                         </div>
                     </div>
                     <img src="assets/images/at_denka_pack_solar.png" alt="あっと！電化パック太陽光"
@@ -388,10 +392,10 @@
                 </div>
 
                 <!-- 電気代の高騰セクション -->
-                <div class="mb-32">
+                <div class="mb-20">
                     <div
                         class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl shadow-xl border border-orange-100 overflow-hidden">
-                        <div class="p-8 md:p-12">
+                        <div class="p-6 md:p-10">
                             <div class="text-center mb-12 fade-up">
                                 <span
                                     class="inline-block bg-orange-600 text-white text-sm px-4 py-2 rounded-full mb-4 font-bold">
@@ -400,100 +404,221 @@
                                 <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
                                     電気代は年々上昇しています
                                 </h3>
-                                <p class="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
-                                    燃料価格の変動や発電コストの増加により、電気代は継続的に上昇傾向にあります。<br>
-                                    特に近年は、国際情勢の影響もあり、電気料金の値上げが相次いでいます。
+                                <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+                                    世界情勢の変化や燃料価格の高騰により、電気代は上昇の一途をたどっています。<br>
+                                    家計への負担は右肩上がりで増え続けており、もはや一時的な現象ではありません。
                                 </p>
                             </div>
 
                             <!-- 電気代推移グラフ -->
-                            <div class="bg-white rounded-xl p-6 md:p-8 mb-8 shadow-md fade-up delay-100">
+                            <div class="bg-white rounded-xl p-4 md:p-6 mb-6 shadow-md fade-up delay-100">
                                 <h4 class="text-xl font-bold text-gray-900 mb-6 text-center">標準的な家庭の電気代推移（月額）</h4>
-                                <div class="relative h-64 md:h-80">
-                                    <svg viewBox="0 0 800 300" class="w-full h-full"
+
+                                <!-- Mobile Portrait Graph -->
+                                <div class="relative h-[450px] md:hidden">
+                                    <svg viewBox="0 0 400 500" class="w-full h-full"
                                         preserveAspectRatio="xMidYMid meet">
                                         <!-- グリッド線 -->
                                         <defs>
-                                            <linearGradient id="electricGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <linearGradient id="electricGradientMob" x1="0%" y1="0%" x2="0%" y2="100%">
                                                 <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.3" />
                                                 <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.05" />
                                             </linearGradient>
                                         </defs>
                                         <!-- 背景グリッド -->
                                         <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
+                                            <line x1="80" y1="50" x2="80" y2="430" />
+                                            <line x1="80" y1="430" x2="350" y2="430" />
+                                            <line x1="80" y1="330" x2="350" y2="330" />
+                                            <line x1="80" y1="230" x2="350" y2="230" />
+                                            <line x1="80" y1="130" x2="350" y2="130" />
+                                            <line x1="80" y1="30" x2="350" y2="30" />
+                                            <!-- 垂直グリッド -->
+                                            <line x1="120" y1="30" x2="120" y2="430" />
+                                            <line x1="190" y1="30" x2="190" y2="430" />
+                                            <line x1="260" y1="30" x2="260" y2="430" />
+                                            <line x1="330" y1="30" x2="330" y2="430" />
+                                        </g>
+                                        <!-- Y軸ラベル -->
+                                        <text x="40" y="440" font-size="16" font-weight="black" fill="#111827"
+                                            text-anchor="middle">0円</text>
+                                        <text x="40" y="340" font-size="16" font-weight="black" fill="#111827"
+                                            text-anchor="middle">5,000円</text>
+                                        <text x="40" y="240" font-size="16" font-weight="black" fill="#111827"
+                                            text-anchor="middle">10,000円</text>
+                                        <text x="40" y="140" font-size="16" font-weight="black" fill="#111827"
+                                            text-anchor="middle">15,000円</text>
+                                        <text x="40" y="40" font-size="16" font-weight="black" fill="#111827"
+                                            text-anchor="middle">20,000円</text>
+                                        <!-- データポイントと線 (4点: 2018, 2020, 2022, 2024) -->
+                                        <!-- Revised to fit 400x500: 0=430, 20k=30. 10k=230.
+                                             2018 (9,000円) -> 430 - (9000/20000 * 400) = 430 - 180 = 250
+                                             2020 (10,000円) -> 430 - (10000/20000 * 400) = 430 - 200 = 230
+                                             2022 (12,500円) -> 430 - (12500/20000 * 400) = 430 - 250 = 180
+                                             2024 (15,500円) -> 430 - (15500/20000 * 400) = 430 - 310 = 120
+                                        -->
+                                        <polyline points="120,250 190,230 260,180 330,120" fill="none" stroke="#f97316"
+                                            stroke-width="6" />
+                                        <circle cx="120" cy="250" r="10" fill="#f97316" />
+                                        <circle cx="190" cy="230" r="10" fill="#f97316" />
+                                        <circle cx="260" cy="180" r="10" fill="#f97316" />
+                                        <circle cx="330" cy="120" r="10" fill="#f97316" />
+                                        <!-- X軸ラベル -->
+                                        <text x="120" y="470" font-size="18" font-weight="black" fill="#111827"
+                                            text-anchor="middle">2018</text>
+                                        <text x="190" y="470" font-size="18" font-weight="black" fill="#111827"
+                                            text-anchor="middle">2020</text>
+                                        <text x="260" y="470" font-size="18" font-weight="black" fill="#111827"
+                                            text-anchor="middle">2022</text>
+                                        <text x="330" y="470" font-size="18" font-weight="black" fill="#111827"
+                                            text-anchor="middle">2024</text>
+                                    </svg>
+                                </div>
+
+                                <!-- Desktop Landscape Graph -->
+                                <div class="relative hidden md:block h-80 lg:h-96">
+                                    <svg viewBox="0 0 800 300" class="w-full h-full"
+                                        preserveAspectRatio="xMidYMid meet">
+                                        <defs>
+                                            <linearGradient id="electricGradientDesk" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.3" />
+                                                <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.05" />
+                                            </linearGradient>
+                                        </defs>
+                                        <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
                                             <line x1="80" y1="50" x2="80" y2="250" />
                                             <line x1="80" y1="250" x2="720" y2="250" />
                                             <line x1="80" y1="200" x2="720" y2="200" />
                                             <line x1="80" y1="150" x2="720" y2="150" />
                                             <line x1="80" y1="100" x2="720" y2="100" />
+                                            <!-- 垂直グリッド -->
+                                            <line x1="120" y1="50" x2="120" y2="250" />
+                                            <line x1="280" y1="50" x2="280" y2="250" />
+                                            <line x1="440" y1="50" x2="440" y2="250" />
+                                            <line x1="600" y1="50" x2="600" y2="250" />
                                         </g>
-                                        <!-- Y軸ラベル -->
-                                        <text x="40" y="260" font-size="12" fill="#6b7280"
+                                        <text x="40" y="260" font-size="14" fill="#6b7280"
                                             text-anchor="middle">0円</text>
-                                        <text x="40" y="210" font-size="12" fill="#6b7280"
+                                        <text x="40" y="210" font-size="14" fill="#6b7280"
                                             text-anchor="middle">5,000円</text>
-                                        <text x="40" y="160" font-size="12" fill="#6b7280"
+                                        <text x="40" y="160" font-size="14" fill="#6b7280"
                                             text-anchor="middle">10,000円</text>
-                                        <text x="40" y="110" font-size="12" fill="#6b7280"
+                                        <text x="40" y="110" font-size="14" fill="#6b7280"
                                             text-anchor="middle">15,000円</text>
-                                        <!-- データポイントと線 -->
-                                        <polyline
-                                            points="120,220 200,210 280,200 360,190 440,175 520,160 600,145 680,130"
-                                            fill="url(#electricGradient)" stroke="#f97316" stroke-width="3" />
+                                        <polyline points="120,220 280,200 440,175 600,145"
+                                            fill="url(#electricGradientDesk)" stroke="#f97316" stroke-width="3" />
                                         <circle cx="120" cy="220" r="5" fill="#f97316" />
-                                        <circle cx="200" cy="210" r="5" fill="#f97316" />
                                         <circle cx="280" cy="200" r="5" fill="#f97316" />
-                                        <circle cx="360" cy="190" r="5" fill="#f97316" />
                                         <circle cx="440" cy="175" r="5" fill="#f97316" />
-                                        <circle cx="520" cy="160" r="5" fill="#f97316" />
                                         <circle cx="600" cy="145" r="5" fill="#f97316" />
-                                        <circle cx="680" cy="130" r="5" fill="#f97316" />
-                                        <!-- X軸ラベル -->
-                                        <text x="120" y="270" font-size="11" fill="#6b7280"
-                                            text-anchor="middle">2017</text>
-                                        <text x="200" y="270" font-size="11" fill="#6b7280"
+                                        <text x="120" y="275" font-size="12" fill="#6b7280"
                                             text-anchor="middle">2018</text>
-                                        <text x="280" y="270" font-size="11" fill="#6b7280"
-                                            text-anchor="middle">2019</text>
-                                        <text x="360" y="270" font-size="11" fill="#6b7280"
+                                        <text x="280" y="275" font-size="12" fill="#6b7280"
                                             text-anchor="middle">2020</text>
-                                        <text x="440" y="270" font-size="11" fill="#6b7280"
-                                            text-anchor="middle">2021</text>
-                                        <text x="520" y="270" font-size="11" fill="#6b7280"
+                                        <text x="440" y="275" font-size="12" fill="#6b7280"
                                             text-anchor="middle">2022</text>
-                                        <text x="600" y="270" font-size="11" fill="#6b7280"
-                                            text-anchor="middle">2023</text>
-                                        <text x="680" y="270" font-size="11" fill="#6b7280"
+                                        <text x="600" y="275" font-size="12" fill="#6b7280"
                                             text-anchor="middle">2024</text>
                                     </svg>
                                 </div>
+
                                 <p class="text-sm text-gray-500 text-center mt-4">
                                     ※標準的な家庭（月間使用量260kWh程度）の目安です
                                 </p>
                             </div>
 
                             <!-- 再エネ賦課金セクション -->
-                            <div class="bg-white rounded-xl p-6 md:p-8 shadow-md fade-up delay-200">
+                            <div class="bg-white rounded-xl p-4 md:p-6 shadow-md fade-up delay-200">
                                 <div class="flex items-center justify-center mb-6">
                                     <div
                                         class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
                                         <i data-lucide="alert-circle" class="w-6 h-6 text-yellow-600"></i>
                                     </div>
-                                    <h4 class="text-xl font-bold text-gray-900">再エネ賦課金という見えない"電気代"</h4>
+                                    <h4 class="text-xl font-bold text-gray-900">知らない間に増えている「再エネ賦課金」</h4>
                                 </div>
                                 <p class="text-gray-700 mb-6 leading-relaxed">
-                                    再生可能エネルギーの普及を促進するため、電気料金には「再エネ賦課金」が含まれています。<br>
-                                    この賦課金は年々増加しており、標準的な家庭では月額1,000円以上を負担しているケースも少なくありません。
+                                    電気代の内訳にある「再エネ賦課金」をご存知ですか？ これは再生可能エネルギー普及のためにすべての家庭が負担しているお金です。<br>
                                 </p>
-
+                                <ul
+                                    class="mt-4 mb-6 space-y-2 text-sm md:text-base border-l-4 border-yellow-400 pl-4 bg-yellow-50 py-3 rounded-r">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-yellow-600 font-bold">・</span>
+                                        <span><strong>負担の増大：</strong>制度開始から単価は大きく上昇し、家計の隠れた重荷になっています。</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-yellow-600 font-bold">・</span>
+                                        <span><strong>逃げられない仕組み：</strong>「使用量に比例」して課金されるため、電気を使えば使うほど支払いも自動的に増えてしまいます。</span>
+                                    </li>
+                                </ul>
                                 <!-- 再エネ賦課金推移グラフ -->
-                                <div class="mt-8">
+                                <div class="mt-4">
                                     <h5 class="text-lg font-bold text-gray-900 mb-4 text-center">再エネ賦課金の推移（1kWhあたり）</h5>
-                                    <div class="relative h-48 md:h-64">
+                                    <!-- Mobile Portrait Graph -->
+                                    <div class="relative h-[450px] md:hidden">
+                                        <svg viewBox="0 0 400 500" class="w-full h-full"
+                                            preserveAspectRatio="xMidYMid meet">
+                                            <defs>
+                                                <linearGradient id="renewableGradientMob" x1="0%" y1="0%" x2="0%"
+                                                    y2="100%">
+                                                    <stop offset="0%" style="stop-color:#eab308;stop-opacity:0.3" />
+                                                    <stop offset="100%" style="stop-color:#eab308;stop-opacity:0.05" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- 背景グリッド -->
+                                            <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
+                                                <line x1="80" y1="30" x2="80" y2="430" />
+                                                <line x1="80" y1="430" x2="350" y2="430" />
+                                                <line x1="80" y1="330" x2="350" y2="330" />
+                                                <line x1="80" y1="230" x2="350" y2="230" />
+                                                <line x1="80" y1="130" x2="350" y2="130" />
+                                                <line x1="80" y1="30" x2="350" y2="30" />
+                                                <!-- 垂直グリッド -->
+                                                <line x1="120" y1="30" x2="120" y2="430" />
+                                                <line x1="190" y1="30" x2="190" y2="430" />
+                                                <line x1="260" y1="30" x2="260" y2="430" />
+                                                <line x1="330" y1="30" x2="330" y2="430" />
+                                            </g>
+                                            <!-- Y軸ラベル -->
+                                            <text x="40" y="440" font-size="14" font-weight="black" fill="#111827"
+                                                text-anchor="middle">0円</text>
+                                            <text x="40" y="340" font-size="14" font-weight="black" fill="#111827"
+                                                text-anchor="middle">1円</text>
+                                            <text x="40" y="240" font-size="14" font-weight="black" fill="#111827"
+                                                text-anchor="middle">2円</text>
+                                            <text x="40" y="140" font-size="14" font-weight="black" fill="#111827"
+                                                text-anchor="middle">3円</text>
+                                            <text x="40" y="40" font-size="14" font-weight="black" fill="#111827"
+                                                text-anchor="middle">4円</text>
+                                            <!-- データポイントと線 (4点: 2018, 2020, 2022, 2024) -->
+                                            <!-- 2018 (2.9円) -> 430 - (2.9/4 * 400) = 430 - 290 = 140
+                                                 2020 (3.0円) -> 430 - (3.0/4 * 400) = 430 - 300 = 130
+                                                 2022 (3.45円) -> 430 - (3.45/4 * 400) = 430 - 345 = 85
+                                                 2024 (3.49円) -> 430 - (3.49/4 * 400) = 430 - 349 = 81
+                                            -->
+                                            <polyline points="120,140 190,130 260,85 330,81" fill="none"
+                                                stroke="#eab308" stroke-width="6" />
+                                            <circle cx="120" cy="140" r="10" fill="#eab308" />
+                                            <circle cx="190" cy="130" r="10" fill="#eab308" />
+                                            <circle cx="260" cy="85" r="10" fill="#eab308" />
+                                            <circle cx="330" cy="81" r="10" fill="#eab308" />
+                                            <!-- X軸ラベル -->
+                                            <text x="120" y="470" font-size="16" font-weight="black" fill="#111827"
+                                                text-anchor="middle">2018</text>
+                                            <text x="190" y="470" font-size="16" font-weight="black" fill="#111827"
+                                                text-anchor="middle">2020</text>
+                                            <text x="260" y="470" font-size="16" font-weight="black" fill="#111827"
+                                                text-anchor="middle">2022</text>
+                                            <text x="330" y="470" font-size="16" font-weight="black" fill="#111827"
+                                                text-anchor="middle">2024</text>
+                                        </svg>
+                                    </div>
+
+                                    <!-- Desktop Landscape Graph -->
+                                    <div class="relative hidden md:block h-64 lg:h-80">
                                         <svg viewBox="0 0 800 200" class="w-full h-full"
                                             preserveAspectRatio="xMidYMid meet">
                                             <defs>
-                                                <linearGradient id="renewableGradient" x1="0%" y1="0%" x2="0%"
+                                                <linearGradient id="renewableGradientDesk" x1="0%" y1="0%" x2="0%"
                                                     y2="100%">
                                                     <stop offset="0%" style="stop-color:#eab308;stop-opacity:0.3" />
                                                     <stop offset="100%" style="stop-color:#eab308;stop-opacity:0.05" />
@@ -503,73 +628,95 @@
                                             <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
                                                 <line x1="80" y1="30" x2="80" y2="170" />
                                                 <line x1="80" y1="170" x2="720" y2="170" />
-                                                <line x1="80" y1="140" x2="720" y2="140" />
-                                                <line x1="80" y1="110" x2="720" y2="110" />
-                                                <line x1="80" y1="80" x2="720" y2="80" />
-                                                <line x1="80" y1="50" x2="720" y2="50" />
+                                                <line x1="80" y1="135" x2="720" y2="135" />
+                                                <line x1="80" y1="100" x2="720" y2="100" />
+                                                <line x1="80" y1="65" x2="720" y2="65" />
+                                                <line x1="80" y1="30" x2="720" y2="30" />
+                                                <!-- 垂直グリッド -->
+                                                <line x1="120" y1="30" x2="120" y2="170" />
+                                                <line x1="280" y1="30" x2="280" y2="170" />
+                                                <line x1="440" y1="30" x2="440" y2="170" />
+                                                <line x1="600" y1="30" x2="600" y2="170" />
                                             </g>
                                             <!-- Y軸ラベル -->
                                             <text x="40" y="180" font-size="11" fill="#6b7280"
                                                 text-anchor="middle">0円</text>
-                                            <text x="40" y="150" font-size="11" fill="#6b7280"
+                                            <text x="40" y="145" font-size="11" fill="#6b7280"
                                                 text-anchor="middle">1円</text>
-                                            <text x="40" y="120" font-size="11" fill="#6b7280"
+                                            <text x="40" y="110" font-size="11" fill="#6b7280"
                                                 text-anchor="middle">2円</text>
-                                            <text x="40" y="90" font-size="11" fill="#6b7280"
+                                            <text x="40" y="75" font-size="11" fill="#6b7280"
                                                 text-anchor="middle">3円</text>
-                                            <text x="40" y="60" font-size="11" fill="#6b7280"
+                                            <text x="40" y="40" font-size="11" fill="#6b7280"
                                                 text-anchor="middle">4円</text>
-                                            <!-- データポイントと線 -->
-                                            <polyline
-                                                points="120,150 200,145 280,135 360,125 440,110 520,95 600,80 680,65"
-                                                fill="url(#renewableGradient)" stroke="#eab308" stroke-width="3" />
+                                            <!-- データポイントと線 (8点) -->
+                                            <!-- データポイントと線 (4点) -->
+                                            <polyline points="120,150 280,140 440,110 600,80" fill="none"
+                                                stroke="#eab308" stroke-width="3" />
                                             <circle cx="120" cy="150" r="4" fill="#eab308" />
-                                            <circle cx="200" cy="145" r="4" fill="#eab308" />
-                                            <circle cx="280" cy="135" r="4" fill="#eab308" />
-                                            <circle cx="360" cy="125" r="4" fill="#eab308" />
+                                            <circle cx="280" cy="140" r="4" fill="#eab308" />
                                             <circle cx="440" cy="110" r="4" fill="#eab308" />
-                                            <circle cx="520" cy="95" r="4" fill="#eab308" />
                                             <circle cx="600" cy="80" r="4" fill="#eab308" />
-                                            <circle cx="680" cy="65" r="4" fill="#eab308" />
                                             <!-- X軸ラベル -->
-                                            <text x="120" y="190" font-size="10" fill="#6b7280"
-                                                text-anchor="middle">2017</text>
-                                            <text x="200" y="190" font-size="10" fill="#6b7280"
+                                            <text x="120" y="195" font-size="12" fill="#6b7280"
                                                 text-anchor="middle">2018</text>
-                                            <text x="280" y="190" font-size="10" fill="#6b7280"
-                                                text-anchor="middle">2019</text>
-                                            <text x="360" y="190" font-size="10" fill="#6b7280"
+                                            <text x="280" y="195" font-size="12" fill="#6b7280"
                                                 text-anchor="middle">2020</text>
-                                            <text x="440" y="190" font-size="10" fill="#6b7280"
-                                                text-anchor="middle">2021</text>
-                                            <text x="520" y="190" font-size="10" fill="#6b7280"
+                                            <text x="440" y="195" font-size="12" fill="#6b7280"
                                                 text-anchor="middle">2022</text>
-                                            <text x="600" y="190" font-size="10" fill="#6b7280"
-                                                text-anchor="middle">2023</text>
-                                            <text x="680" y="190" font-size="10" fill="#6b7280"
+                                            <text x="600" y="195" font-size="12" fill="#6b7280"
                                                 text-anchor="middle">2024</text>
                                         </svg>
                                     </div>
-                                    <p class="text-sm text-gray-500 text-center mt-4">
-                                        ※再エネ賦課金は電気使用量に応じて加算されます
-                                    </p>
                                 </div>
 
-                                <div class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-r">
-                                    <p class="text-sm text-gray-700 leading-relaxed">
-                                        <strong
-                                            class="text-blue-900 text-lg block mb-2">だからこそ、電気代高騰対策には『太陽光発電の導入』が最も効果的です。</strong>
-                                        自家発電・自家消費することで、上昇し続ける電気代や再エネ賦課金の負担を大幅に軽減し、家計を守ることができます。
+                                <div class="mt-6 p-4 md:p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r">
+                                    <h4 class="text-blue-900 text-lg md:text-xl font-bold mb-3">だからこそ、「太陽光発電」が最強の自衛策です。
+                                    </h4>
+                                    <p class="text-gray-700 mb-3 leading-relaxed text-sm md:text-base">
+                                        上がり続ける電気代と賦課金。このダブルパンチに対抗する唯一の答えは、<strong>「電力会社から電気を買わないこと」</strong>です。
+                                    </p>
+                                    <ul class="space-y-2 text-sm md:text-base">
+                                        <li class="flex items-start gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">
+                                                1</div>
+                                            <div>
+                                                <strong class="text-gray-900 block mb-1">電気代を「創って」減らす</strong>
+                                                <span class="text-sm text-gray-600">太陽光で発電した電気を家で使えば、その分の購入代金は0円。</span>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <div
+                                                class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">
+                                                2</div>
+                                            <div>
+                                                <strong class="text-gray-900 block mb-1">賦課金を「買わずに」ゼロへ</strong>
+                                                <span class="text-sm text-gray-600">自分で創った電気には、再エネ賦課金は一切かかりません。</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <p
+                                        class="mt-4 text-blue-900 font-bold border-t border-blue-200 pt-3 text-sm md:text-base">
+                                        「節約」には限界がありますが、太陽光による「自給自足」なら根本から固定費を削れます。
                                     </p>
                                 </div>
                             </div>
                             <!-- セクション締め -->
                             <div class="mt-12 text-center fade-up delay-300">
-                                <p class="text-xl md:text-2xl font-bold text-gray-900 mb-6 leading-relaxed">
-                                    電気代の上昇は、家計に直結する切実な問題。<br>
-                                    そこで、私たちがご提案するのが初期費用0円で始められる<br>
+                                <h4 class="text-lg md:text-2xl font-bold text-gray-900 mb-4 tracking-tight">
+                                    初期費用0円で始める、家計を守る新習慣</h4>
+                                <p class="text-gray-700 mb-4 text-sm md:text-base">
+                                    電気代の上昇は、放置するほど損をします。<br class="md:hidden"> 高額な初期費用をかけずに導入できる
+                                </p>
+                                <div class="mb-4 px-1 sm:px-4">
                                     <span
-                                        class="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-2xl md:text-3xl font-bold mt-4 px-8 py-4 rounded-full shadow-xl transform hover:scale-105 transition-transform duration-300 border-4 border-white/20">『あっと！電化パック太陽光リース』</span>
+                                        class="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[13px] sm:text-lg md:text-3xl font-black px-2 sm:px-6 py-3 rounded-lg shadow-xl whitespace-nowrap overflow-hidden max-w-full text-ellipsis">
+                                        『あっと！電化パック太陽光リース』
+                                    </span>
+                                </div>
+                                <p class="text-gray-700 font-bold text-lg md:text-xl">
+                                    で、賢く確実な家計防衛を始めましょう。
                                 </p>
                             </div>
                         </div>
@@ -586,7 +733,7 @@
                 </div>
 
                 <!-- Rejoice Biz Features -->
-                <div class="mb-32">
+                <div class="mb-20">
                     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <div class="order-2 md:order-1 relative">
                             <div class="absolute -top-4 -left-4 w-24 h-24 bg-rejoice-accent/20 rounded-full blur-2xl">
@@ -703,80 +850,93 @@
                         </p>
                     </div>
 
-                    <div class="w-full mx-auto overflow-x-auto md:overflow-x-visible relative z-10 py-4">
-                        <div class="flex items-center gap-2 md:gap-8 justify-center min-w-max md:min-w-0 px-4">
+                    <div class="w-full mx-auto relative z-10 py-4 max-w-2xl">
+                        <div
+                            class="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-8 justify-center px-4">
                             <!-- Step 1 -->
                             <div
-                                class="flow-step-card flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-white to-green-50 rounded-xl p-2 shadow-lg w-[70px] md:w-[80px] h-[160px] md:h-[180px] border border-green-100 flex-shrink-0">
+                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
                                 <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-base md:text-lg flex-shrink-0 relative z-10">
+                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
                                     1
                                 </div>
-                                <div class="w-5 h-5 md:w-6 md:h-6 text-green-600 flex-shrink-0">
+                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
                                     <i data-lucide="clipboard-list" class="w-full h-full"></i>
                                 </div>
                                 <h4
-                                    class="font-bold text-xs md:text-sm text-gray-900 writing-vertical-rl text-center flex-grow flex items-center justify-center">
+                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
                                     お申込み</h4>
                             </div>
 
-                            <!-- Arrow -->
-                            <div class="flex items-center justify-center flex-shrink-0 w-4 md:w-5">
-                                <span class="text-green-500 font-bold text-base md:text-lg">→</span>
+                            <!-- Mobile Arrow (Down) -->
+                            <div class="flex md:hidden items-center justify-center opacity-30">
+                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
+                            </div>
+                            <!-- Desktop Arrow (Right) -->
+                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
                             </div>
 
                             <!-- Step 2 -->
                             <div
-                                class="flow-step-card flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-white to-green-50 rounded-xl p-2 shadow-lg w-[70px] md:w-[80px] h-[160px] md:h-[180px] border border-green-100 flex-shrink-0">
+                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
                                 <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-base md:text-lg flex-shrink-0 relative z-10">
+                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
                                     2
                                 </div>
-                                <div class="w-5 h-5 md:w-6 md:h-6 text-green-600 flex-shrink-0">
+                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
                                     <i data-lucide="search" class="w-full h-full"></i>
                                 </div>
                                 <h4
-                                    class="font-bold text-xs md:text-sm text-gray-900 writing-vertical-rl text-center flex-grow flex items-center justify-center">
+                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
                                     建物調査</h4>
                             </div>
 
-                            <!-- Arrow -->
-                            <div class="flex items-center justify-center flex-shrink-0 w-4 md:w-5">
-                                <span class="text-green-500 font-bold text-base md:text-lg">→</span>
+                            <!-- Mobile Arrow (Down) -->
+                            <div class="flex md:hidden items-center justify-center opacity-30">
+                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
+                            </div>
+                            <!-- Desktop Arrow (Right) -->
+                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
                             </div>
 
                             <!-- Step 3 -->
                             <div
-                                class="flow-step-card flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-white to-green-50 rounded-xl p-2 shadow-lg w-[70px] md:w-[80px] h-[160px] md:h-[180px] border border-green-100 flex-shrink-0">
+                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
                                 <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-base md:text-lg flex-shrink-0 relative z-10">
+                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
                                     3
                                 </div>
-                                <div class="w-5 h-5 md:w-6 md:h-6 text-green-600 flex-shrink-0">
+                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
                                     <i data-lucide="file-check" class="w-full h-full"></i>
                                 </div>
                                 <h4
-                                    class="font-bold text-xs md:text-sm text-gray-900 writing-vertical-rl text-center flex-grow flex items-center justify-center">
+                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
                                     ご契約</h4>
                             </div>
 
-                            <!-- Arrow -->
-                            <div class="flex items-center justify-center flex-shrink-0 w-4 md:w-5">
-                                <span class="text-green-500 font-bold text-base md:text-lg">→</span>
+                            <!-- Mobile Arrow (Down) -->
+                            <div class="flex md:hidden items-center justify-center opacity-30">
+                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
+                            </div>
+                            <!-- Desktop Arrow (Right) -->
+                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
                             </div>
 
                             <!-- Step 4 -->
                             <div
-                                class="flow-step-card flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-white to-green-50 rounded-xl p-2 shadow-lg w-[70px] md:w-[80px] h-[160px] md:h-[180px] border border-green-100 flex-shrink-0">
+                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
                                 <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-base md:text-lg flex-shrink-0 relative z-10">
+                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
                                     4
                                 </div>
-                                <div class="w-5 h-5 md:w-6 md:h-6 text-green-600 flex-shrink-0">
+                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
                                     <i data-lucide="hammer" class="w-full h-full"></i>
                                 </div>
                                 <h4
-                                    class="font-bold text-xs md:text-sm text-gray-900 writing-vertical-rl text-center flex-grow flex items-center justify-center">
+                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
                                     工事</h4>
                             </div>
                         </div>
@@ -808,7 +968,8 @@
                     <div class="relative z-10">
                         <div class="flex flex-col md:flex-row items-center gap-8">
                             <div class="md:w-1/3">
-                                <img src="assets/images/seiso.png" alt="パネル清掃サービス" class="w-full h-auto rounded-2xl shadow-sm">
+                                <img src="assets/images/seiso.png" alt="パネル清掃サービス"
+                                    class="w-full h-auto rounded-2xl shadow-sm">
                             </div>
                             <div class="md:w-2/3">
                                 <span

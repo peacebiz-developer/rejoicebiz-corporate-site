@@ -287,7 +287,7 @@
                             <p class="text-[10px] sm:text-xs text-gray-400 mt-1">円相当</p>
                         </div>
                         <div class="bg-white p-3 sm:p-5 rounded-2xl shadow-sm border border-gray-100 text-center">
-                            <p class="text-gray-500 text-[10px] sm:text-xs font-bold mb-1">10年間の総メリット</p>
+                            <p class="text-gray-500 text-[10px] sm:text-xs font-bold mb-1">25年間の総メリット</p>
                             <p class="text-lg sm:text-2xl md:text-3xl font-bold text-green-600" id="totalSavings">--</p>
                             <p class="text-[10px] sm:text-xs text-gray-400 mt-1">円相当</p>
                         </div>
@@ -627,6 +627,10 @@
             if (householdSize === 2 || householdSize === 3) systemSize = 4.5;
             if (householdSize >= 4) systemSize = 5.5;
 
+            // Monthly Lease Cost (User Request: systemSize * 2150, rounded up)
+            const monthlyLease = Math.ceil(systemSize * 2150);
+            const annualLease = monthlyLease * 12;
+
             // Annual Generation (kWh)
             const annualGen = systemSize * yieldPerKw;
 
@@ -638,21 +642,28 @@
             const selfConsumedKwh = annualGen * selfConsumptionRatio;
             const soldKwh = annualGen * (1 - selfConsumptionRatio);
 
-            // Annual Benefits
+            // Annual Benefits (Gross)
             const savingsFromSelfConsumption = selfConsumedKwh * ELEC_PRICE;
             const incomeFromSell = soldKwh * SELL_PRICE;
-            const totalAnnualBenefit = savingsFromSelfConsumption + incomeFromSell;
+            const totalAnnualGrossBenefit = savingsFromSelfConsumption + incomeFromSell;
 
-            // Current Annual Cost
+            // Net Annual Benefits
+            // Years 1-10: Gross Benefit - Lease Cost
+            const annualNetBenefitWithLease = totalAnnualGrossBenefit - annualLease;
+            // Years 11+: Gross Benefit (Lease is over)
+            const annualNetBenefitAfterLease = totalAnnualGrossBenefit;
+
+            // Total Savings for 25 years
+            const totalSavings25Years = (annualNetBenefitWithLease * 10) + (annualNetBenefitAfterLease * 15);
+
+            // Current Annual Cost (Baseline)
             const currentAnnualCost = monthlyBill * 12;
 
-            // New Annual Cost (Net)
-            // If benefit > cost, it becomes negative (profit)
-            const newAnnualNetCost = currentAnnualCost - totalAnnualBenefit;
-
             // Display Results
-            annualSavingsEl.innerText = Math.round(totalAnnualBenefit).toLocaleString();
-            totalSavingsEl.innerText = Math.round(totalAnnualBenefit * 10).toLocaleString();
+            // Show annual savings during lease period
+            annualSavingsEl.innerText = Math.round(annualNetBenefitWithLease).toLocaleString();
+            // Show 25-year total savings
+            totalSavingsEl.innerText = Math.round(totalSavings25Years).toLocaleString();
 
             // Prepare Chart Data
             const labels = [];
@@ -667,13 +678,25 @@
 
                 // Simple linear accumulation (ignoring inflation/degradation for simplicity)
                 cumulativeWithout += currentAnnualCost;
-                cumulativeWith += newAnnualNetCost;
+
+                // For solar scenario:
+                // Cost = Original Cost - Net Benefit
+                let currentYearNetBenefit = (year <= 10) ? annualNetBenefitWithLease : annualNetBenefitAfterLease;
+                let currentYearNetCost = currentAnnualCost - currentYearNetBenefit;
+
+                cumulativeWith += currentYearNetCost;
 
                 dataWithout.push(cumulativeWithout);
                 dataWith.push(cumulativeWith);
             }
 
-            initChart(dataWithout, dataWith, labels, totalAnnualBenefit, incomeFromSell);
+            // Note: Chart tooltip logic uses chartData.annualBenefit and incomeFromSell
+            // We should update chartData to reflect the lease period difference if we want strict accuracy in tooltips,
+            // but the initChart function takes a single `annualBenefit`.
+            // For simplicity, we'll pass the *Gross* benefit for the "Solar Line" explanation or modify initChart roughly.
+            // However, the tooltip logic calculates Y value automatically.
+            // The `totalAnnualBenefit` param in initChart is used mainly for data storage, not rendering the line.
+            initChart(dataWithout, dataWith, labels, totalAnnualGrossBenefit, incomeFromSell);
         }
 
         // Initial Run - Delay to ensure DOM is fully ready
