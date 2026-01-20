@@ -623,9 +623,14 @@
             const yieldPerKw = sunshineHours * efficiencyFactor;
 
             // Estimate System Size (kW) based on typical household needs
-            let systemSize = 3.0;
-            if (householdSize === 2 || householdSize === 3) systemSize = 4.5;
-            if (householdSize >= 4) systemSize = 5.5;
+            // 1人世帯： 3.5kW
+            // 2人世帯： 4.5kW
+            // 3〜4人世帯： 6.0kW
+            // 5人以上の世帯： 9.0kW
+            let systemSize = 3.5;
+            if (householdSize === 2) systemSize = 4.5;
+            else if (householdSize === 3 || householdSize === 4) systemSize = 6.0;
+            else if (householdSize >= 5) systemSize = 9.0;
 
             // Monthly Lease Cost (User Request: systemSize * 2150, rounded up)
             const monthlyLease = Math.ceil(systemSize * 2150);
@@ -653,7 +658,7 @@
             // Years 11+: Gross Benefit (Lease is over)
             const annualNetBenefitAfterLease = totalAnnualGrossBenefit;
 
-            // Total Savings for 25 years
+            // Total Savings for 25 years (Lease is only for 10 years)
             const totalSavings25Years = (annualNetBenefitWithLease * 10) + (annualNetBenefitAfterLease * 15);
 
             // Current Annual Cost (Baseline)

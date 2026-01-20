@@ -35,6 +35,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -141,6 +142,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        }
+
+        /* Responsive Typography */
+        .text-clamp-summary {
+            font-size: clamp(0.9rem, 2.5vw + 0.1rem, 1.25rem);
+            line-height: 1.6;
+        }
+
+        .text-clamp-title-large {
+            font-size: clamp(1.25rem, 4vw + 0.2rem, 3rem);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding-top: 130px;
+                /* Increased for breathing room */
+                padding-bottom: 60px;
+                background-position: center top;
+            }
         }
     </style>
 </head>
@@ -260,7 +281,8 @@
                             class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-relaxed text-shadow-hero mb-4">
                             太陽光発電
                         </h2>
-                        <p class="text-lg text-white leading-relaxed font-light text-shadow-hero max-w-2xl mx-auto">
+                        <p
+                            class="text-lg md:text-xl text-white leading-relaxed font-light text-shadow-hero max-w-2xl mx-auto mb-6 md:mb-0">
                             電気代の高騰に、もう悩まない。<br>賢い電気の自給自足生活。
                         </p>
                     </div>
@@ -303,12 +325,15 @@
                             <i data-lucide="crown" class="w-5 h-5 mr-2"></i> 特約店 全国No.1
                         </span>
                     </div>
-                    <p class="text-green-900 font-bold text-lg md:text-xl mb-4">
+                    <div
+                        class="flex flex-col md:flex-row items-center justify-center gap-3 text-green-900 font-bold text-xl md:text-3xl mb-6 px-4">
                         <span
-                            class="inline-block bg-green-600 text-white text-sm px-3 py-1 rounded-full mb-2 md:mb-0 md:mr-3 align-middle">特約店認定</span>
-                        株式会社リジョイス・ビズは<br class="md:hidden">「株式会社エネルギア・ソリューション・アンド・サービス<span
-                            class="text-sm md:text-base">（中国電力グループ会社）</span>」の特約店です。
-                    </p>
+                            class="inline-block bg-green-600 text-white text-sm md:text-base px-4 py-1.5 rounded-full align-middle flex-shrink-0">特約店認定</span>
+                        <span class="text-center md:whitespace-nowrap">
+                            株式会社リジョイス・ビズは「株式会社エネルギア・ソリューション・アンド・サービス<span
+                                class="text-sm md:text-xl">（中国電力グループ会社）</span>」の特約店です。
+                        </span>
+                    </div>
                     <a href="https://www.e-ess.co.jp/solar_lease/area.html#scroll8_s82" target="_blank"
                         rel="noopener noreferrer"
                         class="inline-flex items-center px-6 py-2 bg-white border border-green-600 text-green-600 hover:bg-green-50 rounded-full font-bold text-sm transition-all shadow-sm">
@@ -321,9 +346,9 @@
                 <!-- Solar Lease Section (あっと！電化パック) -->
                 <div class="mb-20">
                     <div class="text-center mb-12">
-                        <h2 class="heading-luxury font-bold">あっと！電化パック太陽光</h2>
-                        <p
-                            class="text-gray-600 max-w-none mx-auto leading-relaxed text-sm md:text-base md:whitespace-nowrap">
+                        <h2 class="heading-luxury font-bold text-2xl sm:text-3xl md:text-4xl md:whitespace-nowrap">
+                            あっと！電化パック太陽光</h2>
+                        <p class="text-gray-600 max-w-5xl mx-auto leading-relaxed text-sm md:text-base">
                             「あっと！電化パック太陽光」は、<span
                                 class="text-xl md:text-2xl font-bold text-rejoice-main">既築・新築向け住宅用太陽光発電システム</span>の<span
                                 class="text-xl md:text-2xl font-bold text-rejoice-accent mx-1">リース制度</span>です。<br>
@@ -332,40 +357,45 @@
                     </div>
 
                     <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                        <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors">
+                        <div
+                            class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 items-stretch">
+                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
                                 <div
                                     class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i data-lucide="wallet" class="w-8 h-8"></i>
                                 </div>
-                                <h4 class="font-serif font-bold text-xl md:text-2xl mb-3 text-gray-900">
-                                    初期費用<span class="text-rejoice-main text-3xl md:text-4xl mx-0.5">0</span>円
+                                <h4
+                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
+                                    初期費用<span
+                                        class="text-rejoice-main text-2xl sm:text-3xl md:text-4xl mx-0.5">0</span>円
                                 </h4>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm text-gray-600 mt-auto">
                                     高額なシステム購入費用は不要. 月々の定額リース料金だけで始められるため、家計への負担を最小限に抑えられます。
                                 </p>
                             </div>
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors">
+                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
                                 <div
                                     class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i data-lucide="shield-check" class="w-8 h-8"></i>
                                 </div>
-                                <h4 class="font-serif font-bold text-xl md:text-2xl mb-3 text-gray-900">
+                                <h4
+                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
                                     無料修理保証付き
                                 </h4>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm text-gray-600 mt-auto">
                                     リース期間中は自然故障に対する無料修理保証が付いているため、万が一のトラブルでも安心です。
                                 </p>
                             </div>
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors">
+                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
                                 <div
                                     class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <i data-lucide="gift" class="w-8 h-8"></i>
                                 </div>
-                                <h4 class="font-serif font-bold text-xl md:text-2xl mb-3 text-gray-900">
+                                <h4
+                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
                                     10年後は<span class="text-rejoice-main">自分のもの</span>に
                                 </h4>
-                                <p class="text-sm text-gray-600">
+                                <p class="text-sm text-gray-600 mt-auto">
                                     10年間のリース契約終了後は、メーカー保証を残したままお客様にシステムを無償譲渡いたします。
                                 </p>
                             </div>
@@ -380,11 +410,11 @@
                     <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">
                         <a href="https://www.e-ess.co.jp/service/denka/denkapack/plan_solar/" target="_blank"
                             rel="noopener noreferrer"
-                            class="inline-flex items-center px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto justify-center">
+                            class="inline-flex items-center px-4 md:px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-base transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto justify-center whitespace-nowrap">
                             詳しいサービス紹介はこちら <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
                         </a>
                         <a href="simulation.html" target="_blank"
-                            class="inline-flex items-center justify-center px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto">
+                            class="inline-flex items-center justify-center px-4 md:px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm md:text-base shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto whitespace-nowrap">
                             <i data-lucide="calculator" class="mr-2 w-4 h-4"></i>
                             料金シミュレーションを試す
                         </a>
@@ -411,115 +441,13 @@
                             </div>
 
                             <!-- 電気代推移グラフ -->
-                            <div class="bg-white rounded-xl p-4 md:p-6 mb-6 shadow-md fade-up delay-100">
-                                <h4 class="text-xl font-bold text-gray-900 mb-6 text-center">標準的な家庭の電気代推移（月額）</h4>
+                            <div class="bg-white rounded-xl p-4 md:p-8 mb-6 shadow-md fade-up delay-100">
+                                <h4
+                                    class="text-[15px] sm:text-xl font-bold text-gray-900 mb-6 text-center whitespace-nowrap">
+                                    標準的な家庭の電気代推移（月額）</h4>
 
-                                <!-- Mobile Portrait Graph -->
-                                <div class="relative h-[450px] md:hidden">
-                                    <svg viewBox="0 0 400 500" class="w-full h-full"
-                                        preserveAspectRatio="xMidYMid meet">
-                                        <!-- グリッド線 -->
-                                        <defs>
-                                            <linearGradient id="electricGradientMob" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.3" />
-                                                <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.05" />
-                                            </linearGradient>
-                                        </defs>
-                                        <!-- 背景グリッド -->
-                                        <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
-                                            <line x1="80" y1="50" x2="80" y2="430" />
-                                            <line x1="80" y1="430" x2="350" y2="430" />
-                                            <line x1="80" y1="330" x2="350" y2="330" />
-                                            <line x1="80" y1="230" x2="350" y2="230" />
-                                            <line x1="80" y1="130" x2="350" y2="130" />
-                                            <line x1="80" y1="30" x2="350" y2="30" />
-                                            <!-- 垂直グリッド -->
-                                            <line x1="120" y1="30" x2="120" y2="430" />
-                                            <line x1="190" y1="30" x2="190" y2="430" />
-                                            <line x1="260" y1="30" x2="260" y2="430" />
-                                            <line x1="330" y1="30" x2="330" y2="430" />
-                                        </g>
-                                        <!-- Y軸ラベル -->
-                                        <text x="40" y="440" font-size="16" font-weight="black" fill="#111827"
-                                            text-anchor="middle">0円</text>
-                                        <text x="40" y="340" font-size="16" font-weight="black" fill="#111827"
-                                            text-anchor="middle">5,000円</text>
-                                        <text x="40" y="240" font-size="16" font-weight="black" fill="#111827"
-                                            text-anchor="middle">10,000円</text>
-                                        <text x="40" y="140" font-size="16" font-weight="black" fill="#111827"
-                                            text-anchor="middle">15,000円</text>
-                                        <text x="40" y="40" font-size="16" font-weight="black" fill="#111827"
-                                            text-anchor="middle">20,000円</text>
-                                        <!-- データポイントと線 (4点: 2018, 2020, 2022, 2024) -->
-                                        <!-- Revised to fit 400x500: 0=430, 20k=30. 10k=230.
-                                             2018 (9,000円) -> 430 - (9000/20000 * 400) = 430 - 180 = 250
-                                             2020 (10,000円) -> 430 - (10000/20000 * 400) = 430 - 200 = 230
-                                             2022 (12,500円) -> 430 - (12500/20000 * 400) = 430 - 250 = 180
-                                             2024 (15,500円) -> 430 - (15500/20000 * 400) = 430 - 310 = 120
-                                        -->
-                                        <polyline points="120,250 190,230 260,180 330,120" fill="none" stroke="#f97316"
-                                            stroke-width="6" />
-                                        <circle cx="120" cy="250" r="10" fill="#f97316" />
-                                        <circle cx="190" cy="230" r="10" fill="#f97316" />
-                                        <circle cx="260" cy="180" r="10" fill="#f97316" />
-                                        <circle cx="330" cy="120" r="10" fill="#f97316" />
-                                        <!-- X軸ラベル -->
-                                        <text x="120" y="470" font-size="18" font-weight="black" fill="#111827"
-                                            text-anchor="middle">2018</text>
-                                        <text x="190" y="470" font-size="18" font-weight="black" fill="#111827"
-                                            text-anchor="middle">2020</text>
-                                        <text x="260" y="470" font-size="18" font-weight="black" fill="#111827"
-                                            text-anchor="middle">2022</text>
-                                        <text x="330" y="470" font-size="18" font-weight="black" fill="#111827"
-                                            text-anchor="middle">2024</text>
-                                    </svg>
-                                </div>
-
-                                <!-- Desktop Landscape Graph -->
-                                <div class="relative hidden md:block h-80 lg:h-96">
-                                    <svg viewBox="0 0 800 300" class="w-full h-full"
-                                        preserveAspectRatio="xMidYMid meet">
-                                        <defs>
-                                            <linearGradient id="electricGradientDesk" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.3" />
-                                                <stop offset="100%" style="stop-color:#f97316;stop-opacity:0.05" />
-                                            </linearGradient>
-                                        </defs>
-                                        <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
-                                            <line x1="80" y1="50" x2="80" y2="250" />
-                                            <line x1="80" y1="250" x2="720" y2="250" />
-                                            <line x1="80" y1="200" x2="720" y2="200" />
-                                            <line x1="80" y1="150" x2="720" y2="150" />
-                                            <line x1="80" y1="100" x2="720" y2="100" />
-                                            <!-- 垂直グリッド -->
-                                            <line x1="120" y1="50" x2="120" y2="250" />
-                                            <line x1="280" y1="50" x2="280" y2="250" />
-                                            <line x1="440" y1="50" x2="440" y2="250" />
-                                            <line x1="600" y1="50" x2="600" y2="250" />
-                                        </g>
-                                        <text x="40" y="260" font-size="14" fill="#6b7280"
-                                            text-anchor="middle">0円</text>
-                                        <text x="40" y="210" font-size="14" fill="#6b7280"
-                                            text-anchor="middle">5,000円</text>
-                                        <text x="40" y="160" font-size="14" fill="#6b7280"
-                                            text-anchor="middle">10,000円</text>
-                                        <text x="40" y="110" font-size="14" fill="#6b7280"
-                                            text-anchor="middle">15,000円</text>
-                                        <polyline points="120,220 280,200 440,175 600,145"
-                                            fill="url(#electricGradientDesk)" stroke="#f97316" stroke-width="3" />
-                                        <circle cx="120" cy="220" r="5" fill="#f97316" />
-                                        <circle cx="280" cy="200" r="5" fill="#f97316" />
-                                        <circle cx="440" cy="175" r="5" fill="#f97316" />
-                                        <circle cx="600" cy="145" r="5" fill="#f97316" />
-                                        <text x="120" y="275" font-size="12" fill="#6b7280"
-                                            text-anchor="middle">2018</text>
-                                        <text x="280" y="275" font-size="12" fill="#6b7280"
-                                            text-anchor="middle">2020</text>
-                                        <text x="440" y="275" font-size="12" fill="#6b7280"
-                                            text-anchor="middle">2022</text>
-                                        <text x="600" y="275" font-size="12" fill="#6b7280"
-                                            text-anchor="middle">2024</text>
-                                    </svg>
+                                <div class="relative h-64 md:h-80 w-full mb-4">
+                                    <canvas id="elecChart"></canvas>
                                 </div>
 
                                 <p class="text-sm text-gray-500 text-center mt-4">
@@ -528,15 +456,15 @@
                             </div>
 
                             <!-- 再エネ賦課金セクション -->
-                            <div class="bg-white rounded-xl p-4 md:p-6 shadow-md fade-up delay-200">
+                            <div class="bg-white rounded-xl p-4 md:p-8 shadow-md fade-up delay-200">
                                 <div class="flex items-center justify-center mb-6">
                                     <div
-                                        class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                                        <i data-lucide="alert-circle" class="w-6 h-6 text-yellow-600"></i>
+                                        class="w-8 h-8 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                        <i data-lucide="alert-circle" class="w-4 h-4 md:w-6 md:h-6 text-yellow-600"></i>
                                     </div>
-                                    <h4 class="text-xl font-bold text-gray-900">知らない間に増えている「再エネ賦課金」</h4>
+                                    <h4 class="text-base sm:text-xl font-bold text-gray-900">知らない間に増えている「再エネ賦課金」</h4>
                                 </div>
-                                <p class="text-gray-700 mb-6 leading-relaxed">
+                                <p class="text-gray-700 mb-6 leading-relaxed text-sm md:text-base">
                                     電気代の内訳にある「再エネ賦課金」をご存知ですか？ これは再生可能エネルギー普及のためにすべての家庭が負担しているお金です。<br>
                                 </p>
                                 <ul
@@ -552,121 +480,11 @@
                                 </ul>
                                 <!-- 再エネ賦課金推移グラフ -->
                                 <div class="mt-4">
-                                    <h5 class="text-lg font-bold text-gray-900 mb-4 text-center">再エネ賦課金の推移（1kWhあたり）</h5>
-                                    <!-- Mobile Portrait Graph -->
-                                    <div class="relative h-[450px] md:hidden">
-                                        <svg viewBox="0 0 400 500" class="w-full h-full"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <defs>
-                                                <linearGradient id="renewableGradientMob" x1="0%" y1="0%" x2="0%"
-                                                    y2="100%">
-                                                    <stop offset="0%" style="stop-color:#eab308;stop-opacity:0.3" />
-                                                    <stop offset="100%" style="stop-color:#eab308;stop-opacity:0.05" />
-                                                </linearGradient>
-                                            </defs>
-                                            <!-- 背景グリッド -->
-                                            <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
-                                                <line x1="80" y1="30" x2="80" y2="430" />
-                                                <line x1="80" y1="430" x2="350" y2="430" />
-                                                <line x1="80" y1="330" x2="350" y2="330" />
-                                                <line x1="80" y1="230" x2="350" y2="230" />
-                                                <line x1="80" y1="130" x2="350" y2="130" />
-                                                <line x1="80" y1="30" x2="350" y2="30" />
-                                                <!-- 垂直グリッド -->
-                                                <line x1="120" y1="30" x2="120" y2="430" />
-                                                <line x1="190" y1="30" x2="190" y2="430" />
-                                                <line x1="260" y1="30" x2="260" y2="430" />
-                                                <line x1="330" y1="30" x2="330" y2="430" />
-                                            </g>
-                                            <!-- Y軸ラベル -->
-                                            <text x="40" y="440" font-size="14" font-weight="black" fill="#111827"
-                                                text-anchor="middle">0円</text>
-                                            <text x="40" y="340" font-size="14" font-weight="black" fill="#111827"
-                                                text-anchor="middle">1円</text>
-                                            <text x="40" y="240" font-size="14" font-weight="black" fill="#111827"
-                                                text-anchor="middle">2円</text>
-                                            <text x="40" y="140" font-size="14" font-weight="black" fill="#111827"
-                                                text-anchor="middle">3円</text>
-                                            <text x="40" y="40" font-size="14" font-weight="black" fill="#111827"
-                                                text-anchor="middle">4円</text>
-                                            <!-- データポイントと線 (4点: 2018, 2020, 2022, 2024) -->
-                                            <!-- 2018 (2.9円) -> 430 - (2.9/4 * 400) = 430 - 290 = 140
-                                                 2020 (3.0円) -> 430 - (3.0/4 * 400) = 430 - 300 = 130
-                                                 2022 (3.45円) -> 430 - (3.45/4 * 400) = 430 - 345 = 85
-                                                 2024 (3.49円) -> 430 - (3.49/4 * 400) = 430 - 349 = 81
-                                            -->
-                                            <polyline points="120,140 190,130 260,85 330,81" fill="none"
-                                                stroke="#eab308" stroke-width="6" />
-                                            <circle cx="120" cy="140" r="10" fill="#eab308" />
-                                            <circle cx="190" cy="130" r="10" fill="#eab308" />
-                                            <circle cx="260" cy="85" r="10" fill="#eab308" />
-                                            <circle cx="330" cy="81" r="10" fill="#eab308" />
-                                            <!-- X軸ラベル -->
-                                            <text x="120" y="470" font-size="16" font-weight="black" fill="#111827"
-                                                text-anchor="middle">2018</text>
-                                            <text x="190" y="470" font-size="16" font-weight="black" fill="#111827"
-                                                text-anchor="middle">2020</text>
-                                            <text x="260" y="470" font-size="16" font-weight="black" fill="#111827"
-                                                text-anchor="middle">2022</text>
-                                            <text x="330" y="470" font-size="16" font-weight="black" fill="#111827"
-                                                text-anchor="middle">2024</text>
-                                        </svg>
-                                    </div>
-
-                                    <!-- Desktop Landscape Graph -->
-                                    <div class="relative hidden md:block h-64 lg:h-80">
-                                        <svg viewBox="0 0 800 200" class="w-full h-full"
-                                            preserveAspectRatio="xMidYMid meet">
-                                            <defs>
-                                                <linearGradient id="renewableGradientDesk" x1="0%" y1="0%" x2="0%"
-                                                    y2="100%">
-                                                    <stop offset="0%" style="stop-color:#eab308;stop-opacity:0.3" />
-                                                    <stop offset="100%" style="stop-color:#eab308;stop-opacity:0.05" />
-                                                </linearGradient>
-                                            </defs>
-                                            <!-- 背景グリッド -->
-                                            <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2">
-                                                <line x1="80" y1="30" x2="80" y2="170" />
-                                                <line x1="80" y1="170" x2="720" y2="170" />
-                                                <line x1="80" y1="135" x2="720" y2="135" />
-                                                <line x1="80" y1="100" x2="720" y2="100" />
-                                                <line x1="80" y1="65" x2="720" y2="65" />
-                                                <line x1="80" y1="30" x2="720" y2="30" />
-                                                <!-- 垂直グリッド -->
-                                                <line x1="120" y1="30" x2="120" y2="170" />
-                                                <line x1="280" y1="30" x2="280" y2="170" />
-                                                <line x1="440" y1="30" x2="440" y2="170" />
-                                                <line x1="600" y1="30" x2="600" y2="170" />
-                                            </g>
-                                            <!-- Y軸ラベル -->
-                                            <text x="40" y="180" font-size="11" fill="#6b7280"
-                                                text-anchor="middle">0円</text>
-                                            <text x="40" y="145" font-size="11" fill="#6b7280"
-                                                text-anchor="middle">1円</text>
-                                            <text x="40" y="110" font-size="11" fill="#6b7280"
-                                                text-anchor="middle">2円</text>
-                                            <text x="40" y="75" font-size="11" fill="#6b7280"
-                                                text-anchor="middle">3円</text>
-                                            <text x="40" y="40" font-size="11" fill="#6b7280"
-                                                text-anchor="middle">4円</text>
-                                            <!-- データポイントと線 (8点) -->
-                                            <!-- データポイントと線 (4点) -->
-                                            <polyline points="120,150 280,140 440,110 600,80" fill="none"
-                                                stroke="#eab308" stroke-width="3" />
-                                            <circle cx="120" cy="150" r="4" fill="#eab308" />
-                                            <circle cx="280" cy="140" r="4" fill="#eab308" />
-                                            <circle cx="440" cy="110" r="4" fill="#eab308" />
-                                            <circle cx="600" cy="80" r="4" fill="#eab308" />
-                                            <!-- X軸ラベル -->
-                                            <text x="120" y="195" font-size="12" fill="#6b7280"
-                                                text-anchor="middle">2018</text>
-                                            <text x="280" y="195" font-size="12" fill="#6b7280"
-                                                text-anchor="middle">2020</text>
-                                            <text x="440" y="195" font-size="12" fill="#6b7280"
-                                                text-anchor="middle">2022</text>
-                                            <text x="600" y="195" font-size="12" fill="#6b7280"
-                                                text-anchor="middle">2024</text>
-                                        </svg>
+                                    <h5
+                                        class="text-[15px] sm:text-lg font-bold text-gray-900 mb-4 text-center whitespace-nowrap">
+                                        再エネ賦課金の推移（1kWhあたり）</h5>
+                                    <div class="relative h-64 md:h-80 w-full mb-4">
+                                        <canvas id="surchargeChart"></canvas>
                                     </div>
                                 </div>
 
@@ -704,19 +522,20 @@
                             </div>
                             <!-- セクション締め -->
                             <div class="mt-12 text-center fade-up delay-300">
-                                <h4 class="text-lg md:text-2xl font-bold text-gray-900 mb-4 tracking-tight">
-                                    初期費用0円で始める、家計を守る新習慣</h4>
-                                <p class="text-gray-700 mb-4 text-sm md:text-base">
-                                    電気代の上昇は、放置するほど損をします。<br class="md:hidden"> 高額な初期費用をかけずに導入できる
+                                <h4
+                                    class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 tracking-tight px-4 leading-relaxed">
+                                    初期費用0円で始める、<br class="sm:hidden">家計を守る新習慣</h4>
+                                <p class="text-gray-700 mb-6 text-sm md:text-base px-6">
+                                    電気代の上昇を放置すると、家計に大きな損害を与えかねません。
                                 </p>
-                                <div class="mb-4 px-1 sm:px-4">
+                                <div class="mb-8 -mx-6 md:mx-0">
                                     <span
-                                        class="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[13px] sm:text-lg md:text-3xl font-black px-2 sm:px-6 py-3 rounded-lg shadow-xl whitespace-nowrap overflow-hidden max-w-full text-ellipsis">
+                                        class="flex items-center justify-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[clamp(15px,4.8vw,36px)] font-black py-4 md:py-8 md:rounded-2xl shadow-2xl w-full whitespace-nowrap px-1">
                                         『あっと！電化パック太陽光リース』
                                     </span>
                                 </div>
-                                <p class="text-gray-700 font-bold text-lg md:text-xl">
-                                    で、賢く確実な家計防衛を始めましょう。
+                                <p class="text-gray-700 font-bold text-lg md:text-xl px-4 leading-relaxed">
+                                    で、賢く確実な<br class="sm:hidden">家計防衛を始めましょう。
                                 </p>
                             </div>
                         </div>
@@ -725,9 +544,9 @@
                     <div class="mt-8 text-center fade-up delay-300">
                         <a href="https://www.e-ess.co.jp/service/denka/denkapack/plan_solar/" target="_blank"
                             rel="noopener noreferrer"
-                            class="inline-flex items-center px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                            class="inline-flex items-center px-4 md:px-10 py-3 md:py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap">
                             詳しいサービス紹介はこちら
-                            <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+                            <i data-lucide="external-link" class="ml-2 w-4 h-4 md:w-5 md:h-5"></i>
                         </a>
                     </div>
                 </div>
@@ -742,7 +561,8 @@
                                 class="relative z-10 rounded-lg shadow-2xl w-full h-auto object-cover transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
                         </div>
                         <div class="order-1 md:order-2">
-                            <h3 class="heading-luxury font-bold mb-8">
+                            <h3
+                                class="heading-luxury font-bold mb-8 text-2xl sm:text-3xl md:text-4xl md:whitespace-nowrap">
                                 リジョイス・ビズのこだわり
                             </h3>
 
@@ -834,9 +654,9 @@
                             </p>
                         </div>
                         <a href="https://chikudensystem-donyu.com/" target="_blank" rel="noopener noreferrer"
-                            class="shrink-0 px-10 py-5 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-xl flex items-center gap-2 hover:-translate-y-1">
+                            class="shrink-0 px-6 md:px-10 py-4 md:py-5 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-lg md:text-xl flex items-center justify-center gap-2 hover:-translate-y-1 whitespace-nowrap">
                             助成金の詳細を見る
-                            <i data-lucide="arrow-right-circle" class="w-6 h-6"></i>
+                            <i data-lucide="arrow-right-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
                         </a>
                     </div>
                 </div>
@@ -949,13 +769,13 @@
 
                     <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
                         <a href="simulation.html" target="_blank"
-                            class="inline-flex items-center justify-center px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto">
-                            <i data-lucide="calculator" class="mr-2 w-5 h-5"></i>
+                            class="inline-flex items-center justify-center px-4 md:px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto whitespace-nowrap">
+                            <i data-lucide="calculator" class="mr-2 w-4 h-4 md:w-5 md:h-5"></i>
                             料金シミュレーションを試す
                         </a>
                         <a href="contact.html?type=solar"
-                            class="nav-link inline-flex items-center justify-center px-10 py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto">
-                            詳細な見積もりを依頼する <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                            class="nav-link inline-flex items-center justify-center px-4 md:px-10 py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto whitespace-nowrap">
+                            詳細な見積もりを依頼する <i data-lucide="arrow-right" class="ml-2 w-4 h-4 md:w-5 md:h-5"></i>
                         </a>
                     </div>
                 </div>
@@ -1096,8 +916,93 @@
     </footer>
 
     <script>
+        lucide.createIcons();
+
+        // Chart Initialization
         document.addEventListener('DOMContentLoaded', () => {
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            const commonOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { size: window.innerWidth < 768 ? 10 : 12 },
+                            callback: function (val, index) {
+                                const label = this.getLabelForValue(val);
+                                // Mobile: Only every 2 years
+                                if (window.innerWidth < 768) {
+                                    const year = parseInt(label);
+                                    return year % 2 === 0 ? label : '';
+                                }
+                                return label;
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: { borderDash: [2, 2], color: '#e5e7eb' },
+                        ticks: {
+                            font: { size: window.innerWidth < 768 ? 10 : 12 },
+                            callback: function (value) {
+                                if (this.chart.canvas.id === 'elecChart') {
+                                    return value.toLocaleString() + '円';
+                                }
+                                return value + '円';
+                            }
+                        }
+                    }
+                }
+            };
+
+            const labels = ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
+
+            // Electricity Cost Chart
+            const elecCtx = document.getElementById('elecChart');
+            if (elecCtx) {
+                new Chart(elecCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: [8600, 9100, 9300, 10200, 11500, 13200, 14800, 16500],
+                            borderColor: '#f97316',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#f97316'
+                        }]
+                    },
+                    options: commonOptions
+                });
+            }
+
+            // Renewable Surcharge Chart
+            const surchargeCtx = document.getElementById('surchargeChart');
+            if (surchargeCtx) {
+                new Chart(surchargeCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: [2.64, 2.90, 2.95, 2.98, 3.36, 3.45, 1.40, 3.49],
+                            borderColor: '#eab308',
+                            backgroundColor: 'rgba(234, 179, 8, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#eab308'
+                        }]
+                    },
+                    options: commonOptions
+                });
+            }
 
             // Header Scroll Effect
             const header = document.getElementById('main-header');
@@ -1110,19 +1015,6 @@
             };
             window.addEventListener('scroll', handleScroll);
             handleScroll();
-
-            // Fade Up Animation
-            const fadeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-            document.querySelectorAll('.fade-up').forEach((el) => {
-                fadeObserver.observe(el);
-            });
 
             // Mobile Menu
             const menuBtn = document.getElementById('mobile-menu-btn');
@@ -1137,18 +1029,26 @@
                     lucide.createIcons();
                     document.body.style.overflow = isOpen ? 'hidden' : '';
                 };
-
                 menuBtn.addEventListener('click', toggleMenu);
-
-                // Close menu when clicking links
                 mobileMenu.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            toggleMenu();
-                        }
+                        if (!mobileMenu.classList.contains('hidden')) toggleMenu();
                     });
                 });
             }
+
+            // Fade Up Animation
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('.fade-up').forEach((el) => {
+                fadeObserver.observe(el);
+            });
         });
     </script>
 </body>
