@@ -86,9 +86,6 @@
                         </a>
                     </div>
                 </div>
-                <a href="works.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">導入事例</span>
-                </a>
                 <a href="recruit.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
                     <span class="text-xs font-bold mt-1">採用</span>
                 </a>
@@ -123,10 +120,6 @@
             <a href="service-internet.html"
                 class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-purple-500">通信・新電力</a>
         </div>
-        <a href="works.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>導入事例</span>
-        </a>
         <a href="recruit.html"
             class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
             <span>採用</span>
@@ -152,7 +145,7 @@
             <div
                 class="absolute z-10 w-full md:w-[45%] left-0 top-0 bottom-0 flex items-center pl-6 md:pl-20 bg-gradient-to-r from-transparent to-transparent">
                 <!-- Text Content Left Aligned -->
-                <div class="text-left fade-up delay-100">
+                <div class="text-left fade-up delay-100 duration-[2000ms]">
                     <h2
                         class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 text-white tracking-wide text-shadow-hero">
                         <span class="block mb-4">暮らしの安心と快適を、</span>
@@ -307,89 +300,110 @@
                     <p class="text-gray-400 mt-4 font-eng tracking-widest text-sm">OTHER SERVICES</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                    <!-- Reform Card -->
-                    <a href="service-reform.html"
-                        class="gradient-border-hover flex flex-col h-full rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 group fade-up delay-100 hover-border-red">
-                        <div class="relative overflow-hidden rounded-t-2xl aspect-video">
-                            <img src="assets/images/jutaku.webp" alt="Reform"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                    <!-- Reform Card (Red Theme) -->
+                    <a href="service-reform.html" class="relative group block h-full">
+                        <!-- Gradient Background Layer -->
+                        <div
+                            class="absolute -inset-0.5 bg-gradient-to-br from-red-600 via-red-400 to-orange-500 rounded-[1.5rem] blur opacity-30 group-hover:opacity-100 transition duration-500">
                         </div>
-                        <div class="p-8 flex flex-col flex-grow">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4
-                                    class="font-serif text-2xl font-bold text-gray-800 group-hover:text-red-500 transition-colors">
-                                    住宅リフォーム</h4>
-                                <div
-                                    class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500">
-                                    <i data-lucide="home" class="w-5 h-5"></i>
+                        <!-- Card Content -->
+                        <div class="relative h-full bg-white rounded-[1.3rem] overflow-hidden flex flex-col shadow-sm">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="assets/images/jutaku.webp" alt="Reform"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors">
                                 </div>
                             </div>
-                            <p class="text-gray-600 leading-relaxed text-sm mb-6">
-                                屋根、外壁、水回り。大切な住まいを長く美しく保つためのメンテナンス。助成金を活用した負担の少ないプランニングもお任せください。
-                            </p>
-                            <span
-                                class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-red-500 transition-colors mt-auto">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </span>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4
+                                        class="font-serif text-2xl font-bold text-gray-800 group-hover:text-red-600 transition-colors">
+                                        住宅リフォーム</h4>
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
+                                        <i data-lucide="home" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                                    屋根、外壁、水回り。大切な住まいを長く美しく保つためのメンテナンス。助成金を活用した負担の少ないプランニングもお任せください。
+                                </p>
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-red-600 transition-colors mt-auto">
+                                    View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </span>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- Air Conditioner Card -->
-                    <a href="service-air.html"
-                        class="gradient-border-hover flex flex-col h-full rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 group fade-up delay-200 hover-border-blue">
-                        <div class="relative overflow-hidden rounded-t-2xl aspect-video">
-                            <img src="assets/images/air.png" alt="Air Conditioner"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                    <!-- Air Conditioner Card (Blue Theme) -->
+                    <a href="service-air.html" class="relative group block h-full">
+                        <!-- Gradient Background Layer -->
+                        <div
+                            class="absolute -inset-0.5 bg-gradient-to-br from-blue-600 via-blue-400 to-cyan-500 rounded-[1.5rem] blur opacity-30 group-hover:opacity-100 transition duration-500">
                         </div>
-                        <div class="p-8 flex flex-col flex-grow">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4
-                                    class="font-serif text-2xl font-bold text-gray-800 group-hover:text-blue-500 transition-colors">
-                                    業務用エアコン</h4>
-                                <div
-                                    class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-500">
-                                    <i data-lucide="wind" class="w-5 h-5"></i>
+                        <!-- Card Content -->
+                        <div class="relative h-full bg-white rounded-[1.3rem] overflow-hidden flex flex-col shadow-sm">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="assets/images/air.png" alt="Air Conditioner"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors">
                                 </div>
                             </div>
-                            <p class="text-gray-600 leading-relaxed text-sm mb-6">
-                                店舗・オフィス向けの業務用エアコンを初期費用0円で導入。最新の省エネ機種への入れ替えで、電気代を大幅にカット。
-                            </p>
-                            <span
-                                class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-blue-500 transition-colors mt-auto">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </span>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4
+                                        class="font-serif text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+                                        業務用エアコン</h4>
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                        <i data-lucide="wind" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                                    店舗・オフィス向けの業務用エアコンを初期費用0円で導入。最新の省エネ機種への入れ替えで、電気代を大幅にカット。
+                                </p>
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-blue-600 transition-colors mt-auto">
+                                    View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </span>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- Internet Card -->
-                    <a href="service-internet.html"
-                        class="gradient-border-hover flex flex-col h-full rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 group fade-up delay-300 hover-border-purple">
-                        <div class="relative overflow-hidden rounded-t-2xl aspect-video">
-                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
-                                alt="Internet"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                    <!-- Internet Card (Purple Theme) -->
+                    <a href="service-internet.html" class="relative group block h-full">
+                        <!-- Gradient Background Layer -->
+                        <div
+                            class="absolute -inset-0.5 bg-gradient-to-br from-purple-600 via-purple-400 to-fuchsia-500 rounded-[1.5rem] blur opacity-30 group-hover:opacity-100 transition duration-500">
                         </div>
-                        <div class="p-8 flex flex-col flex-grow">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4
-                                    class="font-serif text-2xl font-bold text-gray-800 group-hover:text-purple-500 transition-colors">
-                                    通信・新電力</h4>
-                                <div
-                                    class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-500">
-                                    <i data-lucide="wifi" class="w-5 h-5"></i>
+                        <!-- Card Content -->
+                        <div class="relative h-full bg-white rounded-[1.3rem] overflow-hidden flex flex-col shadow-sm">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
+                                    alt="Internet"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors">
                                 </div>
                             </div>
-                            <p class="text-gray-600 leading-relaxed text-sm mb-6">
-                                通信・新電力の見直しから、電力会社の切り替えまで。複雑な固定費の仕組みをわかりやすく解説し、快適なプランをご案内します。
-                            </p>
-                            <span
-                                class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-purple-500 transition-colors mt-auto">
-                                View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </span>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4
+                                        class="font-serif text-2xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
+                                        通信・新電力</h4>
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+                                        <i data-lucide="wifi" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 leading-relaxed text-sm mb-6">
+                                    通信・新電力の見直しから、電力会社の切り替えまで。複雑な固定費の仕組みをわかりやすく解説し、快適なプランをご案内します。
+                                </p>
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2 group-hover:text-purple-600 transition-colors mt-auto">
+                                    View Details <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </span>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -538,9 +552,6 @@
                     </a>
                     <a href="service-internet.html" class="flex flex-col hover:text-rejoice-main transition-colors">
                         <span>通信・新電力</span>
-                    </a>
-                    <a href="works.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>導入事例</span>
                     </a>
                     <a href="recruit.html" class="flex flex-col hover:text-rejoice-main transition-colors">
                         <span>採用</span>

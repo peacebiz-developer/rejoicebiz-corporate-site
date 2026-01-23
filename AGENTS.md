@@ -46,7 +46,7 @@ AIIDE（AI支援IDE）で **リジョイスビズのコーポレートサイト�
 - `index.html`（トップ）
 - `company.html`（会社概要）
 - `service-solar.html` / `service-reform.html` / `service-air.html` / `service-internet.html`（事業）
-- `works.html`（導入事例）
+
 - `recruit.html`（採用）
 - `contact.html`（問い合わせ）
 - `news.html` / `news-detail*.html`（お知らせ）
