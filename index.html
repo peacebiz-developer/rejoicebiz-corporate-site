@@ -34,6 +34,39 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&family=Outfit:wght@400;700&display=swap"
         rel="stylesheet">
+    <style>
+        /* アニメーション基本設定 */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition-property: opacity, transform;
+            transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* アイコン用のスケールアップアニメーション */
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition-property: opacity, transform;
+            transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-up.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .text-shadow-hero {
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body class="home-body bg-gray-50 flex flex-col min-h-screen">
@@ -44,24 +77,27 @@
             <a href="index.html" class="group nav-link flex items-center gap-3 relative z-50">
                 <img src="assets/images/logo.png" alt="Rejoice Biz"
                     class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
-                <span class="text-xl md:text-2xl font-bold tracking-tight nav-text">Rejoice Biz</span>
+                <span class="text-xl md:text-2xl font-bold tracking-tight nav-text text-white">Rejoice Biz</span>
             </a>
 
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-btn" class="md:hidden p-2 focus:outline-none z-50" aria-label="メニューを開く">
-                <i data-lucide="menu" class="w-8 h-8"></i>
+                <i data-lucide="menu" class="w-8 h-8 text-white"></i>
             </button>
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 font-medium tracking-wide text-sm">
-                <a href="index.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
+                <a href="index.html"
+                    class="nav-text text-white hover:opacity-70 transition-opacity flex flex-col items-center">
                     <span class="text-xs font-bold mt-1">トップ</span>
                 </a>
-                <a href="company.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
+                <a href="company.html"
+                    class="nav-text text-white hover:opacity-70 transition-opacity flex flex-col items-center">
                     <span class="text-xs font-bold mt-1">会社概要</span>
                 </a>
                 <div class="relative group">
-                    <button class="nav-text hover:opacity-70 flex flex-col items-center focus:outline-none py-2">
+                    <button
+                        class="nav-text text-white hover:opacity-70 flex flex-col items-center focus:outline-none py-2">
                         <span class="text-xs font-bold mt-1 inline-flex items-center gap-1">事業内容 <i
                                 data-lucide="chevron-down" class="w-3 h-3"></i></span>
                     </button>
@@ -86,7 +122,8 @@
                         </a>
                     </div>
                 </div>
-                <a href="recruit.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
+                <a href="recruit.html"
+                    class="nav-text text-white hover:opacity-70 transition-opacity flex flex-col items-center">
                     <span class="text-xs font-bold mt-1">採用</span>
                 </a>
                 <a href="contact.html"
@@ -142,58 +179,59 @@
                 </video>
             </div>
 
-            <div
-                class="absolute z-10 w-full md:w-[45%] left-0 top-0 bottom-0 flex items-center pl-6 md:pl-20 bg-gradient-to-r from-transparent to-transparent">
+            <div class="absolute z-10 w-full md:w-[60%] left-0 top-0 bottom-0 flex items-center pl-6 md:pl-20">
                 <!-- Text Content Left Aligned -->
-                <div class="text-left fade-up delay-100 duration-[2000ms]">
+                <div class="text-left">
                     <h2
                         class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 text-white tracking-wide text-shadow-hero">
-                        <span class="block mb-4">暮らしの安心と快適を、</span>
-                        <span class="block">情熱で支える。</span>
+                        <span class="block mb-4 fade-up delay-300 duration-[2000ms]">暮らしの安心と<br>快適を、</span>
+                        <span class="block fade-up delay-[1000ms] duration-[2000ms]">情熱で支える。</span>
                     </h2>
-                    <p class="text-lg md:text-2xl text-white font-medium leading-loose text-shadow-hero mb-12">
+                    <p
+                        class="text-lg md:text-2xl text-white font-medium leading-loose text-shadow-hero mb-12 fade-up delay-[1800ms] duration-[2000ms]">
                         エネルギー、住まい、そして通信。<br>
                         あなたの豊かな生活をトータルでサポートする<br>
                         ライフコンサルティング・パートナー。
                     </p>
-
-                    <!-- Button Removed as requested -->
                 </div>
             </div>
         </section>
 
-        <!-- Philosophy Section (Luxury & Clean) -->
-        <section class="py-24 md:py-32 bg-slate-50 relative overflow-hidden fade-up duration-1000 ease-out">
+        <!-- Philosophy Section -->
+        <section class="py-24 md:py-40 bg-slate-50 relative overflow-hidden">
             <div class="container relative z-10 text-center max-w-4xl mx-auto px-6">
-                <span class="block text-gray-400 font-bold tracking-[0.2em] mb-12 text-xs uppercase">Philosophy</span>
+                <!-- Staggered Label (Slowly) -->
+                <span
+                    class="block text-gray-400 font-bold tracking-[0.2em] mb-12 text-xs uppercase fade-up delay-100 duration-[2000ms]">Philosophy</span>
+
+                <!-- Title (Slowly) -->
                 <h3
                     class="font-serif text-[clamp(24px,5vw,40px)] md:text-4xl font-bold mb-16 text-gray-900 leading-normal tracking-[0.2em] text-center">
-                    <span class="block md:inline-block whitespace-nowrap">暮らしの基盤を、</span>
-                    <span class="block md:inline-block whitespace-nowrap">もっと自由に、もっと賢く。</span>
+                    <span
+                        class="block md:inline-block whitespace-nowrap fade-up delay-300 duration-[2000ms]">暮らしの基盤を、</span>
+                    <span
+                        class="block md:inline-block whitespace-nowrap fade-up delay-[500ms] duration-[2000ms]">もっと自由に、もっと賢く。</span>
                 </h3>
+
+                <!-- Description Paragraphs (Back to normal speed) -->
                 <div class="text-gray-700 mb-20 text-base md:text-lg text-center space-y-8 font-medium leading-loose">
-                    <p>
-                        <span class="inline-block">私たちはリジョイス・ビズは、</span><span
-                            class="inline-block">福岡・東京・宮城を中心に、</span><br class="hidden md:block">
-                        <span class="inline-block">個人のお客様へ暮らしのサービスを</span><span
-                            class="inline-block">提供するトータルサポーターです。</span>
+                    <p class="fade-up delay-[700ms] duration-1000">
+                        私たちはリジョイス・ビズは、福岡・東京・宮城を中心に、<br class="hidden md:block">
+                        個人のお客様へ暮らしのサービスを提供するトータルサポーターです。
                     </p>
-                    <p>
-                        <span class="inline-block">太陽光発電やオール電化などの</span><span class="inline-block">「省エネ設備」、</span><br
-                            class="hidden md:block">
-                        <span class="inline-block">屋根や内装などの「住宅リフォーム」、</span>
-                        <span class="inline-block">そして生活基盤となる</span><span class="inline-block">「インターネット回線」。</span>
+                    <p class="fade-up delay-[800ms] duration-1000">
+                        太陽光発電やオール電化などの「省エネ設備」、<br class="hidden md:block">
+                        屋根や内装などの「住宅リフォーム」、そして生活基盤となる「インターネット回線」。
                     </p>
-                    <p>
-                        <span class="inline-block">これらを総合的にプロデュースすることで、</span><span
-                            class="inline-block">家計に優しく、</span><br class="hidden md:block">
-                        <span class="inline-block">快適で安心できる住まいづくりを</span><span class="inline-block">お手伝いします。</span>
+                    <p class="fade-up delay-[900ms] duration-1000">
+                        これらを総合的にプロデュースすることで、家計に優しく、<br class="hidden md:block">
+                        快適で安心できる住まいづくりをお手伝いします。
                     </p>
                 </div>
 
+                <!-- Icons (Back to normal speed) -->
                 <div class="flex flex-wrap justify-center gap-6 md:gap-10 border-t border-gray-200 pt-16">
-                    <!-- Clean Icons -->
-                    <div class="flex flex-col items-center gap-4 group">
+                    <div class="flex flex-col items-center gap-4 group scale-up delay-[1000ms] duration-700">
                         <div
                             class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-gray-400 group-hover:text-[#f59e0b] group-hover:border-[#f59e0b] transition-all duration-300">
                             <i data-lucide="sun" class="w-6 h-6"></i>
@@ -201,7 +239,7 @@
                         <span
                             class="font-serif font-bold text-gray-500 text-xs tracking-widest group-hover:text-gray-800 transition-colors">太陽光</span>
                     </div>
-                    <div class="flex flex-col items-center gap-4 group">
+                    <div class="flex flex-col items-center gap-4 group scale-up delay-[1100ms] duration-700">
                         <div
                             class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-gray-400 group-hover:text-[#ef4444] group-hover:border-[#ef4444] transition-all duration-300">
                             <i data-lucide="home" class="w-6 h-6"></i>
@@ -209,7 +247,7 @@
                         <span
                             class="font-serif font-bold text-gray-500 text-xs tracking-widest group-hover:text-gray-800 transition-colors">住宅リフォーム</span>
                     </div>
-                    <div class="flex flex-col items-center gap-4 group">
+                    <div class="flex flex-col items-center gap-4 group scale-up delay-[1200ms] duration-700">
                         <div
                             class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-gray-400 group-hover:text-[#3b82f6] group-hover:border-[#3b82f6] transition-all duration-300">
                             <i data-lucide="wind" class="w-6 h-6"></i>
@@ -217,7 +255,7 @@
                         <span
                             class="font-serif font-bold text-gray-500 text-xs tracking-widest group-hover:text-gray-800 transition-colors">業務用エアコン</span>
                     </div>
-                    <div class="flex flex-col items-center gap-4 group">
+                    <div class="flex flex-col items-center gap-4 group scale-up delay-[1300ms] duration-700">
                         <div
                             class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-gray-400 group-hover:text-[#8b5cf6] group-hover:border-[#8b5cf6] transition-all duration-300">
                             <i data-lucide="smartphone" class="w-6 h-6"></i>
@@ -225,7 +263,7 @@
                         <span
                             class="font-serif font-bold text-gray-500 text-xs tracking-widest group-hover:text-gray-800 transition-colors">通信</span>
                     </div>
-                    <div class="flex flex-col items-center gap-4 group">
+                    <div class="flex flex-col items-center gap-4 group scale-up delay-[1400ms] duration-700">
                         <div
                             class="w-16 h-16 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center text-gray-400 group-hover:text-[#10b981] group-hover:border-[#10b981] transition-all duration-300">
                             <i data-lucide="zap" class="w-6 h-6"></i>
@@ -575,33 +613,53 @@
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
 
-            // Header Scroll Effect
             const header = document.getElementById('main-header');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+
             const handleScroll = () => {
+                const menuIcon = menuBtn ? menuBtn.querySelector('i, svg') : null;
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add('scrolled', 'bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                    header.querySelectorAll('.nav-text').forEach(el => {
+                        el.classList.remove('text-white');
+                        el.classList.add('text-gray-800');
+                    });
+                    if (menuIcon) {
+                        menuIcon.classList.remove('text-white');
+                        menuIcon.classList.add('text-gray-800');
+                    }
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove('scrolled', 'bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                    header.querySelectorAll('.nav-text').forEach(el => {
+                        el.classList.add('text-white');
+                        el.classList.remove('text-gray-800');
+                    });
+                    if (menuIcon) {
+                        menuIcon.classList.add('text-white');
+                        menuIcon.classList.remove('text-gray-800');
+                    }
                 }
             };
             window.addEventListener('scroll', handleScroll);
             handleScroll();
 
-            // Fade Up Animation
-            const fadeObserver = new IntersectionObserver((entries) => {
+            const animationObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-            document.querySelectorAll('.fade-up').forEach((el) => {
-                fadeObserver.observe(el);
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -50px 0px"
             });
 
-            // Mobile Menu
-            const menuBtn = document.getElementById('mobile-menu-btn');
+            document.querySelectorAll('.fade-up, .scale-up').forEach((el) => {
+                animationObserver.observe(el);
+            });
+
             const mobileMenu = document.getElementById('mobile-menu');
             if (menuBtn && mobileMenu) {
                 const toggleMenu = () => {
@@ -613,17 +671,7 @@
                     lucide.createIcons();
                     document.body.style.overflow = isOpen ? 'hidden' : '';
                 };
-
                 menuBtn.addEventListener('click', toggleMenu);
-
-                // Close menu when clicking links
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            toggleMenu();
-                        }
-                    });
-                });
             }
         });
     </script>
