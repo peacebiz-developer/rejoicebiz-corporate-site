@@ -13,16 +13,23 @@
                 extend: {
                     colors: {
                         rejoice: {
-                            main: '#10B981', // Green-500 (CrowdLoan風)
-                            base: '#F7F8FA', // CrowdLoan風ベースカラー
-                            accent: '#f59e0b', // Amber-500
-                            dark: '#111827', // Gray-900
-                            red: '#dc2626', // Red-600 (For accents)
+                            main: '#10B981', // Green-500 (Preserved)
+                            base: '#F7F8FA', // Preserved
+                            accent: '#f59e0b', // Amber-500 (Preserved)
+                            dark: '#111827', // Gray-900 (Preserved)
+                            red: '#dc2626', // Red-600 (Preserved)
+                            // Core UI Colors for consistency
+                            teal: '#0d9488',
+                            black: '#111111',
+                            gray: '#f4f4f4',
                         }
                     },
                     fontFamily: {
                         sans: ['"Noto Sans JP"', 'sans-serif'],
                         eng: ['"Outfit"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #e5e5e5 1px, transparent 1px), linear-gradient(to bottom, #e5e5e5 1px, transparent 1px)",
                     }
                 }
             }
@@ -33,26 +40,43 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;500;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: #333;
-            letter-spacing: 0.05em;
+        /* Custom Utilities for Premium Design */
+        .text-huge {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
         }
 
-        /* Typography Utils */
-        .font-eng {
-            font-family: 'Outfit', sans-serif;
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
-        /* Animation */
+        .ticker {
+            display: inline-block;
+            animation: ticker 40s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Fade Up Animation */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .fade-up.visible {
@@ -60,31 +84,30 @@
             transform: translateY(0);
         }
 
-        .delay-100 {
-            transition-delay: 0.1s;
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        .delay-200 {
-            transition-delay: 0.2s;
+        /* Hover Reveal Effects */
+        .hover-reveal-container:hover .hover-reveal-target {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .delay-300 {
-            transition-delay: 0.3s;
+        .hover-reveal-target {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
         }
 
-        /* Hero */
-        .hero-bg {
-            animation: scaleSlow 20s infinite alternate;
-        }
-
-        @keyframes scaleSlow {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.1);
-            }
+        /* Sidebar Side Headings (Plaid Style) */
+        .side-heading {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            white-space: nowrap;
         }
 
         /* Vertical text for flow steps */
@@ -95,948 +118,805 @@
             white-space: nowrap;
             line-height: 1.1;
         }
-
-        /* Rich design for flow steps */
-        .flow-step-card {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .flow-step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
-        }
-
-        .flow-step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #10b981, #059669, #047857);
-            border-radius: 4px 4px 0 0;
-        }
-
-        .flow-step-number {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .flow-step-card:hover .flow-step-number {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .flow-arrow {
-            position: relative;
-        }
-
-        .flow-arrow::after {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 2px;
-            background: linear-gradient(90deg, #10b981, #34d399);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Responsive Typography */
-        .text-clamp-summary {
-            font-size: clamp(0.9rem, 2.5vw + 0.1rem, 1.25rem);
-            line-height: 1.6;
-        }
-
-        .text-clamp-title-large {
-            font-size: clamp(1.25rem, 4vw + 0.2rem, 3rem);
-            line-height: 1.4;
-        }
-
-        @media (max-width: 768px) {
-            .page-header {
-                padding-top: 130px;
-                /* Increased for breathing room */
-                padding-bottom: 60px;
-                background-position: center top;
-            }
-        }
     </style>
 </head>
 
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body class="bg-white text-rejoice-dark flex flex-col min-h-screen">
 
-    <!-- Header -->
-    <header id="main-header" class="header-luxury fixed w-full top-0 left-0 z-[70] transition-all duration-500">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group nav-link flex items-center gap-3 relative z-50">
+    <!-- Header (Same as index.html) -->
+    <header id="main-header"
+        class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 border-b border-white/10 mix-blend-difference text-white">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 z-50">
                 <img src="assets/images/logo.png" alt="Rejoice Biz"
-                    class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
-                <span class="text-xl md:text-2xl font-bold tracking-tight nav-text">Rejoice Biz</span>
+                    class="h-10 w-auto object-contain brightness-0 invert">
+                <span class="font-eng font-bold text-2xl tracking-tighter">REJOICE BIZ</span>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 focus:outline-none z-50" aria-label="メニューを開く">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 font-medium tracking-wide text-sm">
-                <a href="index.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">トップ</span>
-                </a>
-                <a href="company.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">会社概要</span>
-                </a>
-                <div class="relative group">
-                    <button class="nav-text hover:opacity-70 flex flex-col items-center focus:outline-none py-2">
-                        <span class="text-xs font-bold mt-1 inline-flex items-center gap-1">事業内容 <i
-                                data-lucide="chevron-down" class="w-3 h-3"></i></span>
-                    </button>
-                    <!-- Dropdown -->
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 mt-0 w-64 bg-white rounded-none shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-rejoice-main">
-                        <a href="service-solar.html"
-                            class="nav-link block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            太陽光・蓄電池
-                        </a>
-                        <a href="service-reform.html"
-                            class="nav-link block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            住宅リフォーム
-                        </a>
-                        <a href="service-air.html"
-                            class="nav-link block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            業務用エアコン
-                        </a>
-                        <a href="service-internet.html"
-                            class="nav-link block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors">
-                            通信・新電力
-                        </a>
-                    </div>
+            <nav class="hidden lg:flex items-center space-x-6 font-sans text-xs font-bold tracking-wide">
+                <a href="company.html" class="hover:opacity-50 transition-opacity">会社概要</a>
+                <!-- Expanded Service Links -->
+                <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
+                    <a href="service-solar.html" class="text-rejoice-main">太陽光</a>
+                    <a href="service-reform.html" class="hover:text-rejoice-main transition-colors">リフォーム</a>
+                    <a href="service-air.html" class="hover:text-rejoice-main transition-colors">空調</a>
+                    <a href="service-internet.html" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
                 </div>
-                <a href="recruit.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">採用</span>
-                </a>
+                <a href="recruit.html" class="hover:opacity-50 transition-opacity">採用情報</a>
+                <a href="news.html" class="hover:opacity-50 transition-opacity">ニュース</a>
                 <a href="contact.html"
-                    class="nav-link bg-red-600 text-white px-8 py-2 rounded-full hover:bg-red-700 transition-all transform hover:-translate-y-1 shadow-lg flex flex-col items-center leading-none">
-                    <span class="text-xs font-bold">お問い合わせ</span>
+                    class="px-6 py-2 border border-current rounded-full hover:bg-white hover:text-black transition-all">
+                    お問い合わせ
                 </a>
             </nav>
-        </div>
 
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden z-50">
+                <i data-lucide="menu" class="w-8 h-8 text-white mix-blend-difference"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Mobile Nav Menu Overlay -->
+    <!-- Mobile Menu Overlay (Same as index.html) -->
     <div id="mobile-menu"
-        class="hidden md:hidden fixed inset-0 bg-white z-[60] flex flex-col pt-24 px-6 space-y-6 overflow-y-auto">
-        <a href="index.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>トップ</span>
-        </a>
-        <a href="company.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>会社概要</span>
-        </a>
-        <div class="space-y-4">
-            <span class="text-xs font-bold text-gray-900 tracking-widest uppercase">事業内容</span>
-            <a href="service-solar.html"
-                class="mobile-link block text-lg font-bold text-rejoice-main pl-4 border-l-4 border-rejoice-main bg-rejoice-main/5 py-1">太陽光・蓄電池</a>
-            <a href="service-reform.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-red">住宅リフォーム</a>
-            <a href="service-air.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-blue-500">業務用エアコン</a>
-            <a href="service-internet.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-purple-500">通信・新電力</a>
+        class="hidden lg:hidden fixed inset-0 bg-white z-[60] flex flex-col justify-center px-8 space-y-6 text-rejoice-dark overflow-y-auto">
+        <a href="company.html" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
+        <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
+            <a href="service-solar.html" class="text-xl font-bold text-rejoice-main">太陽光・蓄電池</a>
+            <a href="service-reform.html" class="text-xl font-bold">住宅リフォーム</a>
+            <a href="service-air.html" class="text-xl font-bold">業務用エアコン</a>
+            <a href="service-internet.html" class="text-xl font-bold">通信／新電力</a>
         </div>
-        <a href="recruit.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>採用</span>
-        </a>
-        <a href="contact.html"
-            class="mobile-link block text-center bg-red-600 text-white py-4 rounded-full font-bold mt-8">
-            お問い合わせ
-        </a>
+        <a href="recruit.html" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
+        <a href="news.html" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
+        <a href="contact.html" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
     </div>
 
-    <!-- Main Content -->
-    <main class="flex-grow">
-        <div id="view-electrification">
-            <!-- Page Header -->
-            <div class="page-header" style="background-image: url('assets/images/solar_house.jpg');">
-                <div class="text-center w-full px-4">
+    <main class="flex-grow w-full overflow-x-hidden">
 
-                    <div class="fade-up delay-100 text-white">
-                        <span
-                            class="inline-block border border-white/50 bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-6 text-base md:text-lg font-sans font-bold">初期費用0円の住宅用リース</span>
-                        <h2
-                            class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-relaxed text-shadow-hero mb-4">
-                            太陽光発電
-                        </h2>
-                        <p
-                            class="text-lg md:text-xl text-white leading-relaxed font-light text-shadow-hero max-w-2xl mx-auto mb-6 md:mb-0">
-                            電気代の高騰に、もう悩まない。<br>賢い電気の自給自足生活。
-                        </p>
-                    </div>
-                </div>
+        <!-- 1. Hero Section (Unified Style) -->
+        <section class="relative h-screen flex flex-col justify-center overflow-hidden bg-black text-white">
+            <!-- Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/solar_house.jpg" alt="Solar Energy"
+                    class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40"></div>
             </div>
 
-            <!-- 2. Image Section -->
-            <div class="content-section pt-12 pb-8">
-                <div class="content-container text-center">
-                    <img src="assets/images/at_denka_pack_solar.png" alt="あっと！電化パック太陽光"
-                        class="max-w-4xl w-full h-auto mx-auto shadow-md rounded-xl">
-                </div>
-            </div>
-
-            <!-- 3. Text Section -->
-            <div class="content-container mb-12">
-                <div class="text-center">
-                    <p class="text-gray-600 max-w-5xl mx-auto leading-relaxed text-sm md:text-base">
-                        「あっと！電化パック太陽光」は、<span
-                            class="text-xl md:text-2xl font-bold text-rejoice-main">既築・新築向け住宅用太陽光発電システム</span>の<span
-                            class="text-xl md:text-2xl font-bold text-rejoice-accent mx-1">リース制度</span>です。<br>
-                        初期費用の負担がなく、太陽光で自家発電・自家消費することで、普段の電気代を賢く節約できます。
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl text-center md:text-left mx-auto md:mx-0">
+                    <span
+                        class="inline-block py-1 px-3 border border-rejoice-main text-rejoice-main text-[10px] uppercase tracking-[0.3em] font-bold mb-6 fade-up">
+                        Solar Energy & Battery Systems
+                    </span>
+                    <h1 class="text-huge font-sans font-black mb-8 fade-up delay-100">
+                        太陽光発電<br>
+                        <span class="text-rejoice-main">& 蓄電池。</span>
+                    </h1>
+                    <p
+                        class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mb-12 fade-up delay-200 mx-auto md:mx-0">
+                        電気代の高騰に、もう悩まない。賢い電気の自給自足生活。
                     </p>
                 </div>
             </div>
 
-            <!-- 4. Badge Section -->
-            <div class="content-container text-center mb-16">
-                <div class="inline-block transform hover:scale-105 transition-transform duration-300 w-full max-w-4xl">
-                    <div
-                        class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 md:px-8 py-3 md:py-4 rounded-full shadow-xl flex items-center justify-center gap-2 md:gap-3 border-4 border-white/30 truncate">
-                        <i data-lucide="award"
-                            class="w-6 h-6 md:w-12 md:h-12 text-yellow-100 drop-shadow-md flex-shrink-0"></i>
-                        <span
-                            class="text-lg sm:text-xl md:text-4xl font-bold tracking-wider drop-shadow-md whitespace-nowrap">
-                            太陽光 導入件数 <span class="text-2xl sm:text-3xl md:text-6xl text-white">2,000</span> 件超
-                        </span>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+                <span
+                    class="text-[10px] uppercase tracking-[0.5em] font-bold text-white/40 writing-vertical-rl">Scroll</span>
+                <div class="w-px h-12 bg-gradient-to-b from-rejoice-main to-transparent"></div>
+            </div>
+
+            <!-- Hero Ticker -->
+            <div
+                class="absolute bottom-0 left-0 w-full z-10 py-6 border-t border-white/10 bg-black/20 backdrop-blur-sm">
+                <div class="ticker-wrap">
+                    <div class="ticker text-[10px] font-bold tracking-[0.5em] text-white/30 uppercase">
+                        SOLAR ENERGY &nbsp;•&nbsp; BATTERY SYSTEM &nbsp;•&nbsp; V2H SOLUTIONS &nbsp;•&nbsp; ZERO ENERGY
+                        HOME &nbsp;•&nbsp; SMART LIFE &nbsp;•&nbsp;
+                        SOLAR ENERGY &nbsp;•&nbsp; BATTERY SYSTEM &nbsp;•&nbsp; V2H SOLUTIONS &nbsp;•&nbsp; ZERO ENERGY
+                        HOME &nbsp;•&nbsp; SMART LIFE &nbsp;•&nbsp;
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- 5. Agency Section -->
-            <div class="bg-green-50 border-b border-green-100 py-6 mb-20">
-                <div class="content-container text-center">
-                    <div class="mb-3">
-                        <span
-                            class="inline-flex items-center bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-base md:text-lg font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white transform -rotate-1">
-                            <i data-lucide="crown" class="w-5 h-5 mr-2"></i> 特約店 全国No.1
-                        </span>
-                    </div>
+        <!-- 2. Introduction Section (Plaid V2 Style) -->
+        <section class="border-b border-gray-200 bg-white relative">
+            <div class="flex flex-col md:flex-row">
+                <!-- Sticky Indicator -->
+                <div
+                    class="w-full md:w-24 lg:w-32 border-b md:border-b-0 md:border-r border-gray-200 relative bg-white z-20">
                     <div
-                        class="flex flex-col md:flex-row items-center justify-center gap-3 text-green-900 font-bold text-xl md:text-3xl mb-6 px-4">
-                        <span
-                            class="inline-block bg-green-600 text-white text-sm md:text-base px-4 py-1.5 rounded-full align-middle flex-shrink-0">特約店認定</span>
-                        <span class="text-center md:whitespace-nowrap">
-                            株式会社リジョイス・ビズは「株式会社エネルギア・ソリューション・アンド・サービス<span
-                                class="text-sm md:text-xl">（中国電力グループ会社）</span>」の特約店です。
-                        </span>
-                    </div>
-                    <a href="https://www.e-ess.co.jp/solar_lease/area.html#scroll8_s82" target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center px-6 py-2 bg-white border border-green-600 text-green-600 hover:bg-green-50 rounded-full font-bold text-sm transition-all shadow-sm">
-                        <i data-lucide="map-pin" class="mr-2 w-4 h-4"></i> リース制度の対象エリアを確認する
-                    </a>
-                </div>
-            </div>
-
-            <!-- 6. Content Container for Cards & Following Sections -->
-            <div class="content-container mb-32">
-                <!-- Cards Section -->
-                <div class="mb-20">
-                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                        <div
-                            class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 items-stretch">
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
-                                <div
-                                    class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i data-lucide="wallet" class="w-8 h-8"></i>
-                                </div>
-                                <h4
-                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
-                                    初期費用<span
-                                        class="text-rejoice-main text-2xl sm:text-3xl md:text-4xl mx-0.5">0</span>円
-                                </h4>
-                                <p class="text-sm text-gray-600 mt-auto">
-                                    高額なシステム購入費用は不要. 月々の定額リース料金だけで始められるため、家計への負担を最小限に抑えられます。
-                                </p>
-                            </div>
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
-                                <div
-                                    class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i data-lucide="shield-check" class="w-8 h-8"></i>
-                                </div>
-                                <h4
-                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
-                                    無料修理保証付き
-                                </h4>
-                                <p class="text-sm text-gray-600 mt-auto">
-                                    リース期間中は自然故障に対する無料修理保証が付いているため、万が一のトラブルでも安心です。
-                                </p>
-                            </div>
-                            <div class="p-8 text-center hover:bg-green-50 transition-colors flex flex-col items-center">
-                                <div
-                                    class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i data-lucide="gift" class="w-8 h-8"></i>
-                                </div>
-                                <h4
-                                    class="font-serif font-bold text-lg sm:text-xl md:text-2xl mb-3 text-gray-900 md:min-h-[4rem] flex items-center justify-center md:whitespace-nowrap px-2">
-                                    10年後は<span class="text-rejoice-main">自分のもの</span>に
-                                </h4>
-                                <p class="text-sm text-gray-600 mt-auto">
-                                    10年間のリース契約終了後は、メーカー保証を残したままお客様にシステムを無償譲渡いたします。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-50 p-4 text-center text-xs text-gray-500 border-t border-gray-100">
-                            ※太陽光リースは、株式会社エネルギア・ソリューション・アンド・サービスが提供するサービスです。<br>
-                            詳しいご案内をご希望のお客様は、地域の営業担当がお伺いしますのでお気軽にご連絡ください。
-                        </div>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">
-                        <a href="https://www.e-ess.co.jp/service/denka/denkapack/plan_solar/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center px-4 md:px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-base transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto justify-center whitespace-nowrap">
-                            詳しいサービス紹介はこちら <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
-                        </a>
-                        <a href="simulation.html" target="_blank"
-                            class="inline-flex items-center justify-center px-4 md:px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm md:text-base shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 w-full md:w-auto whitespace-nowrap">
-                            <i data-lucide="calculator" class="mr-2 w-4 h-4"></i>
-                            料金シミュレーションを試す
-                        </a>
+                        class="sticky top-24 h-auto md:h-[calc(100vh-6rem)] flex items-center justify-center py-6 md:py-0">
+                        <span class="text-xs font-bold tracking-[0.3em] side-heading text-black">OUR PLAN</span>
                     </div>
                 </div>
 
-                <!-- 電気代の高騰セクション -->
-                <div class="mb-20">
+                <!-- Content Area -->
+                <div class="flex-1">
+                    <!-- Title Area -->
                     <div
-                        class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl shadow-xl border border-orange-100 overflow-hidden">
-                        <div class="p-6 md:p-10">
-                            <div class="text-center mb-12 fade-up">
+                        class="border-b border-gray-200 p-10 md:p-24 flex items-center min-h-[40vh] justify-center md:justify-start">
+                        <div class="max-w-4xl text-center md:text-left">
+                            <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">BRAND
+                                CONCEPT</span>
+                            <h2
+                                class="text-4xl md:text-6xl lg:text-7xl font-bold font-sans leading-[1.1] tracking-tighter fade-up">
+                                特約店認定<br>
+                                <span class="text-rejoice-main">全国No.1の実績。</span>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- Description Area (Bento-style Split) -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200 bg-gray-50">
+                        <div class="p-10 md:p-16 border-b md:border-b-0 md:border-r border-gray-200">
+                            <img src="assets/images/at_denka_pack_solar.png" alt="あっと！電化パック太陽光"
+                                class="w-full h-auto shadow-2xl rounded-2xl mb-10 hover:scale-[1.02] transition-transform duration-500">
+                            <div class="flex items-center gap-4">
                                 <span
-                                    class="inline-block bg-orange-600 text-white text-sm px-4 py-2 rounded-full mb-4 font-bold">
-                                    電気代の高騰
-                                </span>
-                                <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">
-                                    電気代は年々上昇しています
-                                </h3>
-                                <p class="text-gray-700 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-                                    世界情勢の変化や燃料価格の高騰により、電気代は上昇の一途をたどっています。<br>
-                                    家計への負担は右肩上がりで増え続けており、もはや一時的な現象ではありません。
-                                </p>
-                            </div>
-
-                            <!-- 電気代推移グラフ -->
-                            <div class="bg-white rounded-xl p-4 md:p-8 mb-6 shadow-md fade-up delay-100">
-                                <h4
-                                    class="text-[15px] sm:text-xl font-bold text-gray-900 mb-6 text-center whitespace-nowrap">
-                                    標準的な家庭の電気代推移（月額）</h4>
-
-                                <div class="relative h-64 md:h-80 w-full mb-4">
-                                    <canvas id="elecChart"></canvas>
-                                </div>
-
-                                <p class="text-sm text-gray-500 text-center mt-4">
-                                    ※標準的な家庭（月間使用量260kWh程度）の目安です
-                                </p>
-                            </div>
-
-                            <!-- 再エネ賦課金セクション -->
-                            <div class="bg-white rounded-xl p-4 md:p-8 shadow-md fade-up delay-200">
-                                <div class="flex items-center justify-center mb-6">
-                                    <div
-                                        class="w-8 h-8 md:w-12 md:h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
-                                        <i data-lucide="alert-circle" class="w-4 h-4 md:w-6 md:h-6 text-yellow-600"></i>
-                                    </div>
-                                    <h4 class="text-base sm:text-xl font-bold text-gray-900">知らない間に増えている「再エネ賦課金」</h4>
-                                </div>
-                                <p class="text-gray-700 mb-6 leading-relaxed text-sm md:text-base">
-                                    電気代の内訳にある「再エネ賦課金」をご存知ですか？ これは再生可能エネルギー普及のためにすべての家庭が負担しているお金です。<br>
-                                </p>
-                                <ul
-                                    class="mt-4 mb-6 space-y-2 text-sm md:text-base border-l-4 border-yellow-400 pl-4 bg-yellow-50 py-3 rounded-r">
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-yellow-600 font-bold">・</span>
-                                        <span><strong>負担の増大：</strong>制度開始から単価は大きく上昇し、家計の隠れた重荷になっています。</span>
-                                    </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="text-yellow-600 font-bold">・</span>
-                                        <span><strong>逃げられない仕組み：</strong>「使用量に比例」して課金されるため、電気を使えば使うほど支払いも自動的に増えてしまいます。</span>
-                                    </li>
-                                </ul>
-                                <!-- 再エネ賦課金推移グラフ -->
-                                <div class="mt-4">
-                                    <h5
-                                        class="text-[15px] sm:text-lg font-bold text-gray-900 mb-4 text-center whitespace-nowrap">
-                                        再エネ賦課金の推移（1kWhあたり）</h5>
-                                    <div class="relative h-64 md:h-80 w-full mb-4">
-                                        <canvas id="surchargeChart"></canvas>
-                                    </div>
-                                </div>
-
-                                <div class="mt-6 p-4 md:p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r">
-                                    <h4 class="text-blue-900 text-lg md:text-xl font-bold mb-3">だからこそ、「太陽光発電」が最強の自衛策です。
-                                    </h4>
-                                    <p class="text-gray-700 mb-3 leading-relaxed text-sm md:text-base">
-                                        上がり続ける電気代と賦課金。このダブルパンチに対抗する唯一の答えは、<strong>「電力会社から電気を買わないこと」</strong>です。
-                                    </p>
-                                    <ul class="space-y-2 text-sm md:text-base">
-                                        <li class="flex items-start gap-3">
-                                            <div
-                                                class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">
-                                                1</div>
-                                            <div>
-                                                <strong class="text-gray-900 block mb-1">電気代を「創って」減らす</strong>
-                                                <span class="text-sm text-gray-600">太陽光で発電した電気を家で使えば、その分の購入代金は0円。</span>
-                                            </div>
-                                        </li>
-                                        <li class="flex items-start gap-3">
-                                            <div
-                                                class="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">
-                                                2</div>
-                                            <div>
-                                                <strong class="text-gray-900 block mb-1">賦課金を「買わずに」ゼロへ</strong>
-                                                <span class="text-sm text-gray-600">自分で創った電気には、再エネ賦課金は一切かかりません。</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <p
-                                        class="mt-4 text-blue-900 font-bold border-t border-blue-200 pt-3 text-sm md:text-base">
-                                        「節約」には限界がありますが、太陽光による「自給自足」なら根本から固定費を削れます。
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- セクション締め -->
-                            <div class="mt-12 text-center fade-up delay-300">
-                                <h4
-                                    class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 tracking-tight px-4 leading-relaxed">
-                                    初期費用0円で始める、<br class="sm:hidden">家計を守る新習慣</h4>
-                                <p class="text-gray-700 mb-6 text-sm md:text-base px-6">
-                                    電気代の上昇を放置すると、家計に大きな損害を与えかねません。
-                                </p>
-                                <div class="mb-8 flex justify-center overflow-x-visible">
-                                    <span
-                                        class="inline-flex flex-shrink-0 items-center justify-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[clamp(12px,4vw,32px)] font-bold py-4 md:py-6 rounded-xl md:rounded-2xl shadow-xl w-fit whitespace-nowrap px-5 md:px-12 transition-transform hover:scale-[1.02]">
-                                        『あっと！電化パック太陽光リース』
-                                    </span>
-                                </div>
-                                <p class="text-gray-700 font-bold text-lg md:text-xl px-4 leading-relaxed">
-                                    で、賢く確実な<br class="sm:hidden">家計防衛を始めましょう。
-                                </p>
+                                    class="bg-black text-white text-[10px] font-bold px-3 py-1 tracking-widest">OFFICIAL</span>
+                                <p class="text-xs text-gray-500 font-bold">エネルギア・ソリューション・アンド・サービス特約店</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- Moved CTA Button -->
-                    <div class="mt-8 text-center fade-up delay-300">
-                        <a href="https://www.e-ess.co.jp/service/denka/denkapack/plan_solar/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center px-4 md:px-10 py-3 md:py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap">
-                            詳しいサービス紹介はこちら
-                            <i data-lucide="external-link" class="ml-2 w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Rejoice Biz Features -->
-                <div class="mb-20">
-                    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-                        <div class="order-2 md:order-1 relative">
-                            <div class="absolute -top-4 -left-4 w-24 h-24 bg-rejoice-accent/20 rounded-full blur-2xl">
-                            </div>
-                            <img src="assets/images/solar_flyer.jpg" alt="あっと！電化パック太陽光イメージ"
-                                class="relative z-10 rounded-lg shadow-2xl w-full h-auto object-cover transform md:rotate-2 hover:rotate-0 transition-transform duration-500">
-                        </div>
-                        <div class="order-1 md:order-2">
-                            <h3
-                                class="heading-luxury font-bold mb-8 text-2xl sm:text-3xl md:text-4xl md:whitespace-nowrap">
-                                リジョイス・ビズのこだわり
-                            </h3>
-
-                            <div class="space-y-10">
-                                <div class="flex gap-5">
-                                    <div
-                                        class="flex-shrink-0 w-14 h-14 bg-rejoice-main/10 rounded-full flex items-center justify-center text-rejoice-main">
-                                        <i data-lucide="users" class="w-7 h-7"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-2xl text-gray-900 mb-3">お客様目線のプランニング</h4>
-                                        <p class="text-gray-700 text-lg leading-relaxed">
-                                            家族構成や生活リズムによる電気の使い方は千差万別。現在のライフスタイルだけでなく、将来の変化も見据えた「本当にメリットのあるプラン」を一緒に考えます。
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-5">
-                                    <div
-                                        class="flex-shrink-0 w-14 h-14 bg-rejoice-main/10 rounded-full flex items-center justify-center text-rejoice-main">
-                                        <i data-lucide="check" class="w-7 h-7"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-2xl text-gray-900 mb-3">最適な製品をご提案</h4>
-                                        <p class="text-gray-700 text-lg leading-relaxed">
-                                            メーカーによって異なる特性（形状、価格、変換効率など）を熟知したプロが、設置環境やご予算に合わせてベストな製品を選定・ご提案します。
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Battery & V2H Section -->
-                <div class="mb-32">
-                    <div class="text-center mb-12">
-                        <h3 class="heading-luxury">蓄電池・V2Hでエネルギー自給自足</h3>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-6 md:gap-10">
-                        <!-- Card Battery -->
-                        <div
-                            class="bg-white rounded-2xl shadow-md border border-gray-100 hover:border-green-300 transition-all overflow-hidden group hover:shadow-xl">
-                            <div class="h-48 overflow-hidden relative">
-                                <img src="assets/images/battery_system.png" alt="家庭用蓄電池"
-                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div
-                                    class="absolute bottom-4 left-4 text-white font-bold text-lg flex items-center gap-2">
-                                    <i data-lucide="battery-charging" class="w-5 h-5"></i> 家庭用蓄電池
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <p class="text-sm text-gray-600 leading-relaxed">
-                                    昼間に発電した電気を貯めて、夜間や災害時に活用。AI制御搭載モデルや全負荷型など、ニーズに合わせた最新機種を取り揃えています。
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Card V2H -->
-                        <div
-                            class="bg-white rounded-2xl shadow-md border border-gray-100 hover:border-green-300 transition-all overflow-hidden group hover:shadow-xl">
-                            <div class="h-48 overflow-hidden relative">
-                                <img src="assets/images/v2h_system.png" alt="V2Hシステム"
-                                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div
-                                    class="absolute bottom-4 left-4 text-white font-bold text-lg flex items-center gap-2">
-                                    <i data-lucide="car" class="w-5 h-5"></i> V2H (Vehicle to Home)
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <p class="text-sm text-gray-600 leading-relaxed">
-                                    EVを「走る蓄電池」に。大容量バッテリーを家庭用電源として活用。通常の200V充電より高速充電が可能で、ピークシフトによる節約効果も。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 助成金 Banner -->
-                    <div
-                        class="mt-12 bg-green-50 rounded-2xl p-10 md:p-14 border-2 border-green-200 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 transform hover:scale-[1.01] transition-transform duration-300">
-                        <div class="text-left flex-1">
-                            <h4 class="font-bold text-2xl md:text-3xl text-green-800 flex items-center gap-3 mb-4">
-                                <i data-lucide="info" class="w-8 h-8 md:w-10 md:h-10"></i> 助成金・補助金の活用
-                            </h4>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                国や自治体の補助金を活用すれば、導入コストを大幅に抑えられます。<br>
-                                複雑な申請手続きも私たちがフルサポートしますので、詳しくはお問い合わせください。
+                        <div class="p-10 md:p-20 flex flex-col justify-center bg-white text-center md:text-left">
+                            <p
+                                class="text-xl md:text-3xl font-bold font-sans leading-relaxed mb-8 fade-up text-rejoice-dark">
+                                「あっと！電化パック太陽光」は、<br>
+                                <span
+                                    class="text-rejoice-main underline decoration-rejoice-main/30 underline-offset-8">既築・新築向け住宅用</span>の<br>
+                                <span
+                                    class="text-rejoice-accent underline decoration-rejoice-accent/30 underline-offset-8">リース制度</span>です。
                             </p>
-                        </div>
-                        <a href="https://chikudensystem-donyu.com/" target="_blank" rel="noopener noreferrer"
-                            class="shrink-0 px-6 md:px-10 py-4 md:py-5 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl text-lg md:text-xl flex items-center justify-center gap-2 hover:-translate-y-1 whitespace-nowrap">
-                            助成金の詳細を見る
-                            <i data-lucide="arrow-right-circle" class="w-5 h-5 md:w-6 md:h-6"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Installation Flow Section -->
-                <div class="mb-32 overflow-hidden relative">
-                    <div class="text-center mb-12 relative z-10">
-                        <h3 class="heading-luxury">設置完了までの流れ</h3>
-                        <p class="text-gray-600 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-                            お申込みから設置完了まで、お客様に安心してご利用いただけるよう、丁寧にサポートいたします。
-                        </p>
-                    </div>
-
-                    <div class="w-full mx-auto relative z-10 py-4 max-w-2xl">
-                        <div
-                            class="flex flex-col md:flex-row items-stretch md:items-center gap-4 md:gap-8 justify-center px-4">
-                            <!-- Step 1 -->
-                            <div
-                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
-                                <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
-                                    1
-                                </div>
-                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
-                                    <i data-lucide="clipboard-list" class="w-full h-full"></i>
-                                </div>
-                                <h4
-                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
-                                    お申込み</h4>
-                            </div>
-
-                            <!-- Mobile Arrow (Down) -->
-                            <div class="flex md:hidden items-center justify-center opacity-30">
-                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
-                            </div>
-                            <!-- Desktop Arrow (Right) -->
-                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
-                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div
-                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
-                                <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
-                                    2
-                                </div>
-                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
-                                    <i data-lucide="search" class="w-full h-full"></i>
-                                </div>
-                                <h4
-                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
-                                    建物調査</h4>
-                            </div>
-
-                            <!-- Mobile Arrow (Down) -->
-                            <div class="flex md:hidden items-center justify-center opacity-30">
-                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
-                            </div>
-                            <!-- Desktop Arrow (Right) -->
-                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
-                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div
-                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
-                                <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
-                                    3
-                                </div>
-                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
-                                    <i data-lucide="file-check" class="w-full h-full"></i>
-                                </div>
-                                <h4
-                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
-                                    ご契約</h4>
-                            </div>
-
-                            <!-- Mobile Arrow (Down) -->
-                            <div class="flex md:hidden items-center justify-center opacity-30">
-                                <i data-lucide="chevron-down" class="w-6 h-6 text-green-500"></i>
-                            </div>
-                            <!-- Desktop Arrow (Right) -->
-                            <div class="hidden md:flex items-center justify-center flex-shrink-0 opacity-50">
-                                <i data-lucide="chevron-right" class="w-4 h-4 text-green-500"></i>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div
-                                class="flow-step-card flex flex-row md:flex-col items-center justify-start md:justify-center gap-4 bg-gradient-to-br from-white to-green-50 rounded-xl p-4 md:p-2 shadow-lg w-full md:w-[80px] h-auto md:h-[180px] border border-green-100">
-                                <div
-                                    class="flow-step-number w-10 h-10 md:w-12 md:h-12 text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 relative z-10">
-                                    4
-                                </div>
-                                <div class="w-6 h-6 text-green-600 flex-shrink-0">
-                                    <i data-lucide="hammer" class="w-full h-full"></i>
-                                </div>
-                                <h4
-                                    class="font-bold text-base md:text-sm text-gray-900 md:writing-vertical-rl text-center">
-                                    工事</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-32 text-center px-4">
-                    <h3 class="heading-luxury mb-6">導入効果をシミュレーション</h3>
-                    <p class="text-gray-600 mb-8">簡単な質問に答えるだけで、電気代の削減額をすぐにご確認いただけます。</p>
-
-                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                        <a href="simulation.html" target="_blank"
-                            class="inline-flex items-center justify-center px-4 md:px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto whitespace-nowrap">
-                            <i data-lucide="calculator" class="mr-2 w-4 h-4 md:w-5 md:h-5"></i>
-                            料金シミュレーションを試す
-                        </a>
-                        <a href="contact.html?type=solar"
-                            class="nav-link inline-flex items-center justify-center px-4 md:px-10 py-4 bg-green-600 hover:bg-green-700 text-white rounded-full font-bold text-sm md:text-base shadow-lg transition-transform hover:-translate-y-1 w-full md:w-auto whitespace-nowrap">
-                            詳細な見積もりを依頼する <i data-lucide="arrow-right" class="ml-2 w-4 h-4 md:w-5 md:h-5"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Maintenance Section -->
-                <div class="bg-white border border-gray-100 rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden">
-                    <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-yellow-100/50 rounded-full -mr-16 -mt-16 pointer-events-none">
-                    </div>
-                    <div class="relative z-10">
-                        <div class="flex flex-col md:flex-row items-center gap-8">
-                            <div class="md:w-1/3">
-                                <img src="assets/images/seiso.png" alt="パネル清掃サービス"
-                                    class="w-full h-auto rounded-2xl shadow-sm">
-                            </div>
-                            <div class="md:w-2/3">
-                                <span
-                                    class="inline-block bg-green-100 text-green-600 text-xs font-bold px-3 py-1 rounded-full mb-4">パネル清掃サービス</span>
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 font-feature-settings-palt">
-                                    設置したあとの安心を。<br class="hidden md:block">長く使い続けるための「パネル清掃サービス」のご案内。
-                                </h3>
-                                <p class="text-gray-600 leading-relaxed mb-4 text-justify">
-                                    太陽光パネルは、これからの暮らしを支える大切な資産です。その優れた発電性能を20年、30年と維持していくためには、設置したあとの「定期的なケア」が欠かせません。
-                                </p>
-                                <p class="text-gray-600 leading-relaxed mb-4 text-justify">
-                                    屋根の上で毎日発電し続けるパネルには、どうしても砂埃や花粉、鳥のフンなどの汚れが蓄積してしまいます。こうした汚れは、放っておくと発電効率を低下させるだけでなく、パネルの寿命を縮める原因にもなりかねません。
-                                </p>
-                                <p class="text-gray-600 leading-relaxed mb-4 text-justify">
-                                    当社では、設置後の安心をサポートするために、専門スタッフによる「パネル清掃サービス（有料）」を提供しております。
-                                </p>
-                                <p class="text-gray-600 leading-relaxed mb-6 text-justify">
-                                    「設置してから一度も掃除していない」「効率良く発電できているか心配」という方は、ぜひ一度ご相談ください。プロの手によるクリーニングで、本来の輝きと発電力を取り戻し、末永い安心をお届けします。
-                                </p>
-                                <a href="contact.html?type=other"
-                                    class="inline-flex items-center text-green-600 font-bold hover:underline">
-                                    清掃サービスについて相談する <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                            <p class="text-sm md:text-base text-gray-600 leading-loose fade-up delay-100 font-medium">
+                                初期費用の負担がなく、太陽光で自家発電・自家消費することで、普段の電気代を賢く節約できます。<br><br>
+                                私たちは、中国電力グループ会社「株式会社エネルギア・ソリューション・アンド・サービス」の特約店として、確かな品質とサポートをお届けします。
+                            </p>
+                            <div class="mt-12 flex flex-wrap gap-4 justify-center md:justify-start">
+                                <a href="https://www.e-ess.co.jp/solar_lease/area.html#scroll8_s82" target="_blank"
+                                    class="px-8 py-3 bg-rejoice-main text-white text-xs font-bold rounded-full hover:bg-black transition-all shadow-lg shadow-rejoice-main/20 flex items-center gap-2">
+                                    対象エリアを確認する <i data-lucide="map-pin" class="w-4 h-4"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </section>
 
-    <!-- Contact Section -->
-    <div id="contact-section" class="bg-gradient-deep-blue text-white py-24 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl opacity-20 -mr-32 -mt-32">
-        </div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500 rounded-full blur-3xl opacity-20 -ml-32 -mb-32">
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
-            <h3 class="text-3xl font-serif font-bold mb-6">お問い合わせ</h3>
-            <p class="text-blue-100 mb-12">
-                サービスに関するご質問やご相談など、お気軽にお問い合わせください。<br>
-                担当者が丁寧にご案内いたします。
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- 3. Feature Bento Grid (Business Area - Dark Mode Reveal) -->
+        <section class="bg-rejoice-dark text-white py-24 overflow-hidden relative">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-400 transition-all duration-300">
-                    <i data-lucide="phone" class="w-8 h-8 mx-auto mb-4 text-blue-300"></i>
-                    <h4 class="text-xl font-bold mb-2">お電話でのお問い合わせ</h4>
-                    <p class="text-gray-300 text-sm mb-4">受付時間 10:00～18:00 ※土日祝除く</p>
-                    <a href="tel:0929838558"
-                        class="text-3xl font-eng font-bold hover:text-blue-300 transition-colors">092-983-8558</a>
+                    class="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 gap-8 text-center md:text-left">
+                    <div>
+                        <span class="text-xs font-bold tracking-[0.2em] text-rejoice-main block mb-4">KEY
+                            FEATURES</span>
+                        <h2 class="text-5xl md:text-7xl font-bold font-sans tracking-tight">3つの安心。</h2>
+                    </div>
+                    <p class="text-white/40 text-sm md:text-base max-w-sm leading-relaxed">
+                        高額な購入費用は不要。<br>リースならではのメリットで、失敗しない太陽光選びを。
+                    </p>
                 </div>
+
+                <!-- Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Feature 1 -->
+                    <div
+                        class="col-span-1 md:col-span-1 bg-white/[0.03] border border-white/10 p-10 rounded-3xl group hover:bg-rejoice-main transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-rejoice-main group-hover:bg-white text-white group-hover:text-rejoice-main rounded-2xl flex items-center justify-center mb-10 transition-colors">
+                            <i data-lucide="wallet" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 font-serif">
+                            初期費用<span class="text-4xl mx-1 text-rejoice-main group-hover:text-white">0</span>円
+                        </h3>
+                        <p class="text-sm text-white/60 group-hover:text-white/80 leading-relaxed">
+                            高額なシステム購入費用は不要。月々の定額リース料金だけで始められるため、家計への負担を最小限に抑えられます。
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div
+                        class="col-span-1 md:col-span-1 bg-white/[0.03] border border-white/10 p-10 rounded-3xl group hover:bg-rejoice-main transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-rejoice-main group-hover:bg-white text-white group-hover:text-rejoice-main rounded-2xl flex items-center justify-center mb-10 transition-colors">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 font-serif">無料修理保証付き</h3>
+                        <p class="text-sm text-white/60 group-hover:text-white/80 leading-relaxed">
+                            リース期間中は自然故障に対する無料修理保証が付いているため、万が一のトラブルでも安心です。
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div
+                        class="col-span-1 md:col-span-1 bg-white/[0.03] border border-white/10 p-10 rounded-3xl group hover:bg-rejoice-main transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-rejoice-main group-hover:bg-white text-white group-hover:text-rejoice-main rounded-2xl flex items-center justify-center mb-10 transition-colors">
+                            <i data-lucide="gift" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 font-serif">自分のものに</h3>
+                        <p class="text-sm text-white/60 group-hover:text-white/80 leading-relaxed">
+                            10年間のリース契約終了後は、メーカー保証を残したままお客様にシステムを無償譲渡いたします。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
                 <div
-                    class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-green-400 transition-all duration-300">
-                    <i data-lucide="mail" class="w-8 h-8 mx-auto mb-4 text-green-300"></i>
-                    <h4 class="text-xl font-bold mb-2">Webからのお問い合わせ</h4>
-                    <p class="text-gray-300 text-sm mb-4">24時間受付中</p>
-                    <a href="contact.html"
-                        class="inline-block px-8 py-3 bg-gradient-green hover:shadow-lg hover:shadow-green-500/30 rounded-lg font-bold text-white transition-all transform hover:-translate-y-1">
-                        お問い合わせフォーム
+                    class="mt-20 pt-20 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="flex items-center gap-8">
+                        <div class="text-center md:text-left">
+                            <p class="text-xs text-white/40 tracking-widest mb-1">ACHIEVEMENT</p>
+                            <p class="text-3xl md:text-5xl font-bold font-eng">
+                                導入実績 <span class="text-rejoice-main mx-2">2,000+</span> 件
+                            </p>
+                        </div>
+                        <div class="w-px h-12 bg-white/10 hidden md:block"></div>
+                        <div class="text-center md:text-left">
+                            <p class="text-xs text-white/40 tracking-widest mb-1">PARTNER STATUS</p>
+                            <p class="text-xl md:text-2xl font-bold">特約店認定 全国No.1</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="simulation.html"
+                            class="px-10 py-4 bg-white text-black text-xs font-bold rounded-full hover:bg-rejoice-main hover:text-white transition-all">
+                            料金シミュレーション
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Lines Decoration -->
+            <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+                <div class="grid grid-cols-6 h-full border-l border-white/10">
+                    <div class="border-r border-white/10"></div>
+                    <div class="border-r border-white/10"></div>
+                    <div class="border-r border-white/10"></div>
+                    <div class="border-r border-white/10"></div>
+                    <div class="border-r border-white/10"></div>
+                    <div class="border-r border-white/10"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Data Section (Plaid V2 Style - Why Solar?) -->
+        <section class="border-b border-gray-200 bg-white relative">
+            <div class="flex flex-col md:flex-row">
+                <!-- Sticky Indicator -->
+                <div
+                    class="w-full md:w-24 lg:w-32 border-b md:border-b-0 md:border-r border-gray-200 relative bg-white z-20">
+                    <div
+                        class="sticky top-24 h-auto md:h-[calc(100vh-6rem)] flex items-center justify-center py-6 md:py-0">
+                        <span class="text-xs font-bold tracking-[0.3em] side-heading text-black">WHY SOLAR?</span>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="flex-1 overflow-hidden">
+                    <!-- Title Area -->
+                    <div
+                        class="p-10 md:p-24 bg-red-50/30 border-b border-gray-200 text-center md:text-left flex flex-col items-center md:items-start">
+                        <div class="max-w-4xl">
+                            <span
+                                class="bg-rejoice-red text-white text-[10px] font-bold px-3 py-1 tracking-widest mb-6 inline-block">CRITICAL
+                                ISSUE</span>
+                            <h2 class="text-4xl md:text-6xl font-bold font-sans tracking-tighter fade-up mb-8">
+                                電気代は、<br>
+                                <span class="text-rejoice-red">上がり続けています。</span>
+                            </h2>
+                            <p class="text-lg text-gray-700 leading-relaxed max-w-2xl fade-up delay-100 font-medium">
+                                世界情勢の変化や燃料価格の高騰により、家計への負担は右肩上がり。<br>
+                                もはや回避できない「固定費の増大」にどう立ち向かうか。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Bento -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <!-- Chart 1: Electricity Bill -->
+                        <div class="p-10 md:p-16 border-b lg:border-b-0 border-r border-gray-200 bg-white">
+                            <div class="flex items-center justify-between mb-10">
+                                <h4 class="text-lg font-bold">標準的な家庭の電気代推移</h4>
+                                <span class="text-[10px] font-bold text-gray-400">UNIT: YEN / MONTH</span>
+                            </div>
+                            <div class="relative h-64 md:h-80 w-full">
+                                <canvas id="elecChart"></canvas>
+                            </div>
+                        </div>
+                        <!-- Chart 2: Surcharge -->
+                        <div class="p-10 md:p-16 bg-white">
+                            <div class="flex items-center justify-between mb-10">
+                                <h4 class="text-lg font-bold">再エネ賦課金の推移</h4>
+                                <span class="text-[10px] font-bold text-gray-400">UNIT: YEN / KWH</span>
+                            </div>
+                            <div class="relative h-64 md:h-80 w-full">
+                                <canvas id="surchargeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insight Block -->
+                    <div class="p-10 md:p-24 bg-rejoice-dark text-white">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                                <div class="flex items-center gap-4 mb-8">
+                                    <div
+                                        class="w-12 h-12 bg-rejoice-main/20 border border-rejoice-main/30 rounded-full flex items-center justify-center text-rejoice-main">
+                                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold">「再エネ賦課金」の正体。</h4>
+                                </div>
+                                <p class="text-sm text-white/50 leading-loose">
+                                    電気を使えば使うほど、自動的に増え続ける賦課金。<br>
+                                    電力会社から電気を買う限り、この支出から逃れることはできません。
+                                </p>
+                            </div>
+                            <div
+                                class="pl-0 md:pl-10 border-l-0 md:border-l border-white/10 group text-center md:text-left">
+                                <h4
+                                    class="text-2xl font-bold text-rejoice-main mb-6 group-hover:translate-x-2 transition-transform">
+                                    だからこそ、「エネルギー自給自足」が最強の自衛策。
+                                </h4>
+                                <div class="space-y-4 inline-block md:block">
+                                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-rejoice-main text-black flex items-center justify-center text-[10px] font-black italic group-hover:rotate-12 transition-transform">
+                                            01</div>
+                                        <p class="text-sm font-bold">電気代を「創って」減らす。 (購入量削減)</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-rejoice-main text-black flex items-center justify-center text-[10px] font-black italic group-hover:-rotate-12 transition-transform">
+                                            02</div>
+                                        <p class="text-sm font-bold">賦課金を「買わずに」ゼロへ。 (課金対象外)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Callout -->
+                    <div class="p-10 md:p-20 text-center bg-gray-50 border-t border-gray-200">
+                        <h3 class="text-xl sm:text-3xl font-bold mb-8 tracking-tighter">
+                            初期費用0円で始める、家計を守る新習慣。
+                        </h3>
+                        <div class="mb-10 flex justify-center">
+                            <span
+                                class="inline-block bg-white border border-gray-200 shadow-xl px-10 py-6 rounded-2xl text-2xl md:text-4xl font-black text-rejoice-main tracking-tighter fade-up">
+                                『あっと！電化パック太陽光リース』
+                            </span>
+                        </div>
+                        <a href="https://www.e-ess.co.jp/service/denka/denkapack/plan_solar/" target="_blank"
+                            class="inline-flex items-center gap-4 text-xs font-bold tracking-[0.2em] group">
+                            VIEW SERVICE DETAIL <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Commit Section (Rejoice Passion) -->
+        <section class="py-24 bg-white relative">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-20 items-center">
+                    <div class="relative fade-up">
+                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-rejoice-main/5 rounded-full blur-3xl"></div>
+                        <img src="assets/images/solar_flyer.jpg" alt="リジョイス・ビズのこだわり"
+                            class="relative z-10 w-full h-auto rounded-[40px] shadow-2xl grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute -bottom-6 -right-6 bg-rejoice-main text-white p-8 rounded-full shadow-2xl z-20 hidden lg:block">
+                            <p class="text-xs font-bold tracking-widest mb-1">CRAFTMANSHIP</p>
+                            <p class="text-2xl font-serif font-black">こだわり。</p>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">REJOICE
+                            COMMITMENT</span>
+                        <h2 class="text-5xl md:text-7xl font-bold font-sans tracking-tighter mb-12">
+                            プロとしての<br>
+                            責任。
+                        </h2>
+
+                        <div class="space-y-12 inline-block md:block">
+                            <div class="flex flex-col md:flex-row gap-8 group">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 border border-black/10 rounded-full flex items-center justify-center font-eng italic text-sm group-hover:bg-rejoice-main group-hover:text-white group-hover:border-transparent transition-all mx-auto md:mx-0">
+                                    01</div>
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-4">お客様目線のプランニング</h4>
+                                    <p class="text-gray-500 text-sm leading-loose">
+                                        現在のライフスタイルだけでなく、将来の変化も見据えた「本当にメリットのあるプラン」を一緒に考えます。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-8 group">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 border border-black/10 rounded-full flex items-center justify-center font-eng italic text-sm group-hover:bg-rejoice-main group-hover:text-white group-hover:border-transparent transition-all mx-auto md:mx-0">
+                                    02</div>
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-4">最適な製品をご提案</h4>
+                                    <p class="text-gray-500 text-sm leading-loose">
+                                        メーカーごとの特性を熟知したプロが、設置環境やご予算に合わせてベストな製品を選定・ご提案します。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Storage & V2H (Bento Layout) -->
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <!-- Section Title -->
+                <div class="text-center mb-20">
+                    <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">VALUE ADDED</span>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter">エネルギーは、貯める時代へ。</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                    <!-- Storage -->
+                    <a href="#" class="relative h-[500px] rounded-3xl overflow-hidden group">
+                        <img src="assets/images/battery_system.png"
+                            class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-110 transition-transform duration-1000 group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 p-10 flex flex-col justify-end">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i data-lucide="battery-charging" class="w-8 h-8 text-rejoice-main"></i>
+                                <h3 class="text-3xl font-bold text-white">家庭用蓄電池</h3>
+                            </div>
+                            <p
+                                class="text-white/60 text-sm leading-relaxed max-w-md group-hover:text-white transition-colors">
+                                昼間に発電した電気を貯めて、夜間や災害時に活用。AI制御搭載モデルや全負荷型など、最新機種を取り揃えています。
+                            </p>
+                        </div>
+                    </a>
+                    <!-- V2H -->
+                    <a href="#" class="relative h-[500px] rounded-3xl overflow-hidden group">
+                        <img src="assets/images/v2h_system.png"
+                            class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-110 transition-transform duration-1000 group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                        <div class="absolute inset-0 p-10 flex flex-col justify-end text-center md:text-left">
+                            <div class="flex flex-col md:flex-row items-center gap-3 mb-4">
+                                <i data-lucide="car" class="w-8 h-8 text-rejoice-main"></i>
+                                <h3 class="text-3xl font-bold text-white">V2H システム</h3>
+                            </div>
+                            <p
+                                class="text-white/60 text-sm leading-relaxed max-w-md group-hover:text-white transition-colors">
+                                EVを「走る蓄電池」に。家の大容量バッテリーとして活用。高速充電やピークシフトによる節約効果も。
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Subsidy Banner -->
+                <div
+                    class="bg-rejoice-main p-10 md:p-14 rounded-[40px] text-white flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl shadow-rejoice-main/30 fade-up">
+                    <div class="max-w-2xl text-center md:text-left">
+                        <h4
+                            class="text-2xl md:text-3xl font-bold mb-4 flex flex-col md:flex-row items-center gap-4 italic font-sans">
+                            <i data-lucide="help-circle" class="w-10 h-10"></i> 助成金・補助金をフル活用。
+                        </h4>
+                        <p class="text-emerald-50 text-base leading-relaxed font-medium">
+                            国や自治体の補助金を活用すれば、導入コストを大幅に抑えられます。<br>
+                            複雑な申請手続きも私たちがフルサポートしますので、詳しくはお問い合わせください。
+                        </p>
+                    </div>
+                    <a href="https://chikudensystem-donyu.com/" target="_blank"
+                        class="px-12 py-5 bg-white text-rejoice-main font-black text-sm rounded-full hover:scale-105 transition-transform shadow-xl">
+                        助成金の詳細を見る
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 text-gray-600 py-16 border-t border-gray-200">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-                <div class="flex flex-col gap-4">
-                    <div class="flex items-center gap-3">
-                        <img src="assets/images/logo.png" alt="Rejoice Biz Logo"
-                            class="h-10 w-auto object-contain brightness-0 opacity-80">
-                        <span class="text-xl font-bold tracking-tight text-gray-800">Rejoice Biz</span>
+        <!-- 7. Flow & Maintenance (Plaid V2 Style) -->
+        <section class="border-b border-gray-200 bg-white relative">
+            <div class="flex flex-col md:flex-row">
+                <!-- Sticky Indicator -->
+                <div
+                    class="w-full md:w-24 lg:w-32 border-b md:border-b-0 md:border-r border-gray-200 relative bg-white z-20">
+                    <div
+                        class="sticky top-24 h-auto md:h-[calc(100vh-6rem)] flex items-center justify-center py-6 md:py-0">
+                        <span class="text-xs font-bold tracking-[0.3em] side-heading text-black">PROCESS & CARE</span>
                     </div>
-                    <p class="text-sm leading-relaxed">
+                </div>
+
+                <!-- Content Area -->
+                <div class="flex-1">
+                    <!-- Process Area -->
+                    <div class="p-10 md:p-24 border-b border-gray-200">
+                        <div class="text-center mb-16">
+                            <h3 class="text-4xl font-black mb-4">設置完了までの流れ</h3>
+                            <p class="text-gray-500 text-sm italic">Sraight Path To Energy Freedom</p>
+                        </div>
+
+                        <div
+                            class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-10">
+                            <!-- Step 1 -->
+                            <div
+                                class="flex-1 bg-gray-50 p-8 rounded-3xl border border-black/5 hover:border-rejoice-main transition-colors text-center">
+                                <span
+                                    class="font-eng font-bold text-rejoice-main text-xs block mb-4 italic opacity-50">STEP
+                                    01</span>
+                                <div
+                                    class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                    <i data-lucide="clipboard-list" class="w-5 h-5 text-rejoice-main"></i>
+                                </div>
+                                <h4 class="font-bold text-lg mb-4">お申込み</h4>
+                            </div>
+                            <i data-lucide="chevron-right"
+                                class="w-6 h-6 text-black/10 hidden md:block self-center"></i>
+                            <!-- Step 2 -->
+                            <div
+                                class="flex-1 bg-gray-50 p-8 rounded-3xl border border-black/5 hover:border-rejoice-main transition-colors text-center">
+                                <span
+                                    class="font-eng font-bold text-rejoice-main text-xs block mb-4 italic opacity-50">STEP
+                                    02</span>
+                                <div
+                                    class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                    <i data-lucide="search" class="w-5 h-5 text-rejoice-main"></i>
+                                </div>
+                                <h4 class="font-bold text-lg mb-4">建物調査</h4>
+                            </div>
+                            <i data-lucide="chevron-right"
+                                class="w-6 h-6 text-black/10 hidden md:block self-center"></i>
+                            <!-- Step 3 -->
+                            <div
+                                class="flex-1 bg-gray-50 p-8 rounded-3xl border border-black/5 hover:border-rejoice-main transition-colors text-center">
+                                <span
+                                    class="font-eng font-bold text-rejoice-main text-xs block mb-4 italic opacity-50">STEP
+                                    03</span>
+                                <div
+                                    class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                    <i data-lucide="file-check" class="w-5 h-5 text-rejoice-main"></i>
+                                </div>
+                                <h4 class="font-bold text-lg mb-4">ご契約</h4>
+                            </div>
+                            <i data-lucide="chevron-right"
+                                class="w-6 h-6 text-black/10 hidden md:block self-center"></i>
+                            <!-- Step 4 -->
+                            <div
+                                class="flex-1 bg-gray-50 p-8 rounded-3xl border border-black/5 hover:border-rejoice-main transition-colors text-center">
+                                <span
+                                    class="font-eng font-bold text-rejoice-main text-xs block mb-4 italic opacity-50">STEP
+                                    04</span>
+                                <div
+                                    class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                                    <i data-lucide="hammer" class="w-5 h-5 text-rejoice-main"></i>
+                                </div>
+                                <h4 class="font-bold text-lg mb-4">工事</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Maintenance Area (Panel Cleaning) -->
+                    <div class="p-10 md:p-24 bg-white relative group overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 w-1/3 h-full bg-rejoice-main/5 translate-x-1/2 rounded-full blur-3xl group-hover:bg-rejoice-main/10 transition-colors">
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-20 items-center relative z-10">
+                            <div class="order-2 md:order-1">
+                                <img src="assets/images/seiso.png"
+                                    class="w-full h-auto rounded-3xl shadow-xl grayscale-0 md:grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 md:rotate-2 group-hover:rotate-0">
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <span
+                                    class="inline-block bg-rejoice-main/10 text-rejoice-main text-[10px] font-bold px-3 py-1 tracking-widest mb-6 uppercase">Maintenance</span>
+                                <h3 class="text-3xl md:text-4xl font-black tracking-tighter mb-8 leading-tight">
+                                    長く使い続けるための<br>「パネル清掃サービス」。
+                                </h3>
+                                <div class="space-y-6 text-sm text-gray-500 leading-relaxed font-medium">
+                                    <p>太陽光パネルは、これからの暮らしを支える大切な資産です。発電性能を長く維持するためには、「定期的なケア」が欠かせません。</p>
+                                    <p>屋根の上で毎日発電し続けるパネルには、砂埃や花粉、鳥のフンなどが蓄積します。これらは発電効率を低下させ、パネルの寿命を縮める原因にもなります。</p>
+                                    <p>専門スタッフによる「パネル清掃サービス（有料）」を提供しております。「一度も掃除してない」「心配だ」という方は、ぜひ一度ご相談ください。</p>
+                                </div>
+                                <a href="contact.html?type=other"
+                                    class="mt-10 inline-flex items-center gap-3 text-xs font-bold tracking-[0.2em] group border-b border-black/10 pb-2 hover:border-rejoice-main transition-colors">
+                                    CONSULT ABOUT CLEANING <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Contact Section (Premium Style) -->
+    <section class="py-24 bg-rejoice-dark text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000')] bg-cover bg-center">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-rejoice-dark via-rejoice-dark/95 to-rejoice-dark/80"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-20">
+                    <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">GET IN TOUCH</span>
+                    <h2 class="text-5xl md:text-7xl font-bold font-sans tracking-tighter mb-8">お問い合わせ。</h2>
+                    <p class="text-white/50 text-base leading-relaxed max-w-2xl mx-auto">
+                        サービスに関するご質問やご相談、お見積りの依頼など<br>
+                        担当者が丁寧にご案内いたします。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div
+                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center hover:bg-white/10 transition-colors group">
+                        <div
+                            class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform">
+                            <i data-lucide="phone" class="w-8 h-8 text-rejoice-main"></i>
+                        </div>
+                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">Business Hours:
+                            10:00 - 18:00</p>
+                        <a href="tel:0929838558"
+                            class="text-3xl md:text-4xl font-eng font-bold hover:text-rejoice-main transition-colors">092-983-8558</a>
+                    </div>
+                    <div
+                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center hover:bg-white/10 transition-colors group">
+                        <div
+                            class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:-rotate-12 transition-transform">
+                            <i data-lucide="mail" class="w-8 h-8 text-rejoice-main"></i>
+                        </div>
+                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-6 uppercase">Available 24/7</p>
+                        <a href="contact.html?type=solar"
+                            class="inline-block px-12 py-5 bg-rejoice-main text-white font-black text-xs rounded-full hover:scale-105 transition-all">
+                            お問い合わせフォームへ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-white text-rejoice-dark pt-20 pb-10 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-20">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="assets/images/logo.png" alt="Rejoice Biz"
+                            class="h-8 w-auto object-contain brightness-0 opacity-80">
+                        <span class="font-eng font-bold text-2xl tracking-tighter text-black">REJOICE BIZ</span>
+                    </div>
+                    <p class="text-sm text-gray-500 leading-relaxed">
                         株式会社リジョイス・ビズ<br>
                         〒812-0029 福岡県福岡市博多区古門戸町1-10<br>
                         NTF博多ビル5F
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium tracking-wide">
-                    <a href="index.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>トップ</span>
-                    </a>
-                    <a href="company.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>会社概要</span>
-                    </a>
-                    <a href="service-solar.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>太陽光・蓄電池</span>
-                    </a>
-                    <a href="service-reform.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>住宅リフォーム</span>
-                    </a>
-                    <a href="service-air.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>業務用エアコン</span>
-                    </a>
-                    <a href="service-internet.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>通信・新電力</span>
-                    </a>
-                    <a href="recruit.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>採用</span>
-                    </a>
-                    <a href="contact.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>お問い合わせ</span>
-                    </a>
+                <div class="grid grid-cols-2 gap-x-12 gap-y-4 mt-10 md:mt-0 text-sm font-bold text-gray-500">
+                    <a href="index.html" class="hover:text-black transition-colors">トップ</a>
+                    <a href="company.html" class="hover:text-black transition-colors">会社概要</a>
+                    <a href="#services-section" class="hover:text-black transition-colors">事業内容</a>
+                    <a href="recruit.html" class="hover:text-black transition-colors">採用情報</a>
+                    <a href="news.html" class="hover:text-black transition-colors">ニュース</a>
+                    <a href="contact.html" class="hover:text-black transition-colors">お問い合わせ</a>
                 </div>
             </div>
             <div
-                class="mt-16 pt-8 border-t border-gray-200 text-center text-xs text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p>&copy; Rejoice Biz Co., Ltd. All Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="privacy-policy.html" class="hover:text-gray-600">Privacy Policy</a>
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                <p>&copy; 2026 Rejoice Biz Co., Ltd. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-black transition-colors">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        lucide.createIcons();
-
-        // Chart Initialization
         document.addEventListener('DOMContentLoaded', () => {
-            const commonOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    x: {
-                        grid: { display: false },
-                        ticks: {
-                            font: { size: window.innerWidth < 768 ? 10 : 12 },
-                            callback: function (val, index) {
-                                const label = this.getLabelForValue(val);
-                                // Mobile: Only every 2 years
-                                if (window.innerWidth < 768) {
-                                    const year = parseInt(label);
-                                    return year % 2 === 0 ? label : '';
-                                }
-                                return label;
-                            }
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        grid: { borderDash: [2, 2], color: '#e5e7eb' },
-                        ticks: {
-                            font: { size: window.innerWidth < 768 ? 10 : 12 },
-                            callback: function (value) {
-                                if (this.chart.canvas.id === 'elecChart') {
-                                    return value.toLocaleString() + '円';
-                                }
-                                return value + '円';
-                            }
-                        }
-                    }
-                }
-            };
-
-            const labels = ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
-
-            // Electricity Cost Chart
-            const elecCtx = document.getElementById('elecChart');
-            if (elecCtx) {
-                new Chart(elecCtx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            data: [8600, 9100, 9300, 10200, 11500, 13200, 14800, 16500],
-                            borderColor: '#f97316',
-                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.4,
-                            pointRadius: 4,
-                            pointBackgroundColor: '#f97316'
-                        }]
-                    },
-                    options: commonOptions
-                });
-            }
-
-            // Renewable Surcharge Chart
-            const surchargeCtx = document.getElementById('surchargeChart');
-            if (surchargeCtx) {
-                new Chart(surchargeCtx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            data: [2.64, 2.90, 2.95, 2.98, 3.36, 3.45, 1.40, 3.49],
-                            borderColor: '#eab308',
-                            backgroundColor: 'rgba(234, 179, 8, 0.1)',
-                            borderWidth: 3,
-                            fill: true,
-                            tension: 0.4,
-                            pointRadius: 4,
-                            pointBackgroundColor: '#eab308'
-                        }]
-                    },
-                    options: commonOptions
-                });
-            }
-
-            // Header Scroll Effect
-            const header = document.getElementById('main-header');
-            const handleScroll = () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            };
-            window.addEventListener('scroll', handleScroll);
-            handleScroll();
+            lucide.createIcons();
 
             // Mobile Menu
             const menuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
+
             if (menuBtn && mobileMenu) {
-                const toggleMenu = () => {
+                menuBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                     const isOpen = !mobileMenu.classList.contains('hidden');
                     menuBtn.innerHTML = isOpen
-                        ? '<i data-lucide="x" class="w-8 h-8 text-gray-800"></i>'
-                        : '<i data-lucide="menu" class="w-8 h-8"></i>';
+                        ? '<i data-lucide="x" class="w-8 h-8 text-black"></i>'
+                        : '<i data-lucide="menu" class="w-8 h-8 text-white mix-blend-difference"></i>';
                     lucide.createIcons();
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                };
-                menuBtn.addEventListener('click', toggleMenu);
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (!mobileMenu.classList.contains('hidden')) toggleMenu();
-                    });
                 });
             }
 
-            // Fade Up Animation
-            const fadeObserver = new IntersectionObserver((entries) => {
+            // Scroll Header Effect
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.remove('text-white', 'border-white/10', 'mix-blend-difference');
+                } else {
+                    header.classList.remove('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.add('text-white', 'border-white/10', 'mix-blend-difference');
+                }
+            });
+
+            // Fade Up Animation (Observer)
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-up').forEach((el) => {
-                fadeObserver.observe(el);
-            });
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+            // --- Chart Rendering Logic (Premium Styling) ---
+
+            // Electricity Chart
+            const ctxElec = document.getElementById('elecChart');
+            if (ctxElec) {
+                new Chart(ctxElec, {
+                    type: 'line',
+                    data: {
+                        labels: ['2021', '2022', '2023', '2024'],
+                        datasets: [{
+                            label: 'Monthly Cost (Yen)',
+                            data: [7500, 8800, 9500, 10800],
+                            borderColor: '#dc2626', // Red for rise
+                            backgroundColor: 'rgba(220, 38, 38, 0.05)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 6,
+                            pointHoverRadius: 8,
+                            pointBackgroundColor: '#fff',
+                            pointBorderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { grid: { display: false }, ticks: { font: { weight: 'bold' } } },
+                            y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { weight: 'bold' } } }
+                        }
+                    }
+                });
+            }
+
+            // Surcharge Chart
+            const ctxSurcharge = document.getElementById('surchargeChart');
+            if (ctxSurcharge) {
+                new Chart(ctxSurcharge, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2012', '2016', '2020', '2023', '2024'],
+                        datasets: [{
+                            label: 'Surcharge (Yen/kWh)',
+                            data: [0.22, 2.25, 2.98, 1.40, 3.49],
+                            backgroundColor: '#10B981',
+                            borderRadius: 12,
+                            barThickness: 32
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { grid: { display: false }, ticks: { font: { weight: 'bold' } } },
+                            y: { grid: { color: 'rgba(0,0,0,0.05)' }, border: { dash: [4, 4] } }
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>

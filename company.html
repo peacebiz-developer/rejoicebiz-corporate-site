@@ -15,8 +15,8 @@
                         rejoice: {
                             main: '#0d9488', // Teal-600
                             accent: '#f59e0b', // Amber-500
-                            dark: '#111827', // Gray-900
-                            red: '#dc2626', // Red-600 (For accents)
+                            dark: '#111111', // Rich Black
+                            gray: '#f9f9f9', // Near white
                         }
                     },
                     fontFamily: {
@@ -32,444 +32,640 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;500;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: #333;
-            letter-spacing: 0.05em;
+        /* Custom Styles for Professional Layout */
+        .text-huge {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
         }
 
-        /* Typography Utils */
-        .font-eng {
-            font-family: 'Outfit', sans-serif;
+        .vertical-text {
+            writing-mode: vertical-rl;
         }
 
-        /* Animation */
+        /* Hero Image Pan */
+        .hero-zoom {
+            animation: zoomOut 20s infinite alternate;
+        }
+
+        @keyframes zoomOut {
+            from {
+                transform: scale(1.1);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        /* History Line */
+        .history-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #e5e7eb;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .history-line::before {
+                left: 20px;
+            }
+        }
+
+        /* Fade Up */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .fade-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .delay-100 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-200 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-300 {
-            transition-delay: 0.3s;
-        }
-
-        /* Hero */
-        .hero-bg {
-            animation: scaleSlow 20s infinite alternate;
-        }
-
-        @keyframes scaleSlow {
-            from {
-                transform: scale(1);
-            }
-
-            to {
-                transform: scale(1.1);
-            }
-        }
     </style>
 </head>
 
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body class="bg-white text-rejoice-dark flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header id="main-header" class="header-luxury fixed w-full top-0 left-0 z-[70] transition-all duration-500">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group nav-link flex items-center gap-3 relative z-50">
+    <header id="main-header"
+        class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 border-b border-white/10 mix-blend-difference text-white">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 z-50">
                 <img src="assets/images/logo.png" alt="Rejoice Biz"
-                    class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
-                <span class="text-xl md:text-2xl font-bold tracking-tight nav-text">Rejoice Biz</span>
+                    class="h-10 w-auto object-contain brightness-0 invert">
+                <span class="font-eng font-bold text-2xl tracking-tighter">REJOICE BIZ</span>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 focus:outline-none z-50" aria-label="メニューを開く">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center space-x-8 font-medium tracking-wide text-sm">
-                <a href="index.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">トップ</span>
-                </a>
-                <a href="company.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">会社概要</span>
-                </a>
-                <div class="relative group">
-                    <button class="nav-text hover:opacity-70 flex flex-col items-center focus:outline-none py-2">
-                        <span class="text-xs font-bold mt-1 inline-flex items-center gap-1">事業内容 <i
-                                data-lucide="chevron-down" class="w-3 h-3"></i></span>
-                    </button>
-                    <!-- Dropdown -->
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 mt-0 w-64 bg-white rounded-none shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-rejoice-main">
-                        <a href="service-solar.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            太陽光・蓄電池
-                        </a>
-                        <a href="service-reform.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            住宅リフォーム
-                        </a>
-                        <a href="service-air.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            業務用エアコン
-                        </a>
-                        <a href="service-internet.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors">
-                            通信・新電力
-                        </a>
-                    </div>
+            <nav class="hidden lg:flex items-center space-x-10 font-sans text-xs font-bold tracking-wide">
+                <a href="company.html" class="text-rejoice-main">会社概要</a>
+                <!-- Expanded Service Links -->
+                <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
+                    <a href="service-solar.html" class="hover:text-rejoice-main transition-colors">太陽光</a>
+                    <a href="service-reform.html" class="hover:text-rejoice-main transition-colors">リフォーム</a>
+                    <a href="service-air.html" class="hover:text-rejoice-main transition-colors">空調</a>
+                    <a href="service-internet.html" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
                 </div>
-                <a href="recruit.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">採用</span>
-                </a>
+                <a href="recruit.html" class="hover:opacity-50 transition-opacity">採用情報</a>
+                <a href="news.html" class="hover:opacity-50 transition-opacity">ニュース</a>
                 <a href="contact.html"
-                    class="nav-link bg-red-600 text-white px-8 py-2 rounded-full hover:bg-red-700 transition-all transform hover:-translate-y-1 shadow-lg flex flex-col items-center leading-none">
-                    <span class="text-xs font-bold">お問い合わせ</span>
+                    class="px-6 py-2 border border-current rounded-full hover:bg-white hover:text-black transition-all">
+                    お問い合わせ
                 </a>
             </nav>
-        </div>
 
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden z-50">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Mobile Nav Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="hidden md:hidden fixed inset-0 bg-white z-[60] flex flex-col pt-24 px-6 space-y-6 overflow-y-auto">
-        <a href="index.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>トップ</span>
-        </a>
-        <a href="company.html"
-            class="mobile-link text-2xl font-bold text-rejoice-main border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>会社概要</span>
-        </a>
-        <div class="space-y-4">
-            <span class="text-xs font-bold text-gray-900 tracking-widest uppercase">事業内容</span>
-            <a href="service-solar.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-main">太陽光・蓄電池</a>
-            <a href="service-reform.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-red">住宅リフォーム</a>
-            <a href="service-air.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-blue-500">業務用エアコン</a>
-            <a href="service-internet.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-purple-500">通信・新電力</a>
+        class="hidden lg:hidden fixed inset-0 bg-white z-[60] flex flex-col justify-center px-8 space-y-6 text-rejoice-dark overflow-y-auto">
+        <a href="company.html" class="text-2xl font-bold border-b border-gray-100 pb-2 text-rejoice-main">会社概要</a>
+        <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
+            <a href="service-solar.html" class="text-xl font-bold">太陽光・蓄電池</a>
+            <a href="service-reform.html" class="text-xl font-bold">住宅リフォーム</a>
+            <a href="service-air.html" class="text-xl font-bold">業務用エアコン</a>
+            <a href="service-internet.html" class="text-xl font-bold">通信／新電力</a>
         </div>
-        <a href="recruit.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>採用</span>
-        </a>
-        <a href="contact.html"
-            class="mobile-link block text-center bg-red-600 text-white py-4 rounded-full font-bold mt-8">
-            お問い合わせ
-        </a>
+        <a href="recruit.html" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
+        <a href="news.html" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
+        <a href="contact.html" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
     </div>
 
-    <!-- Main Content -->
-    <main class="flex-grow">
-        <!-- Page Header -->
-        <div class="page-header" style="background-image: url('assets/images/company_hero.png');">
-            <h1 class="page-title fade-up">会社概要</h1>
-        </div>
+    <main class="flex-grow w-full overflow-x-hidden">
 
-        <!-- Corporate Philosophy -->
-        <section class="content-section">
-            <div class="content-container text-center fade-up delay-100">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-12 leading-tight">企業理念</h2>
-
-                <h3
-                    class="text-xl md:text-3xl font-serif font-bold text-gray-800 mb-10 tracking-widest whitespace-nowrap">
-                    「いつでもお客様のソバに」
-                </h3>
-
-                <p class="text-gray-600 leading-[2.2] text-lg mb-20">
-                    私たちは、お客様の生活を豊かにするためのサービスを提供し続けることで、<br class="hidden md:inline">
-                    地域社会に貢献し、信頼される企業でありたいと願っています。<br class="hidden md:inline">
-                    変化する時代のニーズを捉え、常に新しい価値を創造し続けます。
-                </p>
+        <!-- 1. Hero Section -->
+        <section class="relative h-[70vh] flex flex-col justify-center overflow-hidden bg-black text-white">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/company_hero.png" alt="Company"
+                    class="w-full h-full object-cover opacity-50 hero-zoom">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20"></div>
             </div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <span
+                    class="text-[10px] tracking-[0.5em] uppercase font-bold text-rejoice-main mb-6 block fade-up">Company
+                    Profile</span>
+                <h1 class="text-5xl md:text-7xl font-sans font-black mb-8 fade-up delay-100 uppercase tracking-tighter">
+                    会社概要</h1>
+            </div>
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+                <div class="w-px h-16 bg-gradient-to-b from-rejoice-main to-transparent"></div>
+            </div>
+        </section>
 
-            <!-- Company Info -->
-            <div class="content-container fade-up delay-200">
-                <h2 class="heading-luxury">会社情報</h2>
+        <!-- 2. Message / Philosophy Section -->
+        <section class="py-32 bg-white relative">
+            <div class="container mx-auto px-6">
+                <!-- Philosophy -->
+                <div class="max-w-4xl mx-auto text-center mb-40 fade-up">
+                    <span
+                        class="text-[10px] tracking-[0.5em] uppercase font-black text-gray-300 mb-6 block">Philosophy</span>
+                    <h2 class="text-4xl md:text-5xl font-sans font-black mb-12">「いつでもお客様のソバに」</h2>
+                    <p class="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+                        私たちは、お客様の生活を豊かにするためのサービスを提供し続けることで、<br class="hidden md:block">
+                        地域社会に貢献し、信頼される企業でありたいと願っています。<br class="hidden md:block">
+                        変化する時代のニーズを捉え、常に新しい価値を創造し続けます。
+                    </p>
+                </div>
 
-                <table class="luxury-table">
-                    <tbody>
-                        <tr>
-                            <th>会社名</th>
-                            <td>株式会社リジョイス・ビズ</td>
-                        </tr>
-                        <tr>
-                            <th>代表者</th>
-                            <td>代表取締役　大宮 尚憲</td>
-                        </tr>
-                        <tr>
-                            <th>設立</th>
-                            <td>2016年9月16日</td>
-                        </tr>
-                        <tr>
-                            <th>本社所在地</th>
-                            <td>
+                <!-- Message with Image -->
+                <div class="flex flex-col lg:flex-row items-center gap-20 max-w-6xl mx-auto">
+                    <div class="lg:w-1/2 fade-up">
+                        <div class="relative group">
+                            <div
+                                class="absolute -inset-4 border border-rejoice-main/20 rounded-[3rem] -z-10 transition-transform group-hover:scale-105 duration-700">
+                            </div>
+                            <img src="assets/images/building.png" alt="Company Building"
+                                class="rounded-[2.5rem] shadow-2xl w-full h-auto grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 fade-up delay-200">
+                        <span
+                            class="text-[10px] tracking-[0.5em] uppercase font-black text-gray-300 mb-6 block">Representative
+                            Message</span>
+                        <h3 class="text-3xl font-black mb-8">代表挨拶</h3>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            激動の時代において、住環境やエネルギーの在り方は刻々と変化しています。私たちは単なる設備の提案にとどまらず、お客様一人ひとりの将来のライフプランに寄り添った「最適な価値」の提供を目指しています。<br><br>
+                            「リジョイス（喜ぶ）」という社名の通り、私たちの提供するサービスによってお客様に笑顔が生まれ、喜びが連鎖していく。そんな社会の実現に向けて、私たちは歩みを止めることなく挑戦し続けます。
+                        </p>
+                        <div class="flex items-center gap-4 pt-4">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-400 font-bold">Representative Director</span>
+                                <span class="text-2xl font-sans font-black">大宮 尚憲</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Profile Section -->
+        <section class="py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="flex flex-col lg:flex-row gap-20">
+                        <div class="lg:w-1/3">
+                            <div class="sticky top-40">
+                                <span
+                                    class="text-[10px] tracking-[0.5em] uppercase font-black text-gray-300 mb-6 block">Corporate
+                                    Data</span>
+                                <h2 class="text-4xl md:text-5xl font-sans font-black">企業情報</h2>
+                            </div>
+                        </div>
+                        <div class="lg:w-2/3">
+                            <div class="space-y-0 border-t border-gray-200 fade-up">
+                                <div class="py-10 border-b border-gray-200 flex flex-col md:flex-row gap-6 md:gap-20">
+                                    <span
+                                        class="w-32 text-xs font-black text-gray-400 uppercase tracking-widest pt-1">Company
+                                        Name</span>
+                                    <span class="font-bold text-lg">株式会社リジョイス・ビズ</span>
+                                </div>
+                                <div class="py-10 border-b border-gray-200 flex flex-col md:flex-row gap-6 md:gap-20">
+                                    <span
+                                        class="w-32 text-xs font-black text-gray-400 uppercase tracking-widest pt-1">Founded</span>
+                                    <span class="font-bold text-lg">2016年9月16日</span>
+                                </div>
+                                <div class="py-10 border-b border-gray-200 flex flex-col md:flex-row gap-6 md:gap-20">
+                                    <span
+                                        class="w-32 text-xs font-black text-gray-400 uppercase tracking-widest pt-1">Address</span>
+                                    <span class="font-bold text-lg leading-relaxed">
+                                        〒812-0029<br>
+                                        福岡県福岡市博多区古門戸町1-10 NTF博多ビル5F
+                                    </span>
+                                </div>
+                                <div class="py-10 border-b border-gray-200 flex flex-col md:flex-row gap-6 md:gap-20">
+                                    <span
+                                        class="w-32 text-xs font-black text-gray-400 uppercase tracking-widest pt-1">Business</span>
+                                    <div class="grid grid-cols-2 gap-x-12 gap-y-4 font-bold text-sm">
+                                        <span>ソーラー事業</span>
+                                        <span>オール電化事業</span>
+                                        <span>セキュリティ事業</span>
+                                        <span>通信／新電力事業</span>
+                                        <span>ウォーター事業</span>
+                                        <span>住宅リフォーム事業</span>
+                                        <span>省エネ設備工事</span>
+                                        <span>助成金申請サポート</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. History Section -->
+        <section class="py-32 bg-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-24 fade-up">
+                        <span class="text-[10px] tracking-[0.5em] uppercase font-black text-gray-300 mb-6 block">Our
+                            Journey</span>
+                        <h2 class="text-4xl md:text-5xl font-sans font-black">沿革</h2>
+                    </div>
+
+                    <div class="relative history-line">
+                        <!-- 2026 -->
+                        <div
+                            class="mb-20 relative z-10 flex flex-col md:flex-row items-start group fade-up pl-12 md:pl-0">
+                            <!-- Dot -->
+                            <div
+                                class="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-2 border-rejoice-main rounded-full z-20">
+                            </div>
+
+                            <div class="md:w-1/2 md:text-right md:pr-16 mb-2 md:mb-0">
+                                <div
+                                    class="text-4xl md:text-6xl font-eng font-black text-gray-100 group-hover:text-rejoice-main transition-colors duration-500">
+                                    2026</div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16">
+                                <div
+                                    class="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+                                    <h4 class="font-black mb-4">未来への展望</h4>
+                                    <p class="text-sm text-gray-500 leading-relaxed font-medium">
+                                        ・更に販売を拡大し続ける...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2024 -->
+                        <div
+                            class="mb-20 relative z-10 flex flex-col md:flex-row-reverse items-start group fade-up pl-12 md:pl-0">
+                            <!-- Dot -->
+                            <div
+                                class="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-2 border-rejoice-main rounded-full z-20">
+                            </div>
+
+                            <div class="md:w-1/2 md:text-left md:pl-16 mb-2 md:mb-0">
+                                <div
+                                    class="text-4xl md:text-6xl font-eng font-black text-gray-100 group-hover:text-rejoice-main transition-colors duration-500">
+                                    2024</div>
+                            </div>
+                            <div class="md:w-1/2 md:pr-16">
+                                <div
+                                    class="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+                                    <h4 class="font-black mb-4">拠点の拡大と実績達成</h4>
+                                    <ul class="text-sm text-gray-500 space-y-2 leading-relaxed font-medium">
+                                        <li>・拠点の拡大</li>
+                                        <li>・あっと電化パック導入件数 累計2,000件突破</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2020 -->
+                        <div
+                            class="mb-20 relative z-10 flex flex-col md:flex-row items-start group fade-up pl-12 md:pl-0">
+                            <!-- Dot -->
+                            <div
+                                class="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-2 border-rejoice-main rounded-full z-20">
+                            </div>
+
+                            <div class="md:w-1/2 md:text-right md:pr-16 mb-2 md:mb-0">
+                                <div
+                                    class="text-4xl md:text-6xl font-eng font-black text-gray-100 group-hover:text-rejoice-main transition-colors duration-500">
+                                    2020</div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16">
+                                <div
+                                    class="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+                                    <h4 class="font-black mb-4">新規事業の開始</h4>
+                                    <ul class="text-sm text-gray-500 space-y-2 leading-relaxed font-medium">
+                                        <li>・エアコン事業開始</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2018 -->
+                        <div
+                            class="mb-20 relative z-10 flex flex-col md:flex-row-reverse items-start group fade-up pl-12 md:pl-0">
+                            <!-- Dot -->
+                            <div
+                                class="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-2 border-rejoice-main rounded-full z-20">
+                            </div>
+
+                            <div class="md:w-1/2 md:text-left md:pl-16 mb-2 md:mb-0">
+                                <div
+                                    class="text-4xl md:text-6xl font-eng font-black text-gray-100 group-hover:text-rejoice-main transition-colors duration-500">
+                                    2018</div>
+                            </div>
+                            <div class="md:w-1/2 md:pr-16">
+                                <div
+                                    class="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+                                    <h4 class="font-black mb-4">支店網の構築</h4>
+                                    <ul class="text-sm text-gray-500 space-y-2 leading-relaxed font-medium">
+                                        <li>・仙台支店 開設</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2016 -->
+                        <div
+                            class="mb-20 relative z-10 flex flex-col md:flex-row items-start group fade-up pl-12 md:pl-0">
+                            <!-- Dot -->
+                            <div
+                                class="absolute left-[20px] md:left-1/2 top-8 -translate-x-1/2 w-4 h-4 bg-white border-2 border-rejoice-main rounded-full z-20">
+                            </div>
+
+                            <div class="md:w-1/2 md:text-right md:pr-16 mb-2 md:mb-0">
+                                <div
+                                    class="text-4xl md:text-6xl font-eng font-black text-gray-100 group-hover:text-rejoice-main transition-colors duration-500">
+                                    2016</div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-16">
+                                <div
+                                    class="bg-gray-50 p-6 md:p-8 rounded-3xl border border-gray-100 group-hover:shadow-xl transition-all duration-500">
+                                    <h4 class="font-black mb-4">株式会社リジョイス・ビズ 設立</h4>
+                                    <ul class="text-sm text-gray-500 space-y-2 leading-relaxed font-medium">
+                                        <li>・福岡市博多区にて創業</li>
+                                        <li>・ソーラー事業、通信事業を開始</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Branch Network Section -->
+        <section class="py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-20 fade-up">
+                        <span class="text-[10px] tracking-[0.5em] uppercase font-black text-gray-300 mb-6 block">Our
+                            Network</span>
+                        <h2 class="text-4xl md:text-5xl font-sans font-black">拠点一覧</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-up">
+                        <!-- Head Office -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                本社
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
                                 〒812-0029<br>
                                 福岡県福岡市博多区古門戸町1-10 NTF博多ビル5F
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>事業内容</th>
-                            <td>
-                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                                    <li>ソーラー事業</li>
-                                    <li>オール電化事業</li>
-                                    <li>セキュリティ事業</li>
-                                    <li>通信事業</li>
-                                    <li>新電力事業</li>
-                                    <li>ウォーター事業</li>
-                                    <li>各種工事</li>
-                                    <li>住宅リフォーム事業</li>
-                                    <li>助成金申請代行</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                            </p>
+                            <div class="flex flex-col gap-2 text-rejoice-main font-bold text-sm">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                    <span>092-983-8558</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="printer" class="w-4 h-4"></i>
+                                    <span>FAX: 092-980-5421</span>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Branches -->
-            <div class="px-4 md:px-8 max-w-5xl mx-auto mt-20 fade-up delay-300">
-                <h2 class="heading-luxury">各拠点</h2>
+                        <!-- Tohoku -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                東北支店
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                                〒980-0803<br>
+                                宮城県仙台市青葉区国分町1-4-9 enspace
+                            </p>
+                            <div class="flex items-center gap-3 text-rejoice-main font-bold">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                <span>022-266-8335</span>
+                            </div>
+                        </div>
 
-                <div
-                    class="flex flex-col items-center md:flex-row md:flex-wrap md:justify-center md:items-stretch gap-8">
-                    <!-- HQ -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">本社</h4>
-                        <p class="mb-4 text-sm md:text-base leading-relaxed">
-                            <span class="whitespace-nowrap">〒812-0029 福岡県福岡市博多区古門戸町1-10</span><br>
-                            <span class="whitespace-nowrap">NTF博多ビル5F</span>
-                        </p>
-                        <p class="text-[10px] sm:text-xs md:text-sm whitespace-nowrap">TEL: 092-983-8558 / FAX:
-                            092-980-5421</p>
-                    </div>
-                    <!-- Tohoku -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">東北支店</h4>
-                        <p class="mb-4 text-sm md:text-base leading-relaxed">
-                            <span class="whitespace-nowrap">〒980-0803 宮城県仙台市青葉区国分町1-4-9</span><br>
-                            <span class="whitespace-nowrap">enspace</span>
-                        </p>
-                        <p class="text-sm">TEL: 022-266-8335</p>
-                    </div>
-                    <!-- Kanto -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">関東支店</h4>
-                        <p class="mb-4 text-sm md:text-base leading-relaxed">
-                            <span class="whitespace-nowrap">〒170-0012 東京都豊島区上池袋1-10-8</span><br>
-                            <span class="whitespace-nowrap">エデン上池袋ビル5F</span>
-                        </p>
-                        <p class="text-sm">TEL: 03-6858-8680</p>
-                    </div>
-                    <!-- Chugoku -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">中国支店</h4>
-                        <p
-                            class="text-[13px] sm:text-sm md:text-base leading-relaxed whitespace-nowrap tracking-tighter">
-                            〒731-0137 広島県広島市安佐南区山本1-24-21</p>
-                    </div>
-                    <!-- Kitakyushu -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">北九州支店</h4>
-                        <p
-                            class="text-[13px] sm:text-sm md:text-base leading-relaxed whitespace-nowrap tracking-tighter">
-                            〒802-0821 福岡県北九州市小倉南区横代北町1-6-1</p>
-                    </div>
-                    <!-- Minami-Kyushu -->
-                    <div
-                        class="bg-gray-50 p-5 md:p-7 rounded-xl border border-gray-100 mx-auto w-full max-w-sm md:w-[calc(50%-1rem)] md:max-w-none overflow-hidden">
-                        <h4 class="font-serif font-bold text-lg mb-4 text-rejoice-main">南九州支店</h4>
-                        <p class="text-sm md:text-base leading-relaxed">
-                            <span class="whitespace-nowrap">〒880-0024 宮崎県宮崎市祇園2-123-1</span><br>
-                            <span class="whitespace-nowrap">パシフィックレジデンス1F</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
+                        <!-- Kanto -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                関東支店
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                                〒170-0012<br>
+                                東京都豊島区上池袋1-10-8 エデン上池袋ビル5F
+                            </p>
+                            <div class="flex items-center gap-3 text-rejoice-main font-bold">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                <span>03-6858-8680</span>
+                            </div>
+                        </div>
 
-            <!-- Agencies -->
-            <div class="content-container mt-20 fade-up">
-                <h2 class="heading-luxury">販売代理店<span class="text-sm font-normal ml-2 tracking-normal">（順不同）</span></h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm text-center">
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社オフィスソリューション</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社ファーストキャリア</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社STEP</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社リバティイノベーションズ</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社RETICE</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社アクアスミス</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社ステイ</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社エレクソンキューブ</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社日本ライフソリューション</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社D-System</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">T-LIFE株式会社</div>
-                    <div class="p-4 bg-gray-50 rounded border border-gray-100">株式会社エヌ・エスワーク</div>
+                        <!-- Chugoku -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                中国支店
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                                〒731-0137<br>
+                                広島県広島市安佐南区山本1-24-21
+                            </p>
+                        </div>
+
+                        <!-- Kitakyushu -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                北九州支店
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                                〒802-0821<br>
+                                福岡県北九州市小倉南区横代北町1-6-1
+                            </p>
+                        </div>
+
+                        <!-- Minami Kyushu -->
+                        <div
+                            class="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                            <h4 class="text-xl font-bold mb-6 flex items-center gap-3">
+                                <span class="w-2 h-8 bg-rejoice-main rounded-full"></span>
+                                南九州支店
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-6 font-medium">
+                                〒880-0024<br>
+                                宮崎県宮崎市祇園2-123-1 パシフィックレジデンス1F
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Common CTA Section (Deep Blue) -->
-        <section class="footer-cta">
+        <!-- 6. Access Section -->
+        <section class="py-32 bg-gray-900 text-white overflow-hidden relative">
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-rejoice-main/10 rounded-full blur-[100px] -mr-48 -mb-48">
+            </div>
             <div class="container mx-auto px-6 relative z-10">
-                <h3>お問い合わせ</h3>
-                <p class="mb-10 text-gray-300">サービスに関するご質問やご相談など、お気軽にお問い合わせください。</p>
+                <div class="text-center mb-24 fade-up">
+                    <span
+                        class="text-[10px] tracking-[0.5em] uppercase font-black text-white/30 mb-6 block">Access</span>
+                    <h2 class="text-4xl md:text-5xl font-sans font-black">本社アクセス</h2>
+                </div>
 
-                <div class="flex flex-col md:flex-row justify-center gap-6">
-                    <a href="tel:0929838558"
-                        class="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-gray-900 transition-all duration-300">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
-                        092-983-8558
-                    </a>
-                    <a href="contact.html"
-                        class="inline-flex items-center justify-center gap-3 bg-gradient-green text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                        Webからのお問い合わせ
-                    </a>
+                <div class="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
+                    <div class="fade-up">
+                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-12">
+                            <h4 class="text-2xl font-bold mb-8">本社（福岡）</h4>
+                            <p class="text-gray-400 mb-12 font-medium leading-relaxed">
+                                〒812-0029<br>
+                                福岡県福岡市博多区古門戸町1-10 NTF博多ビル5F
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center">
+                                        <i data-lucide="phone" class="w-5 h-5 text-rejoice-main"></i>
+                                    </div>
+                                    <span class="text-2xl font-eng font-bold tracking-tight">092-983-8558</span>
+                                </div>
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-rejoice-main"></i>
+                                    </div>
+                                    <span class="text-gray-400 text-sm">中洲川端駅 徒歩 5分</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="h-[400px] rounded-[3rem] overflow-hidden shadow-2xl fade-up delay-200 grayscale contrast-125">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.2384742516484!2d130.40455587637848!3d33.59911967333145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191ebc5d0f62d%3A0xe5a3c983d9f28d7a!2zTlRG5Y2a5aSa44OT44Or!5e0!3m2!1sja!2sjp!4v1700361300000!5m2!1sja!2sjp"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
-            <!-- Decorative Gradients -->
-            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none">
-            </div>
-            <div
-                class="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/20 rounded-full blur-[100px] pointer-events-none">
-            </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 text-gray-600 py-16 border-t border-gray-200">
+    <footer class="bg-white text-rejoice-dark pt-32 pb-12 border-t border-gray-100">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
-                <div class="flex flex-col gap-4">
-                    <div class="flex items-center gap-3">
-                        <img src="assets/images/logo.png" alt="Rejoice Biz Logo"
-                            class="h-10 w-auto object-contain brightness-0 opacity-80">
-                        <span class="text-xl font-bold tracking-tight text-gray-800">Rejoice Biz</span>
+            <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-3 mb-8">
+                        <img src="assets/images/logo.png" alt="Rejoice Biz" class="h-8 w-auto object-contain">
+                        <span class="font-eng font-bold text-2xl tracking-tighter text-black">REJOICE BIZ</span>
                     </div>
-                    <p class="text-sm leading-relaxed">
+                    <p class="text-sm text-gray-500 leading-relaxed">
                         株式会社リジョイス・ビズ<br>
                         〒812-0029 福岡県福岡市博多区古門戸町1-10<br>
                         NTF博多ビル5F
                     </p>
                 </div>
-                <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium tracking-wide">
-                    <a href="index.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>トップ</span>
-                    </a>
-                    <a href="company.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>会社概要</span>
-                    </a>
-                    <a href="service-solar.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>太陽光・蓄電池</span>
-                    </a>
-                    <a href="service-reform.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>住宅リフォーム</span>
-                    </a>
-                    <a href="service-air.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>業務用エアコン</span>
-                    </a>
-                    <a href="service-internet.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>通信・新電力</span>
-                    </a>
-                    <a href="recruit.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>採用</span>
-                    </a>
-                    <a href="contact.html" class="flex flex-col hover:text-rejoice-main transition-colors">
-                        <span>お問い合わせ</span>
-                    </a>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-12">
+                    <div>
+                        <span
+                            class="text-[10px] tracking-[0.3em] font-black text-gray-300 uppercase block mb-6">Navigation</span>
+                        <ul class="space-y-4 text-sm font-bold">
+                            <li><a href="index.html" class="hover:text-rejoice-main transition-colors">トップ</a></li>
+                            <li><a href="company.html" class="text-rejoice-main">会社概要</a></li>
+                            <li><a href="recruit.html" class="hover:text-rejoice-main transition-colors">採用情報</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span
+                            class="text-[10px] tracking-[0.3em] font-black text-gray-300 uppercase block mb-6">Services</span>
+                        <ul class="space-y-4 text-sm font-bold">
+                            <li><a href="service-solar.html"
+                                    class="hover:text-rejoice-main transition-colors">太陽光・蓄電池</a></li>
+                            <li><a href="service-reform.html"
+                                    class="hover:text-rejoice-main transition-colors">住宅リフォーム</a></li>
+                            <li><a href="service-air.html" class="hover:text-rejoice-main transition-colors">業務用エアコン</a>
+                            </li>
+                            <li><a href="service-internet.html"
+                                    class="hover:text-rejoice-main transition-colors">通信／新電力</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span
+                            class="text-[10px] tracking-[0.3em] font-black text-gray-300 uppercase block mb-6">Help</span>
+                        <ul class="space-y-4 text-sm font-bold">
+                            <li><a href="news.html" class="hover:text-rejoice-main transition-colors">ニュース</a></li>
+                            <li><a href="contact.html" class="hover:text-rejoice-main transition-colors">お問い合わせ</a></li>
+                            <li><a href="privacy-policy.html"
+                                    class="hover:text-rejoice-main transition-colors font-medium text-gray-400">Privacy
+                                    Policy</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div
-                class="mt-16 pt-8 border-t border-gray-200 text-center text-xs text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                 <p>&copy; Rejoice Biz Co., Ltd. All Rights Reserved.</p>
-                <div class="flex gap-6">
-                    <a href="privacy-policy.html" class="hover:text-gray-600">Privacy Policy</a>
-                </div>
+                <p>Designed with Excellence.</p>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            lucide.createIcons();
 
-            // Header Scroll Effect
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    menuBtn.innerHTML = isOpen
+                        ? '<i data-lucide="x" class="w-8 h-8 text-black"></i>'
+                        : '<i data-lucide="menu" class="w-8 h-8 text-white mix-blend-difference"></i>';
+                    lucide.createIcons();
+                });
+            }
+
+            // Scroll Header Effect
             const header = document.getElementById('main-header');
-            const handleScroll = () => {
+            window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.remove('text-white', 'border-white/10', 'mix-blend-difference');
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.add('text-white', 'border-white/10', 'mix-blend-difference');
                 }
-            };
-            window.addEventListener('scroll', handleScroll);
-            handleScroll();
+            });
 
             // Fade Up Animation
-            const fadeObserver = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-up').forEach((el) => {
-                fadeObserver.observe(el);
-            });
-
-            // Mobile Menu
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (menuBtn && mobileMenu) {
-                const toggleMenu = () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const isOpen = !mobileMenu.classList.contains('hidden');
-                    menuBtn.innerHTML = isOpen
-                        ? '<i data-lucide="x" class="w-8 h-8 text-gray-800"></i>'
-                        : '<i data-lucide="menu" class="w-8 h-8"></i>';
-                    lucide.createIcons();
-                    document.body.style.overflow = isOpen ? 'hidden' : '';
-                };
-
-                menuBtn.addEventListener('click', toggleMenu);
-
-                // Close menu when clicking links
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            toggleMenu();
-                        }
-                    });
-                });
-            }
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
         });
     </script>
 </body>

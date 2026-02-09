@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>志免西学童保育所様 | お知らせ | 株式会社リジョイス・ビズ</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>志免西学童保育所様のソーラー設置工事が完了しました | お知らせ | 株式会社リジョイス・ビズ</title>
+    <!-- Preload Tailwind CSS for faster loading -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <!-- Tailwind CSS (CDN) - Deferred loading -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -38,47 +41,12 @@
             letter-spacing: 0.05em;
         }
 
+        /* Typography Utils */
         .font-eng {
             font-family: 'Outfit', sans-serif;
         }
 
-        #main-header.scrolled {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding-top: 15px;
-            padding-bottom: 15px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        #main-header.scrolled .nav-text {
-            color: #1f2937;
-            text-shadow: none;
-        }
-
-        #main-header.scrolled .nav-link:not(.bg-red-600) {
-            color: #4b5563;
-        }
-
-        #main-header.scrolled .nav-link:hover:not(.bg-red-600) {
-            color: #0d9488;
-        }
-
-        #main-header:not(.scrolled) {
-            background-color: transparent;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            box-shadow: none;
-        }
-
-        #main-header:not(.scrolled) .nav-text {
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        #main-header:not(.scrolled) #mobile-menu-btn {
-            color: white;
-        }
-
+        /* Animation */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -102,6 +70,7 @@
             transition-delay: 0.3s;
         }
 
+        /* Hero */
         .hero-bg {
             animation: scaleSlow 20s infinite alternate;
         }
@@ -119,89 +88,54 @@
 </head>
 
 <body class="bg-gray-50 flex flex-col min-h-screen">
-    <header id="main-header" class="fixed w-full top-0 left-0 z-[70] transition-all duration-500">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="group nav-link flex items-center gap-3 relative z-50">
+    <header id="main-header"
+        class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 border-b border-white/10 mix-blend-difference text-white">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 z-50">
                 <img src="assets/images/logo.png" alt="Rejoice Biz"
-                    class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
-                <span class="text-xl md:text-2xl font-bold tracking-tight nav-text">Rejoice Biz</span>
+                    class="h-10 w-auto object-contain brightness-0 invert">
+                <span class="font-eng font-bold text-2xl tracking-tighter">REJOICE BIZ</span>
             </a>
-            <button id="mobile-menu-btn" class="md:hidden p-2 focus:outline-none z-50" aria-label="メニューを開く">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
-            <nav class="hidden md:flex items-center space-x-8 font-medium tracking-wide text-sm">
-                <a href="index.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">トップ</span>
-                </a>
-                <a href="company.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">会社概要</span>
-                </a>
-                <div class="relative group">
-                    <button class="nav-text hover:opacity-70 flex flex-col items-center focus:outline-none py-2">
-                        <span class="text-xs font-bold mt-1 inline-flex items-center gap-1">事業内容 <i
-                                data-lucide="chevron-down" class="w-3 h-3"></i></span>
-                    </button>
-                    <div
-                        class="absolute left-1/2 transform -translate-x-1/2 mt-0 w-64 bg-white rounded-none shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-rejoice-main">
-                        <a href="service-solar.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            太陽光・蓄電池
-                        </a>
-                        <a href="service-reform.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            住宅リフォーム
-                        </a>
-                        <a href="service-air.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            業務用エアコン
-                        </a>
-                        <a href="service-internet.html"
-                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
-                            通信・新電力
-                        </a>
-                    </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-6 font-sans text-xs font-bold tracking-wide">
+                <a href="company.html" class="hover:opacity-50 transition-opacity">会社概要</a>
+                <!-- Expanded Service Links -->
+                <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
+                    <a href="service-solar.html" class="hover:text-rejoice-main transition-colors">太陽光</a>
+                    <a href="service-reform.html" class="hover:text-rejoice-main transition-colors">リフォーム</a>
+                    <a href="service-air.html" class="hover:text-rejoice-main transition-colors">空調</a>
+                    <a href="service-internet.html" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
                 </div>
-                <a href="recruit.html" class="nav-text hover:opacity-70 transition-opacity flex flex-col items-center">
-                    <span class="text-xs font-bold mt-1">採用</span>
-                </a>
+                <a href="recruit.html" class="hover:opacity-50 transition-opacity">採用情報</a>
+                <a href="news.html" class="hover:opacity-50 transition-opacity">ニュース</a>
                 <a href="contact.html"
-                    class="nav-link bg-red-600 text-white px-8 py-2 rounded-full hover:bg-red-700 transition-all transform hover:-translate-y-1 shadow-lg flex flex-col items-center leading-none">
-                    <span class="text-xs font-bold">お問い合わせ</span>
+                    class="px-6 py-2 border border-current rounded-full hover:bg-white hover:text-black transition-all">
+                    お問い合わせ
                 </a>
             </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden z-50">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Mobile Nav Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="hidden md:hidden fixed inset-0 bg-white z-[60] flex flex-col pt-24 px-6 space-y-6 overflow-y-auto">
-        <a href="index.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>トップ</span>
-        </a>
-        <a href="company.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>会社概要</span>
-        </a>
-        <div class="space-y-4">
-            <span class="text-xs font-bold text-gray-900 tracking-widest uppercase">事業内容</span>
-            <a href="service-solar.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-main">太陽光・蓄電池</a>
-            <a href="service-reform.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-red">住宅リフォーム</a>
-            <a href="service-air.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-blue-500">業務用エアコン</a>
-            <a href="service-internet.html"
-                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-purple-500">通信・新電力</a>
+        class="hidden lg:hidden fixed inset-0 bg-white z-[60] flex flex-col justify-center px-8 space-y-6 text-rejoice-dark overflow-y-auto">
+        <a href="company.html" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
+        <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
+            <a href="service-solar.html" class="text-xl font-bold">太陽光・蓄電池</a>
+            <a href="service-reform.html" class="text-xl font-bold">住宅リフォーム</a>
+            <a href="service-air.html" class="text-xl font-bold">業務用エアコン</a>
+            <a href="service-internet.html" class="text-xl font-bold">通信／新電力</a>
         </div>
-        <a href="recruit.html"
-            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
-            <span>採用</span>
-        </a>
-        <a href="contact.html"
-            class="mobile-link block text-center bg-red-600 text-white py-4 rounded-full font-bold mt-8">
-            お問い合わせ
-        </a>
+        <a href="recruit.html" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
+        <a href="news.html" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
+        <a href="contact.html" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
     </div>
 
     <main class="flex-grow">
@@ -232,7 +166,7 @@
                         <li>
                             <div class="flex items-center">
                                 <i data-lucide="chevron-right" class="w-4 h-4 mx-1"></i>
-                                <span class="font-medium text-gray-800">志免西学童保育所様</span>
+                                <span class="font-medium text-gray-800">志免西学童保育所様のソーラー設置工事が完了しました</span>
                             </div>
                         </li>
                     </ol>
@@ -242,10 +176,10 @@
                     <header class="mb-10 text-center">
                         <time class="block text-gray-400 font-eng tracking-wider mb-4">2025.01.14</time>
                         <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">
-                            志免西学童保育所様
+                            志免西学童保育所様のソーラー設置工事が完了しました
                         </h1>
-                        <div class="inline-block px-4 py-1 rounded-full bg-gray-100 text-sm text-gray-600 font-bold">
-                            お知らせ
+                        <div class="inline-block px-4 py-1 rounded-full bg-blue-50 text-sm text-blue-600 font-bold">
+                            施工事例
                         </div>
                     </header>
 
@@ -386,12 +320,15 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
+            // Header Scroll Effect
             const header = document.getElementById('main-header');
             const handleScroll = () => {
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.remove('text-white', 'border-white/10', 'mix-blend-difference');
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.add('text-white', 'border-white/10', 'mix-blend-difference');
                 }
             };
             window.addEventListener('scroll', handleScroll);
