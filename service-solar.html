@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>太陽光・蓄電池事業 | 株式会社リジョイス・ビズ</title>
+    <title>住宅用太陽光発電システム | 株式会社リジョイス・ビズ</title>
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,6 +35,7 @@
             }
         }
     </script>
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="stylesheet" href="assets/css/index.css">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -139,10 +140,12 @@
                 <!-- Expanded Service Links -->
                 <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
                     <a href="service-solar.html" class="text-rejoice-main">太陽光</a>
+                    <a href="service-battery.html" class="hover:text-rejoice-main transition-colors">蓄電池</a>
                     <a href="service-reform.html" class="hover:text-rejoice-main transition-colors">リフォーム</a>
                     <a href="service-air.html" class="hover:text-rejoice-main transition-colors">空調</a>
                     <a href="service-internet.html" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
                 </div>
+                <a href="works-solar.html" class="hover:opacity-50 transition-opacity">導入事例</a>
                 <a href="recruit.html" class="hover:opacity-50 transition-opacity">採用情報</a>
                 <a href="news.html" class="hover:opacity-50 transition-opacity">ニュース</a>
                 <a href="contact.html"
@@ -164,7 +167,9 @@
         <a href="company.html" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
         <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
             <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
-            <a href="service-solar.html" class="text-xl font-bold text-rejoice-main">太陽光・蓄電池</a>
+            <a href="service-solar.html" class="text-xl font-bold text-rejoice-main">住宅用太陽光発電</a>
+            <a href="works-solar.html" class="text-xl font-bold">導入事例</a>
+            <a href="service-battery.html" class="text-xl font-bold">蓄電池システム</a>
             <a href="service-reform.html" class="text-xl font-bold">住宅リフォーム</a>
             <a href="service-air.html" class="text-xl font-bold">業務用エアコン</a>
             <a href="service-internet.html" class="text-xl font-bold">通信／新電力</a>
@@ -189,15 +194,15 @@
                 <div class="max-w-4xl text-center md:text-left mx-auto md:mx-0">
                     <span
                         class="inline-block py-1 px-3 border border-rejoice-main text-rejoice-main text-[10px] uppercase tracking-[0.3em] font-bold mb-6 fade-up">
-                        Solar Energy & Battery Systems
+                        Residential Solar Power Systems
                     </span>
                     <h1 class="text-huge font-sans font-black mb-8 fade-up delay-100">
-                        太陽光発電<br>
-                        <span class="text-rejoice-main">& 蓄電池。</span>
+                        住宅用<br>
+                        <span class="text-rejoice-main">太陽光発電</span>
                     </h1>
                     <p
                         class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mb-12 fade-up delay-200 mx-auto md:mx-0">
-                        電気代の高騰に、もう悩まない。賢い電気の自給自足生活。
+                        電気代の高騰に、もう悩まない。<br>賢い電気の自給自足生活。
                     </p>
                 </div>
             </div>
@@ -214,9 +219,9 @@
                 class="absolute bottom-0 left-0 w-full z-10 py-6 border-t border-white/10 bg-black/20 backdrop-blur-sm">
                 <div class="ticker-wrap">
                     <div class="ticker text-[10px] font-bold tracking-[0.5em] text-white/30 uppercase">
-                        SOLAR ENERGY &nbsp;•&nbsp; BATTERY SYSTEM &nbsp;•&nbsp; V2H SOLUTIONS &nbsp;•&nbsp; ZERO ENERGY
+                        SOLAR ENERGY &nbsp;•&nbsp; PHOTOVOLTAIC &nbsp;•&nbsp; RENEWABLE ENERGY &nbsp;•&nbsp; ZERO ENERGY
                         HOME &nbsp;•&nbsp; SMART LIFE &nbsp;•&nbsp;
-                        SOLAR ENERGY &nbsp;•&nbsp; BATTERY SYSTEM &nbsp;•&nbsp; V2H SOLUTIONS &nbsp;•&nbsp; ZERO ENERGY
+                        SOLAR ENERGY &nbsp;•&nbsp; PHOTOVOLTAIC &nbsp;•&nbsp; RENEWABLE ENERGY &nbsp;•&nbsp; ZERO ENERGY
                         HOME &nbsp;•&nbsp; SMART LIFE &nbsp;•&nbsp;
                     </div>
                 </div>
@@ -554,70 +559,7 @@
             </div>
         </section>
 
-        <!-- 6. Storage & V2H (Bento Layout) -->
-        <section class="py-24 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <!-- Section Title -->
-                <div class="text-center mb-20">
-                    <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">VALUE ADDED</span>
-                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter">エネルギーは、貯める時代へ。</h2>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-                    <!-- Storage -->
-                    <a href="#" class="relative h-[500px] rounded-3xl overflow-hidden group">
-                        <img src="assets/images/battery_system.png"
-                            class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-110 transition-transform duration-1000 group-hover:grayscale-0">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                        <div class="absolute inset-0 p-10 flex flex-col justify-end">
-                            <div class="flex items-center gap-3 mb-4">
-                                <i data-lucide="battery-charging" class="w-8 h-8 text-rejoice-main"></i>
-                                <h3 class="text-3xl font-bold text-white">家庭用蓄電池</h3>
-                            </div>
-                            <p
-                                class="text-white/60 text-sm leading-relaxed max-w-md group-hover:text-white transition-colors">
-                                昼間に発電した電気を貯めて、夜間や災害時に活用。AI制御搭載モデルや全負荷型など、最新機種を取り揃えています。
-                            </p>
-                        </div>
-                    </a>
-                    <!-- V2H -->
-                    <a href="#" class="relative h-[500px] rounded-3xl overflow-hidden group">
-                        <img src="assets/images/v2h_system.png"
-                            class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:scale-110 transition-transform duration-1000 group-hover:grayscale-0">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                        <div class="absolute inset-0 p-10 flex flex-col justify-end text-center md:text-left">
-                            <div class="flex flex-col md:flex-row items-center gap-3 mb-4">
-                                <i data-lucide="car" class="w-8 h-8 text-rejoice-main"></i>
-                                <h3 class="text-3xl font-bold text-white">V2H システム</h3>
-                            </div>
-                            <p
-                                class="text-white/60 text-sm leading-relaxed max-w-md group-hover:text-white transition-colors">
-                                EVを「走る蓄電池」に。家の大容量バッテリーとして活用。高速充電やピークシフトによる節約効果も。
-                            </p>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Subsidy Banner -->
-                <div
-                    class="bg-rejoice-main p-10 md:p-14 rounded-[40px] text-white flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl shadow-rejoice-main/30 fade-up">
-                    <div class="max-w-2xl text-center md:text-left">
-                        <h4
-                            class="text-2xl md:text-3xl font-bold mb-4 flex flex-col md:flex-row items-center gap-4 italic font-sans">
-                            <i data-lucide="help-circle" class="w-10 h-10"></i> 助成金・補助金をフル活用。
-                        </h4>
-                        <p class="text-emerald-50 text-base leading-relaxed font-medium">
-                            国や自治体の補助金を活用すれば、導入コストを大幅に抑えられます。<br>
-                            複雑な申請手続きも私たちがフルサポートしますので、詳しくはお問い合わせください。
-                        </p>
-                    </div>
-                    <a href="https://chikudensystem-donyu.com/" target="_blank"
-                        class="px-12 py-5 bg-white text-rejoice-main font-black text-sm rounded-full hover:scale-105 transition-transform shadow-xl">
-                        助成金の詳細を見る
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <!-- 7. Flow & Maintenance (Plaid V2 Style) -->
         <section class="border-b border-gray-200 bg-white relative">
@@ -796,10 +738,17 @@
                         NTF博多ビル5F
                     </p>
                 </div>
-                <div class="grid grid-cols-2 gap-x-12 gap-y-4 mt-10 md:mt-0 text-sm font-bold text-gray-500">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4 mt-10 md:mt-0 text-sm font-bold text-gray-500">
                     <a href="index.html" class="hover:text-black transition-colors">トップ</a>
                     <a href="company.html" class="hover:text-black transition-colors">会社概要</a>
-                    <a href="#services-section" class="hover:text-black transition-colors">事業内容</a>
+                    <a href="service-solar.html" class="hover:text-black transition-colors">住宅用太陽光発電</a>
+                    <a href="works-solar.html"
+                        class="hover:text-black transition-colors font-bold text-rejoice-main">導入事例</a>
+                    <a href="service-battery.html" class="hover:text-black transition-colors">蓄電池システム</a>
+                    <a href="service-reform.html" class="hover:text-black transition-colors">住宅リフォーム</a>
+                    <a href="service-air.html" class="hover:text-black transition-colors">業務用エアコン</a>
+                    <a href="service-internet.html" class="hover:text-black transition-colors">通信／新電力</a>
                     <a href="recruit.html" class="hover:text-black transition-colors">採用情報</a>
                     <a href="news.html" class="hover:text-black transition-colors">ニュース</a>
                     <a href="contact.html" class="hover:text-black transition-colors">お問い合わせ</a>
