@@ -304,25 +304,47 @@
 
     </main>
 
-    <!-- Global Contact Section -->
+    <!-- Global Contact Section (Premium Style) -->
     <section class="py-24 bg-rejoice-dark text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000')] bg-cover bg-center">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-rejoice-dark via-rejoice-dark/95 to-rejoice-dark/80"></div>
+
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-20">
                     <span class="text-rejoice-main font-bold text-sm tracking-widest mb-4 block">GET IN TOUCH</span>
                     <h2 class="text-5xl md:text-7xl font-bold font-sans tracking-tighter mb-8">お問い合わせ。</h2>
+                    <p class="text-white/50 text-base leading-relaxed max-w-2xl mx-auto">
+                        サービスに関するご質問やご相談、お見積りの依頼など<br>
+                        担当者が丁寧にご案内いたします。
+                    </p>
                 </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div
-                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center">
-                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">Phone</p>
-                        <a href="tel:0929838558" class="text-3xl md:text-4xl font-eng font-bold">092-983-8558</a>
+                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center hover:bg-white/10 transition-colors group">
+                        <div
+                            class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform">
+                            <i data-lucide="phone" class="w-8 h-8 text-rejoice-main"></i>
+                        </div>
+                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-2 uppercase">Business Hours:
+                            10:00 - 18:00</p>
+                        <a href="tel:0929838558"
+                            class="text-3xl md:text-4xl font-eng font-bold hover:text-rejoice-main transition-colors">092-983-8558</a>
                     </div>
                     <div
-                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center">
-                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-6 uppercase">Online</p>
-                        <a href="contact.html?type=solar"
-                            class="inline-block px-12 py-5 bg-rejoice-main text-white font-black text-xs rounded-full">お問い合わせフォームへ</a>
+                        class="bg-white/[0.05] backdrop-blur-xl border border-white/10 p-12 rounded-[40px] text-center hover:bg-white/10 transition-colors group">
+                        <div
+                            class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:-rotate-12 transition-transform">
+                            <i data-lucide="mail" class="w-8 h-8 text-rejoice-main"></i>
+                        </div>
+                        <p class="text-[10px] font-bold text-white/40 tracking-widest mb-6 uppercase">Available 24/7</p>
+                        <a href="contact.html?type=battery"
+                            class="inline-block px-12 py-5 bg-rejoice-main text-white font-black text-xs rounded-full hover:scale-105 transition-all">
+                            お問い合わせフォームへ
+                        </a>
                     </div>
                 </div>
             </div>
