@@ -249,7 +249,7 @@
                                 <i data-lucide="zap"></i>
                             </div>
                             <h3 class="text-lg font-bold mb-4">ピークカットで節約</h3>
-                            <p class="text-xs text-gray-500 leading-relaxed">
+                            <p class="text-sm text-gray-500 leading-relaxed">
                                 電気料金が高い昼間の買電を抑え、深夜の安い電力や太陽光電力を活用。基本料金の削減にも貢献します。</p>
                         </div>
                         <div class="p-10 border-r border-gray-200">
@@ -258,7 +258,7 @@
                                 <i data-lucide="shield-check"></i>
                             </div>
                             <h3 class="text-lg font-bold mb-4">停電時も普段通り</h3>
-                            <p class="text-xs text-gray-500 leading-relaxed">
+                            <p class="text-sm text-gray-500 leading-relaxed">
                                 停電を検知すると自動で放電。冷蔵庫や照明、スマートフォンの充電など、家族の安心を確保します。</p>
                         </div>
                         <div class="p-10">
@@ -267,7 +267,7 @@
                                 <i data-lucide="cpu"></i>
                             </div>
                             <h3 class="text-lg font-bold mb-4">AIによる予測制御</h3>
-                            <p class="text-xs text-gray-500 leading-relaxed">
+                            <p class="text-sm text-gray-500 leading-relaxed">
                                 翌日の天気予報や過去の使用傾向を分析し、最も効率的なタイミングで充電・放電を管理します。</p>
                         </div>
                     </div>
@@ -280,15 +280,17 @@
             <div class="container mx-auto px-6 relative z-10 text-center">
                 <span class="text-emerald-100 font-bold text-sm tracking-widest mb-6 block">SUBSIDY INFORMATION</span>
                 <h2 class="text-4xl md:text-6xl font-black mb-12 tracking-tighter">助成金・補助金をフル活用。</h2>
-                <div class="max-w-3xl mx-auto mb-16">
-                    <p class="text-lg md:text-xl text-emerald-50 leading-relaxed font-medium mb-8">
+                <div class="mb-16">
+                    <p
+                        class="text-lg md:text-xl text-emerald-50 leading-relaxed font-medium mb-8 md:whitespace-nowrap text-center">
                         国（DR補助金等）や地方自治体の補助金を活用すれば、導入コストを数十万円単位で抑えることが可能です。
                     </p>
-                    <p class="text-sm text-emerald-100 leading-relaxed">
-                        補助金制度は年度ごとに予算枠が決まっており、早い段階での申請が鍵となります。
-                        リジョイス・ビズでは、複雑な申請書類の作成から代行まで、専門チームがワンストップでサポート。
-                        お客様が受けられる最大限の優遇措置を調査いたします。
-                    </p>
+                    <div class="max-w-5xl mx-auto">
+                        <p class="text-sm text-emerald-100 leading-relaxed text-center">
+                            補助金制度は年度ごとに予算枠が決まっており、早い段階での申請が鍵となります。<br class="hidden md:block">
+                            リジョイス・ビズでは、書類作成から代行、最大限の優遇措置の調査まで専門チームがワンストップでサポートいたします。
+                        </p>
+                    </div>
                 </div>
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
                     <a href="https://chikudensystem-donyu.com/" target="_blank"
@@ -396,10 +398,15 @@
             <div class="flex flex-col md:flex-row justify-between items-start mb-20 gap-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="assets/images/logo.png" alt="Rejoice Biz" class="h-8 w-auto brightness-0">
-                        <span class="font-eng font-bold text-2xl tracking-tighter">REJOICE BIZ</span>
+                        <img src="assets/images/logo.png" alt="Rejoice Biz"
+                            class="h-8 w-auto object-contain brightness-0 opacity-80">
+                        <span class="font-eng font-bold text-2xl tracking-tighter text-black">REJOICE BIZ</span>
                     </div>
-                    <p class="text-sm text-gray-500">株式会社リジョイス・ビズ<br>NTF博多ビル5F</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        株式会社リジョイス・ビズ<br>
+                        〒812-0029 福岡県福岡市博多区古門戸町1-10<br>
+                        NTF博多ビル5F
+                    </p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-gray-500">
                     <ul class="space-y-4">
@@ -421,8 +428,13 @@
                     </ul>
                 </div>
             </div>
-            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center">&copy; Rejoice Biz Co.,
-                Ltd.</p>
+            <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                <p>&copy; 2026 Rejoice Biz Co., Ltd. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-black transition-colors">Privacy Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
 
