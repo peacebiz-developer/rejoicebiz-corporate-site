@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /company.html
+Disallow: /contact.html
+Disallow: /privacy-policy.html
+Disallow: /recruit.html
+Disallow: /service-air.html
+Disallow: /service-battery.html
+Disallow: /service-internet.html
+Disallow: /service-reform.html
+Disallow: /service-solar.html
+Disallow: /works-solar.html
+Disallow: /news.html
+Disallow: /news-detail-tohoku.html
+Disallow: /news-detail-shime.html
+Disallow: /news-detail-2020.html
+Disallow: /news-detail.html
+Disallow: /simulation.html
+
+Sitemap: https://rejoice-biz.com/sitemap.xml

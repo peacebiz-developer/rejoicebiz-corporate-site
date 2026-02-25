@@ -1,7 +1,7 @@
 # AGENTS.md — Rejoice Biz Corporate Site (AIIDE)
 
 ## 0. 目的
-AIIDE（AI支援IDE）で **リジョイスビズのコーポレートサイト（静的HTML）** を安全に更新するための運用ルール。
+AIIDE（AI支援IDE）で **株式会社リジョイス・ビズのコーポレートサイト（静的HTML）** を安全に更新するための運用ルール。
 最重要は **事故防止（範囲逸脱・過剰改変・誤情報・法務/表示義務の抜け）** と **小さく確実に進める** こと。
 
 ---
@@ -13,7 +13,7 @@ AIIDE（AI支援IDE）で **リジョイスビズのコーポレートサイト�
 - アイコン：Lucide（`https://unpkg.com/lucide@latest`）
 - フォント：Google Fonts
 - 共通CSS：`index.css`
-- ローカル確認：PowerShellで `./simple_server.ps1` を実行し、`http://localhost:8080/` をブラウザで確認
+- ローカル確認：PowerShellで `npx serve .` を実行し、`http://localhost:3000/` をブラウザで確認
 
 ### 1-2. 非ゴール（明示依頼がない限りやらない）
 - Next.js化 / Vite導入 / npm依存追加 / ビルドパイプライン導入

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- AI:EDIT START page_meta -->
+    <title>導入事例 | 株式会社リジョイス・ビズ</title>
+    <meta name="description" content="リジョイス・ビズの太陽光発電やスマートエネルギー設備の導入事例・お客様の声をご紹介します。">
+    <link rel="canonical" href="https://rejoice-biz.com/works/solar/">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="導入事例 | 株式会社リジョイス・ビズ">
+    <meta property="og:description" content="リジョイス・ビズの太陽光発電やスマートエネルギー設備の導入事例・お客様の声をご紹介します。">
+    <meta property="og:url" content="https://rejoice-biz.com/works/solar/">
+    <meta property="og:site_name" content="株式会社リジョイス・ビズ">
+    <meta property="og:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="導入事例 | 株式会社リジョイス・ビズ">
+    <meta name="twitter:description" content="リジョイス・ビズの太陽光発電やスマートエネルギー設備の導入事例・お客様の声をご紹介します。">
+    <meta name="twitter:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://rejoice-biz.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Works", "item": "https://rejoice-biz.com/works/"},
+        {"@type": "ListItem", "position": 3, "name": "導入事例", "item": "https://rejoice-biz.com/works//solar/"}
+      ]
+    }
+    </script>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rejoice: {
+                            main: '#10B981',
+                            base: '#F7F8FA',
+                            accent: '#f59e0b',
+                            dark: '#111827',
+                            red: '#dc2626',
+                            teal: '#0d9488',
+                            black: '#111111',
+                            gray: '#f4f4f4',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        eng: ['"Outfit"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script><!-- AI:EDIT END page_meta -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .text-huge {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body class="bg-white text-rejoice-dark flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header id="main-header"
+        class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 border-b border-white/10 mix-blend-difference text-white">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3 z-50">
+                <img src="/assets/icons/logo.png" alt="Rejoice Biz"
+                    class="h-10 w-auto object-contain brightness-0 invert">
+                <span class="font-eng font-bold text-2xl tracking-tighter">REJOICE BIZ</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-6 font-sans text-xs font-bold tracking-wide">
+                <a href="/company/" class="hover:opacity-50 transition-opacity">会社概要</a>
+                <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
+                    <a href="/services/solar/" class="hover:text-rejoice-main transition-colors">太陽光</a>
+                    <a href="/services/battery/" class="hover:text-rejoice-main transition-colors">蓄電池</a>
+                    <a href="/services/reform/" class="hover:text-rejoice-main transition-colors">リフォーム</a>
+                    <a href="/services/air/" class="hover:text-rejoice-main transition-colors">空調</a>
+                    <a href="/services/internet/" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
+                </div>
+                <a href="/works/solar/" class="text-rejoice-main">導入事例</a>
+                <a href="/recruit/" class="hover:opacity-50 transition-opacity">採用情報</a>
+                <a href="/news/" class="hover:opacity-50 transition-opacity">ニュース</a>
+                <a href="/contact/"
+                    class="px-6 py-2 border border-current rounded-full hover:bg-white hover:text-black transition-all">
+                    お問い合わせ
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden z-50">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden lg:hidden fixed inset-0 bg-white z-[60] flex flex-col justify-center px-8 space-y-6 text-rejoice-dark overflow-y-auto">
+        <a href="/company/" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
+        <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
+            <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
+            <a href="/services/solar/" class="text-xl font-bold">住宅用太陽光発電</a>
+            <a href="/works/solar/" class="text-xl font-bold text-rejoice-main">導入事例</a>
+            <a href="/services/battery/" class="text-xl font-bold">蓄電池システム</a>
+            <a href="/services/reform/" class="text-xl font-bold">住宅リフォーム</a>
+            <a href="/services/air/" class="text-xl font-bold">業務用エアコン</a>
+            <a href="/services/internet/" class="text-xl font-bold">通信／新電力</a>
+        </div>
+        <a href="/recruit/" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
+        <a href="/news/" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
+        <a href="/contact/" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
+    </div>
+
+    <main class="flex-grow w-full overflow-x-hidden">
+        <!-- AI:EDIT START main_content -->
+
+        <!-- Hero Section -->
+        <section class="relative h-[60vh] flex flex-col justify-center overflow-hidden bg-black text-white">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?q=80&w=2000" alt="Solar Panels"
+                    class="w-full h-full object-cover opacity-50">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl">
+                    <span
+                        class="inline-block py-1 px-3 border border-rejoice-main text-rejoice-main text-[10px] uppercase tracking-[0.3em] font-bold mb-6 fade-up">
+                        Case Studies
+                    </span>
+                    <h1 class="text-huge font-sans font-black mb-8 fade-up delay-100">
+                        導入事例
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl fade-up delay-200">
+                        あっと！電化パック太陽光を導入された、お客様の声と実績をご紹介します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies List -->
+        <section class="py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                    <!-- Case 1: Individual 30s (Fukuoka) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=2000"
+                                alt="Fukuoka Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">福岡県福岡市 A様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">30代・4人家族</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「電気代の心配が消え、子供たちとの時間が増えました」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥18,000</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥5,200</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「オール電化への切り替えと同時に太陽光を導入。昼間の高い電気を買わずに済むので、家計が本当に楽になりました。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2: Individual 70s (Kumamoto) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-100">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=2000"
+                                alt="Kumamoto Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">熊本県 S様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">70代・ご夫婦</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「将来に向けた安心の備え。維持費が抑えられるのも魅力。」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥12,000</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥3,100</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「定年後の生活を考え、固定費削減のために導入。メンテナンスまで一貫してお任せできるので安心です。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3: Individual 50s (Oita) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-200">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=2000"
+                                alt="Oita Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">大分県 T様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">50代・ご夫婦</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「リフォームを機に太陽光を。環境にも家計にも優しい選択を。」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥15,500</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥6,400</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「蓄電池との併用で、夜間の電気も賄えるように。災害時の停電対策としても非常に心強いです。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 4: Individual 40s (Kagoshima) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000"
+                                alt="Kagoshima Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">鹿児島県 K様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">40代・3人家族</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「台風時の停電不安が解消。暮らしのレジリエンスが向上しました」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥22,000</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥6,800</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「オール電化と太陽光で、自給自足に近い形に。停電時でも普段通り電気が使える安心感は、何物にも代えがたいです。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 5: Individual 60s (Hiroshima) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-100">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000"
+                                alt="Hiroshima Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">広島県 H様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">60代・ご夫婦</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「平屋の広大な屋根を活用。定年後のライフラインを確保しました」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥19,500</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥4,500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「定年を機に導入を決めました。固定費が大幅に下がり、精神的にもゆとりができました。クリーンなエネルギーが暮らしに馴染みます。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 6: Individual 30s (Miyazaki) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-200">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000"
+                                alt="Miyazaki Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">宮崎県 M様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">30代・4人家族</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「日向の国・宮崎の恩恵。ZEH住宅で、環境と家計に優しい選択」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥14,000</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥2,200</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「日照時間が長い宮崎だからこそ、太陽光の効果は絶大です。売電収入もあり、子供たちの将来に向けた貯金に回せています。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 7: Individual 50s (Okayama) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2000"
+                                alt="Okayama Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">岡山県 O様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">50代・ご夫婦</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「晴れの国・岡山。太陽光と蓄電池で、夜間も自給自足の暮らし」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥25,000</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥8,500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「蓄電池とセットにすることで、夜間の高い電気を買う必要がなくなりました。エネルギーの自給自足、本当に気持ちが良いです。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 8: Individual 40s (Nagasaki) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-100">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2000"
+                                alt="Nagasaki Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">長崎県 N様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">40代・4人家族</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「斜面の家でも諦めない。緻密なシミュレーションで最適な発電を」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥17,500</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥5,800</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「設置場所が複雑で不安でしたが、丁寧な説明と実績、そして納得のいくデータ提示があり決断しました。結果にも大満足です。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 9: Individual 20s (Shimane) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up delay-200">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1448630360428-6e2380d6cd60?q=80&w=2000"
+                                alt="Shimane Residence"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-teal text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Individual</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">島根県 S様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">20代・ご夫婦</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「新婚生活のスタート。未来への投資として、エコロジーな選択を」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Monthly Electric Bill</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">BEFORE</p>
+                                        <p class="text-lg font-eng font-bold">¥12,500</p>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="w-5 h-5 text-rejoice-teal"></i>
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-rejoice-teal font-bold mb-1">AFTER</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-teal">¥3,500</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「これからの子育てや将来を考え、家計に優しく、かつ環境に配慮できる太陽光は必須だと考えました。20代から始めて良かったです。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 10: Corporation (Cafe) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group fade-up">
+                        <div class="aspect-video relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000"
+                                alt="Cafe Sunshine"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div
+                                class="absolute top-4 left-4 bg-rejoice-accent text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                Business</div>
+                        </div>
+                        <div class="p-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="text-xs font-bold text-gray-400">佐賀県 カフェ店主様</span>
+                                <span class="text-xs font-bold text-rejoice-teal">店舗経営</span>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-6 leading-tight">「営業時間のピーク電力を太陽光でカバー。経営効率が向上。」</h3>
+                            <div class="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                                <p class="text-[10px] text-gray-400 font-bold tracking-widest mb-2 uppercase italic">
+                                    Peak Cost Reduction</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-center">
+                                        <p class="text-[10px] text-gray-400 font-bold mb-1">SAVING</p>
+                                        <p class="text-2xl font-eng font-bold text-rejoice-accent">¥15,800</p>
+                                    </div>
+                                    <span class="text-[10px] font-bold text-gray-400">/ MONTHLY AVG</span>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500 leading-relaxed italic">
+                                「日中の調理や空調で電気を多く使うため、太陽光との相性は抜群。エコな姿勢もお客さまに好評です。」
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 11: Corporation (Factory) -->
+                    <div
+                        class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group col-span-1 md:col-span-2 lg:col-span-2 fade-up delay-100">
+                        <div class="flex flex-col lg:flex-row h-full">
+                            <div class="lg:w-1/2 relative overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2000"
+                                    alt="Factory Solar"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <div
+                                    class="absolute top-4 left-4 bg-rejoice-accent text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                    Business / Factory</div>
+                            </div>
+                            <div class="lg:w-1/2 p-10 flex flex-col justify-center">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <span class="text-xs font-bold text-gray-400">山口県 製造工場様</span>
+                                    <span class="text-xs font-bold text-rejoice-teal">ESG経営推進</span>
+                                </div>
+                                <h3 class="text-3xl font-black mb-6 leading-tight text-rejoice-dark">
+                                    「コスト削減と脱炭素。企業の責任を、太陽光が支えてくれる。」</h3>
+                                <div class="bg-rejoice-dark text-white rounded-2xl p-8 mb-8 border border-white/10">
+                                    <p
+                                        class="text-[10px] text-white/40 font-bold tracking-widest mb-2 uppercase italic">
+                                        Industrial Cost Saving</p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-left">
+                                            <p class="text-[10px] text-rejoice-main font-bold mb-1">REDUCTION</p>
+                                            <p class="text-4xl font-eng font-bold text-rejoice-main">¥82,500</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-[10px] text-white/40 font-bold mb-1">MONTHLY AVG</p>
+                                            <p class="text-xs text-white/60">Annual Total: Approx. ¥1M</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-500 leading-relaxed italic">
+                                    「工場の広大な屋根スペースを有効活用。コストメリットだけでなく、地域環境への貢献という点でも大きな価値を感じています。」
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-rejoice-dark text-white relative overflow-hidden">
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">次は、あなたの家で。<br><span
+                        class="text-rejoice-main">初期費用0円</span>の太陽光生活。</h2>
+                <p class="text-white/50 mb-12 max-w-2xl mx-auto">
+                    現在の電気使用状況に基づいた、無料のシミュレーションを承っております。
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="/simulation/"
+                        class="px-12 py-5 bg-white text-black rounded-full font-bold hover:bg-rejoice-main hover:text-white transition-all">
+                        料金シミュレーション
+                    </a>
+                    <a href="/contact/?type=solar"
+                        class="px-12 py-5 border border-white/20 rounded-full font-bold hover:bg-white hover:text-black transition-all">
+                        お問い合わせはこちら
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <!-- AI:EDIT END main_content -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-rejoice-dark pt-20 pb-10 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-20">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="/assets/icons/logo.png" alt="Rejoice Biz"
+                            class="h-8 w-auto object-contain brightness-0 opacity-80">
+                        <span class="font-eng font-bold text-2xl tracking-tighter text-black">REJOICE BIZ</span>
+                    </div>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        株式会社リジョイス・ビズ<br>
+                        〒812-0029 福岡県福岡市博多区古門戸町1-10<br>
+                        NTF博多ビル5F
+                    </p>
+                </div>
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4 mt-10 md:mt-0 text-sm font-bold text-gray-500">
+                    <a href="/" class="hover:text-black transition-colors">トップ</a>
+                    <a href="/company/" class="hover:text-black transition-colors">会社概要</a>
+                    <a href="/services/solar/" class="hover:text-black transition-colors">住宅用太陽光発電</a>
+                    <a href="/works/solar/" class="hover:text-black transition-colors text-rejoice-main">導入事例</a>
+                    <a href="/services/battery/" class="hover:text-black transition-colors">蓄電池システム</a>
+                    <a href="/services/reform/" class="hover:text-black transition-colors">住宅リフォーム</a>
+                    <a href="/services/air/" class="hover:text-black transition-colors">業務用エアコン</a>
+                    <a href="/services/internet/" class="hover:text-black transition-colors">通信／新電力</a>
+                    <a href="/recruit/" class="hover:text-black transition-colors">採用情報</a>
+                    <a href="/news/" class="hover:text-black transition-colors">ニュース</a>
+                    <a href="/contact/" class="hover:text-black transition-colors">お問い合わせ</a>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                <p>&copy; 2026 Rejoice Biz Co., Ltd. All Rights Reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="/privacy-policy/" class="hover:text-black transition-colors">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    menuBtn.innerHTML = isOpen
+                        ? '<i data-lucide="x" class="w-8 h-8 text-black"></i>'
+                        : '<i data-lucide="menu" class="w-8 h-8 text-white mix-blend-difference"></i>';
+                    lucide.createIcons();
+                });
+            }
+
+            // Scroll Header Effect
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.remove('text-white', 'border-white/10', 'mix-blend-difference');
+                } else {
+                    header.classList.remove('bg-white/90', 'backdrop-blur', 'text-black', 'border-gray-200');
+                    header.classList.add('text-white', 'border-white/10', 'mix-blend-difference');
+                }
+            });
+
+            // Fade Up Animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

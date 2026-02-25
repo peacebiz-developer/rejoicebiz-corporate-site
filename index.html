@@ -4,7 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- AI:EDIT START page_meta -->
     <title>株式会社リジョイス・ビズ | Rejoice Biz</title>
+    <meta name="description" content="株式会社リジョイス・ビズは、太陽光発電・蓄電池・オール電化などの「省エネ設備」、屋根や内装などの「住宅リフォーム」、そして「通信／新電力」を総合的にプロデュースするライフコンサルティング・パートナーです。">
+    <link rel="canonical" href="https://rejoice-biz.com/">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="株式会社リジョイス・ビズ | Rejoice Biz">
+    <meta property="og:description" content="株式会社リジョイス・ビズは、太陽光発電・蓄電池・オール電化などの「省エネ設備」、屋根や内装などの「住宅リフォーム」、そして「通信／新電力」を総合的にプロデュースするライフコンサルティング・パートナーです。">
+    <meta property="og:url" content="https://rejoice-biz.com/">
+    <meta property="og:site_name" content="株式会社リジョイス・ビズ">
+    <meta property="og:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="株式会社リジョイス・ビズ | Rejoice Biz">
+    <meta name="twitter:description" content="株式会社リジョイス・ビズは、太陽光発電・蓄電池・オール電化などの「省エネ設備」、屋根や内装などの「住宅リフォーム」、そして「通信／新電力」を総合的にプロデュースするライフコンサルティング・パートナーです。">
+    <meta name="twitter:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "株式会社リジョイス・ビズ",
+      "url": "https://rejoice-biz.com/",
+      "logo": "https://rejoice-biz.com/assets/icons/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+81-92-983-8558",
+        "contactType": "customer service",
+        "areaServed": "JP",
+        "availableLanguage": "Japanese"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "古門戸町1-10 NTF博多ビル5F",
+        "addressLocality": "福岡市博多区",
+        "addressRegion": "福岡県",
+        "postalCode": "812-0029",
+        "addressCountry": "JP"
+      }
+    }
+    </script>
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,9 +70,9 @@
                 }
             }
         }
-    </script>
+    </script><!-- AI:EDIT END page_meta -->
     <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts -->
@@ -89,6 +131,8 @@
             height: 100%;
         }
     </style>
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 
 <body class="bg-white text-rejoice-dark flex flex-col min-h-screen">
@@ -97,8 +141,8 @@
     <header id="main-header"
         class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 border-b border-white/10 text-white">
         <div class="container mx-auto px-6 h-24 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 z-50">
-                <img src="assets/images/logo.png" alt="Rejoice Biz"
+            <a href="/" class="flex items-center gap-3 z-50">
+                <img src="/assets/icons/logo.png" alt="Rejoice Biz"
                     class="h-10 w-auto object-contain brightness-0 invert transition-all duration-500">
                 <span class="font-eng font-bold text-2xl tracking-tighter transition-colors duration-500">REJOICE
                     BIZ</span>
@@ -106,19 +150,19 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-6 font-sans text-xs font-bold tracking-wide">
-                <a href="company.html" class="hover:opacity-50 transition-opacity">会社概要</a>
+                <a href="/company/" class="hover:opacity-50 transition-opacity">会社概要</a>
                 <!-- Expanded Service Links -->
                 <div class="flex space-x-4 border-l border-r border-white/20 px-4 h-6 items-center">
-                    <a href="service-solar.html" class="hover:text-rejoice-main transition-colors">太陽光</a>
-                    <a href="service-battery.html" class="hover:text-rejoice-main transition-colors">蓄電池</a>
-                    <a href="service-reform.html" class="hover:text-rejoice-main transition-colors">リフォーム</a>
-                    <a href="service-air.html" class="hover:text-rejoice-main transition-colors">空調</a>
-                    <a href="service-internet.html" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
+                    <a href="/services/solar/" class="hover:text-rejoice-main transition-colors">太陽光</a>
+                    <a href="/services/battery/" class="hover:text-rejoice-main transition-colors">蓄電池</a>
+                    <a href="/services/reform/" class="hover:text-rejoice-main transition-colors">リフォーム</a>
+                    <a href="/services/air/" class="hover:text-rejoice-main transition-colors">空調</a>
+                    <a href="/services/internet/" class="hover:text-rejoice-main transition-colors">通信／新電力</a>
                 </div>
-                <a href="works-solar.html" class="hover:opacity-50 transition-opacity">導入事例</a>
-                <a href="recruit.html" class="hover:opacity-50 transition-opacity">採用情報</a>
-                <a href="news.html" class="hover:opacity-50 transition-opacity">ニュース</a>
-                <a href="contact.html"
+                <a href="/works/solar/" class="hover:opacity-50 transition-opacity">導入事例</a>
+                <a href="/recruit/" class="hover:opacity-50 transition-opacity">採用情報</a>
+                <a href="/news/" class="hover:opacity-50 transition-opacity">ニュース</a>
+                <a href="/contact/"
                     class="px-6 py-2 border border-current rounded-full hover:bg-white hover:text-black transition-all">
                     お問い合わせ
                 </a>
@@ -134,30 +178,31 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
         class="hidden lg:hidden fixed inset-0 bg-white z-[60] flex flex-col justify-center px-8 space-y-6 text-rejoice-dark overflow-y-auto">
-        <a href="company.html" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
+        <a href="/company/" class="text-2xl font-bold border-b border-gray-100 pb-2">会社概要</a>
         <div class="flex flex-col space-y-4 pl-4 border-l-2 border-rejoice-main">
             <span class="text-xs font-bold text-gray-400 tracking-widest">SERVICES</span>
-            <a href="service-solar.html" class="text-xl font-bold">住宅用太陽光発電</a>
-            <a href="works-solar.html" class="text-xl font-bold">導入事例</a>
-            <a href="service-battery.html" class="text-xl font-bold">蓄電池システム</a>
-            <a href="service-reform.html" class="text-xl font-bold">住宅リフォーム</a>
-            <a href="service-air.html" class="text-xl font-bold">業務用エアコン</a>
-            <a href="service-internet.html" class="text-xl font-bold">通信／新電力</a>
+            <a href="/services/solar/" class="text-xl font-bold">住宅用太陽光発電</a>
+            <a href="/works/solar/" class="text-xl font-bold">導入事例</a>
+            <a href="/services/battery/" class="text-xl font-bold">蓄電池システム</a>
+            <a href="/services/reform/" class="text-xl font-bold">住宅リフォーム</a>
+            <a href="/services/air/" class="text-xl font-bold">業務用エアコン</a>
+            <a href="/services/internet/" class="text-xl font-bold">通信／新電力</a>
         </div>
-        <a href="recruit.html" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
-        <a href="news.html" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
-        <a href="contact.html" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
+        <a href="/recruit/" class="text-2xl font-bold border-b border-gray-100 pb-2">採用情報</a>
+        <a href="/news/" class="text-2xl font-bold border-b border-gray-100 pb-2">ニュース</a>
+        <a href="/contact/" class="text-2xl font-bold text-rejoice-main">お問い合わせ</a>
     </div>
 
 
     <main class="flex-grow w-full overflow-x-hidden">
+        <!-- AI:EDIT START main_content -->
 
         <!-- Hero Section (Impactful Typography) -->
         <section class="relative h-screen flex flex-col justify-center overflow-hidden bg-black text-white">
             <!-- Background Video -->
             <div class="absolute inset-0 z-0 opacity-80">
                 <video autoplay muted loop playsinline class="w-full h-full object-cover">
-                    <source src="assets/images/hero-section-movie.mp4" type="video/mp4">
+                    <source src="/assets/video/hero-section-movie.mp4" type="video/mp4">
                 </video>
             </div>
 
@@ -255,10 +300,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-gray-200 bg-white">
 
                     <!-- Solar (Feature Cell - Brightened) -->
-                    <a href="service-solar.html"
+                    <a href="/services/solar/"
                         class="col-span-1 md:col-span-2 lg:col-span-2 row-span-2 relative h-[600px] border-r border-b border-gray-200 group overflow-hidden">
                         <!-- Background -->
-                        <img src="assets/images/solar_house.jpg"
+                        <img src="/assets/img/solar_house.jpg"
                             class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 brightness-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
@@ -295,7 +340,7 @@
                                 <!-- Image Asset -->
                                 <div class="flex items-end gap-6">
                                     <div class="bg-white/90 p-3 rounded-xl shadow-lg backdrop-blur-sm max-w-[200px]">
-                                        <img src="assets/images/at_denka_pack_solar.png" alt="@電化パック"
+                                        <img src="/assets/img/at_denka_pack_solar.png" alt="@電化パック"
                                             class="w-full h-auto object-contain">
                                     </div>
                                 </div>
@@ -304,9 +349,9 @@
                     </a>
 
                     <!-- Reform (Light Theme) -->
-                    <a href="service-reform.html"
+                    <a href="/services/reform/"
                         class="col-span-1 relative h-[300px] border-r border-b border-gray-200 group overflow-hidden">
-                        <img src="assets/images/jutaku.png"
+                        <img src="/assets/img/jutaku.png"
                             class="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-700">
                         <div
                             class="absolute inset-0 bg-white/80 group-hover:bg-white/60 transition-colors duration-300">
@@ -328,9 +373,9 @@
                     </a>
 
                     <!-- Air (Light Theme) -->
-                    <a href="service-air.html"
+                    <a href="/services/air/"
                         class="col-span-1 relative h-[300px] border-r border-b border-gray-200 group overflow-hidden">
-                        <img src="assets/images/air.png"
+                        <img src="/assets/img/air.png"
                             class="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-700">
                         <div
                             class="absolute inset-0 bg-white/80 group-hover:bg-white/60 transition-colors duration-300">
@@ -352,7 +397,7 @@
                     </a>
 
                     <!-- Internet (Light Theme) -->
-                    <a href="service-internet.html"
+                    <a href="/services/internet/"
                         class="col-span-1 relative h-[300px] border-r border-b border-gray-200 group overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
                             class="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-700">
@@ -376,7 +421,7 @@
                     </a>
 
                     <!-- Contact Cell (Solid Color) -->
-                    <a href="contact.html"
+                    <a href="/contact/"
                         class="col-span-1 relative h-[300px] border-r border-b border-gray-200 group bg-gray-50 hover:bg-white transition-colors flex flex-col justify-center items-center text-center p-8">
                         <span class="text-xs font-bold tracking-[0.2em] mb-4 text-gray-400">CONTACT</span>
                         <h3 class="text-2xl font-bold mb-6 text-gray-900">お問い合わせ</h3>
@@ -395,12 +440,12 @@
             <div class="container mx-auto px-6">
                 <div class="flex justify-between items-end mb-12 border-b border-gray-900 pb-4">
                     <h2 class="text-4xl font-bold font-sans">ニュース</h2>
-                    <a href="news.html" class="text-sm font-bold hover:underline">すべて見る</a>
+                    <a href="/news/" class="text-sm font-bold hover:underline">すべて見る</a>
                 </div>
 
                 <div class="flex flex-col">
                     <!-- News Item 1 -->
-                    <a href="news-detail.html"
+                    <a href="/news/detail/"
                         class="group py-8 border-b border-gray-200 flex flex-col md:flex-row md:items-center gap-4 hover:pl-4 transition-all duration-300">
                         <span class="font-eng text-gray-400 text-sm w-32">2026.01.10</span>
                         <span
@@ -411,7 +456,7 @@
                         </span>
                     </a>
                     <!-- News Item 2 -->
-                    <a href="news-detail-tohoku.html"
+                    <a href="/news/tohoku/"
                         class="group py-8 border-b border-gray-200 flex flex-col md:flex-row md:items-center gap-4 hover:pl-4 transition-all duration-300">
                         <span class="font-eng text-gray-400 text-sm w-32">2025.12.01</span>
                         <span
@@ -422,7 +467,7 @@
                         </span>
                     </a>
                     <!-- News Item 3 -->
-                    <a href="news-detail-shime.html"
+                    <a href="/news/shime/"
                         class="group py-8 border-b border-gray-200 flex flex-col md:flex-row md:items-center gap-4 hover:pl-4 transition-all duration-300">
                         <span class="font-eng text-gray-400 text-sm w-32">2025.01.14</span>
                         <span
@@ -433,7 +478,7 @@
                         </span>
                     </a>
                     <!-- News Item 4 -->
-                    <a href="news-detail-2020.html"
+                    <a href="/news/2020/"
                         class="group py-8 border-b border-gray-200 flex flex-col md:flex-row md:items-center gap-4 hover:pl-4 transition-all duration-300">
                         <span class="font-eng text-gray-400 text-sm w-32">2020.09.18</span>
                         <span
@@ -447,6 +492,7 @@
             </div>
         </section>
 
+    <!-- AI:EDIT END main_content -->
     </main>
 
     <!-- Footer (Light Theme) -->
@@ -455,7 +501,7 @@
             <div class="flex flex-col md:flex-row justify-between items-start mb-20">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="assets/images/logo.png" alt="Rejoice Biz"
+                        <img src="/assets/icons/logo.png" alt="Rejoice Biz"
                             class="h-8 w-auto object-contain brightness-0 opacity-80">
                         <span class="font-eng font-bold text-2xl tracking-tighter text-black">REJOICE BIZ</span>
                     </div>
@@ -467,23 +513,23 @@
                 </div>
                 <div
                     class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4 mt-10 md:mt-0 text-sm font-bold text-gray-500">
-                    <a href="index.html" class="hover:text-black transition-colors">トップ</a>
-                    <a href="company.html" class="hover:text-black transition-colors">会社概要</a>
-                    <a href="service-solar.html" class="hover:text-black transition-colors">住宅用太陽光発電</a>
-                    <a href="works-solar.html" class="hover:text-black transition-colors">導入事例</a>
-                    <a href="service-battery.html"
+                    <a href="/" class="hover:text-black transition-colors">トップ</a>
+                    <a href="/company/" class="hover:text-black transition-colors">会社概要</a>
+                    <a href="/services/solar/" class="hover:text-black transition-colors">住宅用太陽光発電</a>
+                    <a href="/works/solar/" class="hover:text-black transition-colors">導入事例</a>
+                    <a href="/services/battery/"
                         class="hover:text-black transition-colors text-rejoice-main">蓄電池システム</a>
-                    <a href="service-reform.html" class="hover:text-black transition-colors">住宅リフォーム</a>
-                    <a href="service-air.html" class="hover:text-black transition-colors">業務用エアコン</a>
-                    <a href="service-internet.html" class="hover:text-black transition-colors">通信／新電力</a>
-                    <a href="recruit.html" class="hover:text-black transition-colors">採用情報</a>
-                    <a href="news.html" class="hover:text-black transition-colors">ニュース</a>
-                    <a href="contact.html" class="hover:text-black transition-colors">お問い合わせ</a>
+                    <a href="/services/reform/" class="hover:text-black transition-colors">住宅リフォーム</a>
+                    <a href="/services/air/" class="hover:text-black transition-colors">業務用エアコン</a>
+                    <a href="/services/internet/" class="hover:text-black transition-colors">通信／新電力</a>
+                    <a href="/recruit/" class="hover:text-black transition-colors">採用情報</a>
+                    <a href="/news/" class="hover:text-black transition-colors">ニュース</a>
+                    <a href="/contact/" class="hover:text-black transition-colors">お問い合わせ</a>
                 </div>
             </div>
             <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between text-xs text-gray-400">
                 <p>&copy; Rejoice Biz Co., Ltd.</p>
-                <a href="privacy-policy.html" class="hover:text-black transition-colors">プライバシーポリシー</a>
+                <a href="/privacy-policy/" class="hover:text-black transition-colors">プライバシーポリシー</a>
             </div>
         </div>
     </footer>

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- AI:EDIT START page_meta -->
+    <title>無料シミュレーション | 株式会社リジョイス・ビズ</title>
+    <meta name="description" content="太陽光発電や蓄電池導入に関する料金シミュレーション。現在のご利用状況から最適なプランを無料診断します。">
+    <link rel="canonical" href="https://rejoice-biz.com/simulation/">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="無料シミュレーション | 株式会社リジョイス・ビズ">
+    <meta property="og:description" content="太陽光発電や蓄電池導入に関する料金シミュレーション。現在のご利用状況から最適なプランを無料診断します。">
+    <meta property="og:url" content="https://rejoice-biz.com/simulation/">
+    <meta property="og:site_name" content="株式会社リジョイス・ビズ">
+    <meta property="og:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="無料シミュレーション | 株式会社リジョイス・ビズ">
+    <meta name="twitter:description" content="太陽光発電や蓄電池導入に関する料金シミュレーション。現在のご利用状況から最適なプランを無料診断します。">
+    <meta name="twitter:image" content="https://rejoice-biz.com/assets/img/company_hero.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://rejoice-biz.com/"},
+        {"@type": "ListItem", "position": 2, "name": "無料シミュレーション", "item": "https://rejoice-biz.com/simulation/"}
+      ]
+    }
+    </script>
+    
+    <!-- AI:EDIT END page_meta -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rejoice: {
+                            main: '#0d9488',
+                            accent: '#f59e0b',
+                            dark: '#111827',
+                            red: '#dc2626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        eng: ['"Outfit"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+            letter-spacing: 0.05em;
+        }
+    </style>
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed w-full top-0 left-0 z-[70] transition-all duration-500 bg-white shadow-md">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="/" class="group nav-link flex items-center gap-3 relative z-50">
+                <img src="/assets/icons/logo.png" alt="Rejoice Biz"
+                    class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
+                <span class="text-xl md:text-2xl font-bold tracking-tight text-gray-800">Rejoice Biz</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 focus:outline-none z-50 text-gray-800"
+                aria-label="メニューを開く">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium tracking-wide text-sm">
+                <a href="/"
+                    class="text-gray-600 hover:text-rejoice-main transition-colors flex flex-col items-center">
+                    <span class="text-xs font-bold mt-1">トップ</span>
+                </a>
+                <a href="/company/"
+                    class="text-gray-600 hover:text-rejoice-main transition-colors flex flex-col items-center">
+                    <span class="text-xs font-bold mt-1">会社概要</span>
+                </a>
+                <div class="relative group">
+                    <button
+                        class="text-gray-600 hover:text-rejoice-main flex flex-col items-center focus:outline-none py-2">
+                        <span class="text-xs font-bold mt-1 inline-flex items-center gap-1">事業内容 <i
+                                data-lucide="chevron-down" class="w-3 h-3"></i></span>
+                    </button>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 mt-0 w-64 bg-white rounded-none shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-4 border-rejoice-main">
+                        <a href="/services/solar/"
+                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
+                            住宅用太陽光発電
+                        </a>
+                        <a href="/services/battery/"
+                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
+                            蓄電池システム
+                        </a>
+                        <a href="/services/reform/"
+                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
+                            住宅リフォーム
+                        </a>
+                        <a href="/services/air/"
+                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors border-b border-gray-100">
+                            業務用エアコン
+                        </a>
+                        <a href="/services/internet/"
+                            class="block px-6 py-4 text-sm text-gray-600 hover:bg-gray-50 transition-colors">
+                            通信／新電力
+                        </a>
+                    </div>
+                </div>
+                <a href="/recruit/"
+                    class="text-gray-600 hover:text-rejoice-main transition-colors flex flex-col items-center">
+                    <span class="text-xs font-bold mt-1">採用</span>
+                </a>
+                <a href="/contact/"
+                    class="nav-link bg-red-600 text-white px-8 py-2 rounded-full hover:bg-red-700 transition-all transform hover:-translate-y-1 shadow-lg flex flex-col items-center leading-none">
+                    <span class="text-xs font-bold">お問い合わせ</span>
+                </a>
+            </nav>
+        </div>
+
+    </header>
+
+    <!-- Mobile Nav Menu Overlay -->
+    <div id="mobile-menu"
+        class="hidden md:hidden fixed inset-0 bg-white z-[60] flex flex-col pt-24 px-6 space-y-6 overflow-y-auto">
+        <a href="/"
+            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
+            <span>トップ</span>
+        </a>
+        <a href="/company/"
+            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
+            <span>会社概要</span>
+        </a>
+        <div class="space-y-4">
+            <span class="text-xs font-bold text-gray-900 tracking-widest uppercase">事業内容</span>
+            <a href="/services/solar/"
+                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-main">住宅用太陽光発電</a>
+            <a href="/services/battery/"
+                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-accent">蓄電池システム</a>
+            <a href="/services/reform/"
+                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-rejoice-red">住宅リフォーム</a>
+            <a href="/services/air/"
+                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-blue-500">業務用エアコン</a>
+            <a href="/services/internet/"
+                class="mobile-link block text-lg font-medium text-gray-600 pl-4 border-l-2 border-purple-500">通信／新電力</a>
+        </div>
+        <a href="/recruit/"
+            class="mobile-link text-2xl font-bold text-gray-800 border-b border-gray-100 pb-4 flex justify-between items-baseline">
+            <span>採用</span>
+        </a>
+        <a href="/contact/"
+            class="mobile-link block text-center bg-red-600 text-white py-4 rounded-full font-bold mt-8">
+            お問い合わせ
+        </a>
+    </div>
+
+    <main class="flex-grow pt-24 pb-12">
+        <!-- AI:EDIT START main_content -->
+        <div class="container mx-auto px-4 sm:px-6 max-w-5xl overflow-x-hidden">
+
+            <div class="text-center mb-10 md:mb-16">
+                <span class="text-green-600 font-bold tracking-widest uppercase text-xs md:text-sm">Simulation</span>
+                <h1 class="text-xl sm:text-2xl md:text-4xl font-bold mt-2 mb-4 text-gray-900 leading-tight">
+                    太陽光発電・電気代削減<br>シミュレーション</h1>
+                <p class="text-sm md:text-base text-gray-600 max-w-2xl mx-auto px-2">あなたの生活スタイルに合わせて、どれくらいおトクになるか診断します。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-4 md:gap-8">
+
+                <!-- Input Section -->
+                <div class="md:col-span-5 bg-white p-4 md:p-8 rounded-2xl shadow-lg border border-gray-100 h-fit">
+                    <h2 class="font-bold text-lg md:text-xl mb-6 md:mb-8 flex items-center text-gray-800">
+                        <span
+                            class="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span>
+                        条件を入力
+                    </h2>
+
+                    <form id="simForm" class="space-y-6 md:space-y-8">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3 md:mb-4">世帯人数</label>
+                            <div class="grid grid-cols-5 gap-1.5 md:gap-2">
+                                <button type="button"
+                                    class="household-btn py-2.5 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 text-xs md:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    data-value="1">1人</button>
+                                <button type="button"
+                                    class="household-btn py-2.5 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 text-xs md:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    data-value="2">2人</button>
+                                <button type="button"
+                                    class="household-btn py-2.5 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 text-xs md:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    data-value="3">3人</button>
+                                <button type="button"
+                                    class="household-btn py-2.5 rounded-lg border border-green-500 bg-green-50 text-green-700 font-bold shadow-sm ring-2 ring-green-500 text-xs md:text-sm transition-all"
+                                    data-value="4">4人</button>
+                                <button type="button"
+                                    class="household-btn py-2.5 rounded-lg border border-gray-200 hover:border-green-500 hover:bg-green-50 text-xs md:text-sm transition-all focus:outline-none focus:ring-2 focus:ring-green-500"
+                                    data-value="5">5人~</button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2">※世帯人数に合わせた太陽光パネル設置容量を想定して算出します。</p>
+                            <input type="hidden" id="householdSize" value="4">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-3 md:mb-4">お住まいの地域</label>
+                            <div class="relative">
+                                <select id="region"
+                                    class="w-full pl-10 pr-4 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 appearance-none bg-white text-sm md:text-base">
+                                    <optgroup label="北海道・東北">
+                                        <option value="1889.6">北海道</option>
+                                        <option value="1821.4">青森県</option>
+                                        <option value="1913.3">岩手県</option>
+                                        <option value="2181.7">宮城県</option>
+                                        <option value="1836.2">秋田県</option>
+                                        <option value="1893.6">山形県</option>
+                                        <option value="2064.5">福島県</option>
+                                    </optgroup>
+                                    <optgroup label="関東">
+                                        <option value="2454.4">茨城県</option>
+                                        <option value="2293.6">栃木県</option>
+                                        <option value="2497.2">群馬県</option>
+                                        <option value="2545.5">埼玉県</option>
+                                        <option value="2345.7">千葉県</option>
+                                        <option value="2259.2">東京都</option>
+                                        <option value="2410.0">神奈川県</option>
+                                    </optgroup>
+                                    <optgroup label="中部">
+                                        <option value="1944.0">新潟県</option>
+                                        <option value="1979.1">富山県</option>
+                                        <option value="2029.8">石川県</option>
+                                        <option value="1955.5">福井県</option>
+                                        <option value="2484.1">山梨県</option>
+                                        <option value="2235.8">長野県</option>
+                                        <option value="2342.4">岐阜県</option>
+                                        <option value="2459.3">静岡県</option>
+                                        <option value="2378.4">愛知県</option>
+                                    </optgroup>
+                                    <optgroup label="近畿">
+                                        <option value="2373.3">三重県</option>
+                                        <option value="2101.7">滋賀県</option>
+                                        <option value="2081.4">京都府</option>
+                                        <option value="2324.0">大阪府</option>
+                                        <option value="2318.7">兵庫県</option>
+                                        <option value="2094.5">奈良県</option>
+                                        <option value="2328.0">和歌山県</option>
+                                    </optgroup>
+                                    <optgroup label="中国・四国">
+                                        <option value="1936.3">鳥取県</option>
+                                        <option value="1894.4">島根県</option>
+                                        <option value="2200.6">岡山県</option>
+                                        <option value="2179.0">広島県</option>
+                                        <option value="2019.1">山口県</option>
+                                        <option value="2308.8">徳島県</option>
+                                        <option value="2207.9">香川県</option>
+                                        <option value="2140.2">愛媛県</option>
+                                        <option value="2249.0">高知県</option>
+                                    </optgroup>
+                                    <optgroup label="九州・沖縄">
+                                        <option value="2032.8" selected>福岡県</option>
+                                        <option value="2084.1">佐賀県</option>
+                                        <option value="1939.3">長崎県</option>
+                                        <option value="2100.6">熊本県</option>
+                                        <option value="2116.1">大分県</option>
+                                        <option value="2213.4">宮崎県</option>
+                                        <option value="2102.3">鹿児島県</option>
+                                        <option value="1860.9">沖縄県</option>
+                                    </optgroup>
+                                </select>
+                                <i data-lucide="map-pin" class="absolute left-3 top-3.5 w-5 h-5 text-gray-400"></i>
+                                <i data-lucide="chevron-down"
+                                    class="absolute right-3 top-3.5 w-5 h-5 text-gray-400 pointer-events-none"></i>
+                            </div>
+                            <p class="text-[10px] text-gray-400 mt-1">※出典：総務省「統計でみる都道府県のすがた2025」 (2023年度データ)</p>
+                        </div>
+
+                        <div class="pt-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-3 md:mb-4">現在の月平均電気代</label>
+                            <div class="relative mb-6">
+                                <input type="number" id="monthlyBill" value="15000" step="1000" min="0"
+                                    class="w-full pl-10 pr-12 py-3.5 border border-gray-200 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 font-bold text-xl md:text-2xl">
+                                <span class="absolute left-4 top-4 text-gray-400">¥</span>
+                                <span class="absolute right-4 top-4 text-gray-500 text-sm font-bold">円</span>
+                            </div>
+                            <input type="range" id="billSlider" min="5000" max="50000" step="1000" value="15000"
+                                class="w-full accent-green-600 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <button type="button" id="calcBtn"
+                            class="w-full py-4 md:py-5 bg-gradient-to-r from-green-600 to-emerald-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-base md:text-lg flex justify-center items-center gap-2 mt-4">
+                            <i data-lucide="calculator" class="w-5 h-5"></i> シミュレーション実行
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Result Section -->
+                <div class="md:col-span-7 space-y-8">
+
+                    <!-- Result Cards -->
+                    <div id="resultCards" class="grid grid-cols-2 gap-2 sm:gap-4">
+                        <div class="bg-white p-3 sm:p-5 rounded-2xl shadow-sm border border-gray-100 text-center">
+                            <p class="text-gray-500 text-[10px] sm:text-xs font-bold mb-1">年間削減メリット</p>
+                            <p class="text-lg sm:text-2xl md:text-3xl font-bold text-green-600" id="annualSavings">--
+                            </p>
+                            <p class="text-[10px] sm:text-xs text-gray-400 mt-1">円相当</p>
+                        </div>
+                        <div class="bg-white p-3 sm:p-5 rounded-2xl shadow-sm border border-gray-100 text-center">
+                            <p class="text-gray-500 text-[10px] sm:text-xs font-bold mb-1">25年間の総メリット</p>
+                            <p class="text-lg sm:text-2xl md:text-3xl font-bold text-green-600" id="totalSavings">--</p>
+                            <p class="text-[10px] sm:text-xs text-gray-400 mt-1">円相当</p>
+                        </div>
+                    </div>
+
+                    <!-- Graph -->
+                    <div class="bg-white p-3 sm:p-4 md:p-6 rounded-2xl shadow-lg border border-gray-100 relative">
+                        <h2 class="font-bold text-sm sm:text-lg mb-4 text-gray-800 flex items-center">
+                            <span
+                                class="bg-blue-100 text-blue-600 w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-2 sm:mr-3 text-xs md:text-sm flex-shrink-0">2</span>
+                            30年間の推移グラフ
+                        </h2>
+                        <div class="relative h-40 sm:h-48 md:h-64 w-full" style="max-width: 100%; overflow: hidden;">
+                            <canvas id="costChart" style="max-width: 100%;"></canvas>
+                        </div>
+                        <div class="mt-3 sm:mt-4 space-y-2">
+                            <p class="text-[10px] sm:text-xs text-gray-600 font-medium text-center">
+                                <span class="inline-block bg-green-50 text-green-700 px-2 py-1 rounded">💡 グラフの見方</span>
+                            </p>
+                            <p
+                                class="text-[9px] sm:text-[10px] md:text-xs text-gray-500 text-center leading-relaxed px-2">
+                                緑の線がマイナスになるのは、<strong class="text-green-600">売電による収入が電気代を上回るため</strong>です。<br>
+                                太陽光で発電した電気を売ることで、実質的な負担が減り、やがて利益になります。
+                            </p>
+                            <p
+                                class="text-[9px] sm:text-[10px] md:text-xs text-gray-400 mt-2 text-center leading-relaxed">
+                                ※シミュレーション結果は概算であり、実際の削減額を保証するものではありません。<br>
+                                ※売電価格や電気料金単価は一般的な目安値を使用しています。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div
+                        class="bg-gradient-to-br from-green-600 to-emerald-700 p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg text-white text-center">
+                        <h3 class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">具体的なプランが気になりませんか？</h3>
+                        <p class="text-green-100 mb-4 sm:mb-6 text-[11px] sm:text-xs md:text-sm leading-relaxed">
+                            屋根の形状や向きによって発電量は変わります。<br>
+                            プロによる無料診断で、あなたのご自宅に最適なプランをご提案します。
+                        </p>
+                        <a href="/contact/"
+                            class="inline-block bg-white text-green-700 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full font-bold shadow-md hover:bg-gray-100 transition-colors text-xs sm:text-sm md:text-base">
+                            無料詳細見積もりを依頼する
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <!-- AI:EDIT END main_content -->
+    </main>
+
+    <!-- Standard Contact Section Integration for consistency -->
+    <div id="contact-section" class="bg-gray-900 text-white py-24 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-900 rounded-full blur-3xl opacity-20 -mr-32 -mt-32">
+        </div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-green-900 rounded-full blur-3xl opacity-20 -ml-32 -mb-32">
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+            <h3 class="text-3xl font-bold mb-6">お問い合わせ</h3>
+            <p class="text-gray-400 mb-12">
+                サービスに関するご質問やご相談など、お気軽にお問い合わせください。<br>
+                担当者が丁寧にご案内いたします。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div
+                    class="bg-gray-800/50 backdrop-blur p-8 rounded-2xl border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                    <i data-lucide="phone" class="w-8 h-8 mx-auto mb-4 text-blue-400"></i>
+                    <h4 class="text-xl font-bold mb-2">お電話でのお問い合わせ</h4>
+                    <p class="text-gray-400 text-sm mb-4">受付時間 10:00～18:00 ※土日祝除く</p>
+                    <a href="tel:0929838558"
+                        class="text-3xl font-bold hover:text-blue-400 transition-colors">092-983-8558</a>
+                </div>
+                <div
+                    class="bg-gray-800/50 backdrop-blur p-8 rounded-2xl border border-gray-700 hover:border-green-500 transition-all duration-300">
+                    <i data-lucide="mail" class="w-8 h-8 mx-auto mb-4 text-green-400"></i>
+                    <h4 class="text-xl font-bold mb-2">Webからのお問い合わせ</h4>
+                    <p class="text-gray-400 text-sm mb-4">24時間受付中</p>
+                    <a href="/contact/"
+                        class="nav-link inline-block px-8 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold text-white transition-colors">
+                        お問い合わせフォーム
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-50 text-gray-600 py-16 border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-3">
+                        <img src="/assets/icons/logo.png" alt="Rejoice Biz Logo"
+                            class="h-10 w-auto object-contain brightness-0 opacity-80">
+                        <span class="text-xl font-bold tracking-tight text-gray-800">Rejoice Biz</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        株式会社リジョイス・ビズ<br>
+                        〒812-0029 福岡県福岡市博多区古門戸町1-10<br>
+                        NTF博多ビル5F
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium tracking-wide">
+                    <a href="/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>トップ</span>
+                    </a>
+                    <a href="/company/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>会社概要</span>
+                    </a>
+                    <a href="/services/solar/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>住宅用太陽光発電</span>
+                    </a>
+                    <a href="/services/battery/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>蓄電池システム</span>
+                    </a>
+                    <a href="/services/reform/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>住宅リフォーム</span>
+                    </a>
+                    <a href="/services/air/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>業務用エアコン</span>
+                    </a>
+                    <a href="/services/internet/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>通信／新電力</span>
+                    </a>
+                    <a href="/recruit/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>採用</span>
+                    </a>
+                    <a href="/contact/" class="flex flex-col hover:text-rejoice-main transition-colors">
+                        <span>お問い合わせ</span>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="mt-16 pt-8 border-t border-gray-200 text-center text-xs text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; Rejoice Biz Co., Ltd. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/privacy-policy/" class="hover:text-gray-600">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Constants
+        const ELEC_PRICE = 31; // yen/kWh (National average approx)
+        const SELL_PRICE = 16; // yen/kWh (FIT price approx)
+
+        // Elements
+        const form = document.getElementById('simForm');
+        const householdBtns = document.querySelectorAll('.household-btn');
+        const householdInput = document.getElementById('householdSize');
+        const billInput = document.getElementById('monthlyBill');
+        const billSlider = document.getElementById('billSlider');
+        const regionInput = document.getElementById('region');
+        const calcBtn = document.getElementById('calcBtn');
+        const annualSavingsEl = document.getElementById('annualSavings');
+        const totalSavingsEl = document.getElementById('totalSavings');
+        let chartInstance = null;
+
+        // UI Interactions
+        householdBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                householdBtns.forEach(b => {
+                    b.classList.remove('border-green-500', 'bg-green-50', 'text-green-700', 'ring-2', 'ring-green-500', 'font-bold');
+                    b.classList.add('border-gray-200');
+                });
+                btn.classList.remove('border-gray-200');
+                btn.classList.add('border-green-500', 'bg-green-50', 'text-green-700', 'ring-2', 'ring-green-500', 'font-bold');
+                householdInput.value = btn.dataset.value;
+            });
+        });
+
+        // Sync slider and number input
+        billInput.addEventListener('input', (e) => billSlider.value = e.target.value);
+        billSlider.addEventListener('input', (e) => billInput.value = e.target.value);
+
+        // Chart Initialization
+        let chartData = { annualBenefit: 0, incomeFromSell: 0 }; // Store for tooltip
+
+        function initChart(dataWithoutSolar, dataWithSolar, labels, annualBenefit, incomeFromSell) {
+            const canvas = document.getElementById('costChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            // Store data for tooltip
+            chartData.annualBenefit = annualBenefit;
+            chartData.incomeFromSell = incomeFromSell;
+
+            // Force canvas to respect container width
+            const container = canvas.parentElement;
+            if (container) {
+                canvas.style.width = '100%';
+                canvas.style.maxWidth = '100%';
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: '太陽光なし（支出累計）',
+                            data: dataWithoutSolar,
+                            borderColor: '#9ca3af', // gray-400
+                            backgroundColor: 'transparent',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.4
+                        },
+                        {
+                            label: '太陽光あり（売電利益含む・実質負担累計）',
+                            data: dataWithSolar,
+                            borderColor: '#16a34a', // green-600
+                            backgroundColor: 'rgba(22, 163, 74, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            bottom: 0
+                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            display: window.innerWidth > 640, // Hide legend on small mobile
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        const value = context.parsed.y;
+                                        label += new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(value);
+
+                                        // Add explanation for negative values (solar with sell)
+                                        if (context.datasetIndex === 1 && value < 0) {
+                                            label += '（売電による収入が支出を上回っています）';
+                                        }
+                                    }
+                                    return label;
+                                },
+                                footer: function (tooltipItems) {
+                                    // Show explanation for solar line
+                                    if (tooltipItems.length > 1 && tooltipItems[1].datasetIndex === 1) {
+                                        const year = tooltipItems[0].dataIndex + 1;
+                                        if (year > 0 && chartData.incomeFromSell > 0) {
+                                            return [
+                                                '※売電による年間収入: ' + Math.round(chartData.incomeFromSell).toLocaleString() + '円',
+                                                '※マイナスは売電収入が電気代を上回ることを示します'
+                                            ];
+                                        }
+                                    }
+                                    return [];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                font: { size: 9 },
+                                callback: function (value, index, values) {
+                                    if (value < 0) {
+                                        return '▲' + Math.abs(value / 10000) + '万円';
+                                    }
+                                    return value / 10000 + '万円';
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                font: { size: 9 },
+                                autoSkip: true,
+                                maxTicksLimit: 6
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Force resize after a short delay to ensure proper rendering
+            setTimeout(() => {
+                if (chartInstance) {
+                    chartInstance.resize();
+                }
+            }, 100);
+        }
+
+        // Calculation Logic
+        function calculate() {
+            const householdSize = parseInt(householdInput.value);
+            const monthlyBill = parseInt(billInput.value);
+            const sunshineHours = parseFloat(regionInput.value); // Annual sunshine hours from PDF
+
+            // Standard conversion: 1kW solar panels generate approx (sunshineHours * 0.85) kWh per year
+            // The 0.85 factor accounts for system efficiency (inverter loss, temperature loss, etc.)
+            const efficiencyFactor = 0.85;
+            const yieldPerKw = sunshineHours * efficiencyFactor;
+
+            // Estimate System Size (kW) based on typical household needs
+            // 1人世帯： 3.5kW
+            // 2人世帯： 4.5kW
+            // 3〜4人世帯： 6.0kW
+            // 5人以上の世帯： 9.0kW
+            let systemSize = 3.5;
+            if (householdSize === 2) systemSize = 4.5;
+            else if (householdSize === 3 || householdSize === 4) systemSize = 6.0;
+            else if (householdSize >= 5) systemSize = 9.0;
+
+            // Monthly Lease Cost (User Request: systemSize * 2150, rounded up)
+            const monthlyLease = Math.ceil(systemSize * 2150);
+            const annualLease = monthlyLease * 12;
+
+            // Annual Generation (kWh)
+            const annualGen = systemSize * yieldPerKw;
+
+            // Self Consumption Ratio (Approx)
+            // More people = higher self consumption usually
+            let selfConsumptionRatio = 0.3;
+            if (householdSize >= 4) selfConsumptionRatio = 0.35;
+
+            const selfConsumedKwh = annualGen * selfConsumptionRatio;
+            const soldKwh = annualGen * (1 - selfConsumptionRatio);
+
+            // Annual Benefits (Gross)
+            const savingsFromSelfConsumption = selfConsumedKwh * ELEC_PRICE;
+            const incomeFromSell = soldKwh * SELL_PRICE;
+            const totalAnnualGrossBenefit = savingsFromSelfConsumption + incomeFromSell;
+
+            // Net Annual Benefits
+            // Years 1-10: Gross Benefit - Lease Cost
+            const annualNetBenefitWithLease = totalAnnualGrossBenefit - annualLease;
+            // Years 11+: Gross Benefit (Lease is over)
+            const annualNetBenefitAfterLease = totalAnnualGrossBenefit;
+
+            // Total Savings for 25 years (Lease is only for 10 years)
+            const totalSavings25Years = (annualNetBenefitWithLease * 10) + (annualNetBenefitAfterLease * 15);
+
+            // Current Annual Cost (Baseline)
+            const currentAnnualCost = monthlyBill * 12;
+
+            // Display Results
+            // Show annual savings during lease period
+            annualSavingsEl.innerText = Math.round(annualNetBenefitWithLease).toLocaleString();
+            // Show 25-year total savings
+            totalSavingsEl.innerText = Math.round(totalSavings25Years).toLocaleString();
+
+            // Prepare Chart Data
+            const labels = [];
+            const dataWithout = [];
+            const dataWith = [];
+
+            let cumulativeWithout = 0;
+            let cumulativeWith = 0;
+
+            for (let year = 1; year <= 30; year++) {
+                labels.push(year + '年目');
+
+                // Simple linear accumulation (ignoring inflation/degradation for simplicity)
+                cumulativeWithout += currentAnnualCost;
+
+                // For solar scenario:
+                // Cost = Original Cost - Net Benefit
+                let currentYearNetBenefit = (year <= 10) ? annualNetBenefitWithLease : annualNetBenefitAfterLease;
+                let currentYearNetCost = currentAnnualCost - currentYearNetBenefit;
+
+                cumulativeWith += currentYearNetCost;
+
+                dataWithout.push(cumulativeWithout);
+                dataWith.push(cumulativeWith);
+            }
+
+            // Note: Chart tooltip logic uses chartData.annualBenefit and incomeFromSell
+            // We should update chartData to reflect the lease period difference if we want strict accuracy in tooltips,
+            // but the initChart function takes a single `annualBenefit`.
+            // For simplicity, we'll pass the *Gross* benefit for the "Solar Line" explanation or modify initChart roughly.
+            // However, the tooltip logic calculates Y value automatically.
+            // The `totalAnnualBenefit` param in initChart is used mainly for data storage, not rendering the line.
+            initChart(dataWithout, dataWith, labels, totalAnnualGrossBenefit, incomeFromSell);
+        }
+
+        // Initial Run - Delay to ensure DOM is fully ready
+        window.addEventListener('load', () => {
+            // Small delay to ensure layout is calculated
+            setTimeout(() => {
+                calculate();
+            }, 50);
+        });
+        calcBtn.addEventListener('click', calculate);
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (chartInstance) {
+                    chartInstance.resize();
+                }
+            }, 150);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header Scroll Effect
+            const header = document.getElementById('main-header');
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+
+            // Mobile Menu
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuBtn && mobileMenu) {
+                const toggleMenu = () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    menuBtn.innerHTML = isOpen
+                        ? '<i data-lucide="x" class="w-8 h-8 text-gray-800"></i>'
+                        : '<i data-lucide="menu" class="w-8 h-8"></i>';
+                    lucide.createIcons();
+                    document.body.style.overflow = isOpen ? 'hidden' : '';
+                };
+
+                menuBtn.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking links
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
